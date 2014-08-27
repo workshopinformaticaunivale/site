@@ -3,7 +3,7 @@
  * Featured Model
  *
  * @package WS Plugin Template Manager
- * @subpackage Featured
+ * @subpackage Event
  */
 class WS_Register_Event
 {
@@ -40,12 +40,44 @@ class WS_Register_Event
 	private $excerpt;
 
 	/**
-	 * Featured link
+	 * Event date_initial
 	 *
 	 * @since 1.0
 	 * @var string
 	 */
-	private $link;
+	private $date_initial;	
+
+	/**
+	 * Event date_final
+	 *
+	 * @since 1.0
+	 * @var string
+	 */
+	private $date_final;		
+
+	/**
+	 * Event edition
+	 *
+	 * @since 1.0
+	 * @var string
+	 */
+	private $edition;	
+
+	/**
+	 * Event email_course
+	 *
+	 * @since 1.0
+	 * @var string
+	 */
+	private $email_course;	
+
+	/**
+	 * Event email_requirements
+	 *
+	 * @since 1.0
+	 * @var string
+	 */
+	private $email_requirements;	
 
 	/**
 	 * Post Type name
@@ -53,7 +85,7 @@ class WS_Register_Event
 	 * @since 1.0
 	 * @var string
 	 */
-	const POST_TYPE = 'ws-events';
+	const POST_TYPE = 'ws-event';
 
 	/**
 	 * Image size large
@@ -61,7 +93,7 @@ class WS_Register_Event
 	 * @since 1.0
 	 * @var string
 	 */
-	const IMAGE_SIZE_LARGE = 'ws-featured-image-size-large';
+	const IMAGE_SIZE_LARGE = 'ws-event-image-size-large';
 
 	/**
 	 * Post Metas
@@ -69,7 +101,12 @@ class WS_Register_Event
 	 * @since 1.0
 	 * @var string
 	 */
-	const POST_META_LINK = 'ws-featured-link';
+	const POST_META_DATE_INITIAL       = 'ws-events-date-initial';
+	const POST_META_DATE_FINAL         = 'ws-events-date-final';
+	const POST_META_EDITION            = 'ws-events-edition';	
+	const POST_META_EMAIL_COURSE       = 'ws-events-email-course';	
+	const POST_META_EMAIL_REQUIREMENTS = 'ws-events-email-requirements';
+
 
 	/**
      * Constructor of the class. Instantiate and incializate it.
@@ -127,9 +164,33 @@ class WS_Register_Event
 				endif;
 				break;
 
-			case 'link' :
-				if ( ! isset( $this->link ) ) :
-					$this->link = get_post_meta( $this->ID, self::POST_META_LINK, true );
+				case 'date_final' :
+				if ( ! isset( $this->date_final ) ) :
+					$this->date_final = get_post_meta( $this->ID, self::POST_META_DATE_FINAL, true );
+				endif;
+				break;
+
+			case 'date_initial' :
+				if ( ! isset( $this->date_initial ) ) :
+					$this->date_initial = get_post_meta( $this->ID, self::POST_META_DATE_INITIAL, true );
+				endif;
+				break;				
+
+			case 'edition' :
+				if ( ! isset( $this->edition ) ) :
+					$this->edition = get_post_meta( $this->ID, self::POST_META_EDITION, true );
+				endif;
+				break;
+
+			case 'email_course' :
+				if ( ! isset( $this->email_course ) ) :
+					$this->email_course = get_post_meta( $this->ID, self::POST_META_EMAIL_COURSE, true );
+				endif;
+				break;
+
+			case 'email_requirements' :
+				if ( ! isset( $this->email_requirements ) ) :
+					$this->email_requirements = get_post_meta( $this->ID, self::POST_META_EMAIL_REQUIREMENTS, true );
 				endif;
 				break;
 		}

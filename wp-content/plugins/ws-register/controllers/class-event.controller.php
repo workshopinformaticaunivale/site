@@ -78,14 +78,60 @@ class WS_Register_Event_Controller
 
 	public function define_metaboxes()
 	{
+
 		add_meta_box(
+			'ws-metabox-date-initial',
+			'Data Inicial do Evento',
+			array( 'WS_Register_Event_View', 'render_date_initial_control' ),
+			WS_Register_Event::POST_TYPE,
+			'normal',
+			'low'
+		);
+
+		add_meta_box(
+			'ws-metabox-date-final',
+			'Data Final do Evento',
+			array( 'WS_Register_Event_View', 'render_date_final_control' ),
+			WS_Register_Event::POST_TYPE,
+			'normal',
+			'low'
+		);
+
+		add_meta_box(
+			'ws-metabox-edition',
+			'Edição do Evento',
+			array( 'WS_Register_Event_View', 'render_edition_control' ),
+			WS_Register_Event::POST_TYPE,
+			'normal',
+			'low'
+		);		
+
+		add_meta_box(
+			'ws-metabox-email-courses',
+			'Email de notificação de minicursos',
+			array( 'WS_Register_Event_View', 'render_email_courses_control' ),
+			WS_Register_Event::POST_TYPE,
+			'normal',
+			'low'
+		);		
+
+		add_meta_box(
+			'ws-metabox-email-requeriments',
+			'Email de notificação de requisitos dos minicursos',
+			array( 'WS_Register_Event_View', 'render_email_requeriments_control' ),
+			WS_Register_Event::POST_TYPE,
+			'normal',
+			'low'
+		);	
+
+		/*add_meta_box(
 			'ws-metabox-featured-link',
 			'Link',
 			array( 'WS_Register_Event_View', 'render_link_control' ),
 			WS_Register_Event::POST_TYPE,
 			'normal',
 			'low'
-		);
+		);*/
 	}
 
 	public function get_list( $args = array() )
