@@ -2,11 +2,11 @@
 /**
  * Controller Courses
  *
- * @package WS Plugin Template Manager
+ * @package WS Plugin Template Register
  * @subpackage Courses
  * @since 1.0
  */
-class WS_Manager_Courses_Controller
+class WS_Register_Courses_Controller
 {
 	/**
 	 * Instance of this class.
@@ -41,15 +41,15 @@ class WS_Manager_Courses_Controller
 	public function __construct()
 	{
 		add_action( 'init', array( &$this, 'register_post_type' ) );
-		add_action( 'after_setup_theme', array( &$this, 'define_image_sizes' ) );
-		add_action( 'add_meta_boxes', array( &$this, 'define_metaboxes' ) );
-		add_filter( 'ws_metas_' . WS_Manager_Featured::POST_TYPE . '_is_valid_save_post', array( &$this, 'nonce_valid_save_post' ) );
+		//add_action( 'after_setup_theme', array( &$this, 'define_image_sizes' ) );
+		//add_action( 'add_meta_boxes', array( &$this, 'define_metaboxes' ) );
+		//add_filter( 'ws_metas_' . WS_Register_Course::POST_TYPE . '_is_valid_save_post', array( &$this, 'nonce_valid_save_post' ) );
 	}
 
 	public function get_courses( $args = array() )
 	{
 		$defaults = array(
-			'post_type' => WS_Manager_Course::POST_TYPE,
+			'post_type' => WS_Register_Course::POST_TYPE,
 			'order'		=> 'ASC',
 			'orderby'	=> 'menu_order',
 		);
@@ -62,7 +62,7 @@ class WS_Manager_Courses_Controller
 	public function register_post_type()
 	{
 		register_post_type(
-			WS_Manager_Featured::POST_TYPE,
+			WS_Register_Course::POST_TYPE,
 			array(
 				'labels' => array(
 					'name'               => 'Banners de Destaque',
@@ -82,7 +82,7 @@ class WS_Manager_Courses_Controller
 				'menu_position' 	=> 5,
 				'supports'      	=> array( 'title', 'excerpt', 'thumbnail', 'page-attributes' ),
 				'menu_icon'			=> 'dashicons-images-alt2',
-				'capability_type'   => WS_Manager_Featured::POST_TYPE,
+				'capability_type'   => WS_Register_Course::POST_TYPE,
 			)
 		);
 	}
@@ -104,7 +104,7 @@ class WS_Manager_Courses_Controller
 	 */
 	public static function add_post_type_capabilities()
 	{
-		$capability_type = WS_Manager_Course::POST_TYPE;
+		$capability_type = WS_Register_Course::POST_TYPE;
 
 		$caps = array(
 			"edit_{$capability_type}",

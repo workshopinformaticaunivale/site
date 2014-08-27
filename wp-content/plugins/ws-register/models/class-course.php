@@ -5,7 +5,7 @@
  * @package WS Plugin Template Manager
  * @subpackage Course
  */
-class WS_Manager_Course
+class WS_Register_Course
 {
 	/**
 	 * Course ID

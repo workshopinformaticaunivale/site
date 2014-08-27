@@ -33,7 +33,7 @@ class WS_Register
 		WS_Metas_Library::get_instance();
 		//WS_Register_Widget_Controller::get_instance();
 		//WS_Register_Featured_Controller::get_instance();
-		WS_Manager_Courses_Controller::get_instance();
+		WS_Register_Courses_Controller::get_instance();
 	}
 
 	/**
