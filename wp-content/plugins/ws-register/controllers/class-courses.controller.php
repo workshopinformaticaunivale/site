@@ -43,6 +43,7 @@ class WS_Register_Courses_Controller
 		add_action( 'init', array( &$this, 'register_post_type' ) );
 		add_action( 'add_meta_boxes', array( &$this, 'define_metaboxes' ) );
 		add_filter( 'ws_metas_' . WS_Register_Course::POST_TYPE . '_is_valid_save_post', array( &$this, 'nonce_valid_save_post' ) );
+		add_filter( 'post_updated_messages', array( &$this, 'set_post_updated_messages' ) );
 	}
 
 	public function get_courses( $args = array() )
@@ -84,6 +85,34 @@ class WS_Register_Courses_Controller
 				'capability_type'   => WS_Register_Course::POST_TYPE,
 			)
 		);
+	}
+
+	/**
+	 * Sets the template updated message
+	 *
+	 * @since 1.0
+	 * @param array $messages Messages
+	 * @return array Messages
+	 */
+	public function set_post_updated_messages( $messages )
+	{
+		global $post;
+
+		$messages[ WS_Register_Course::POST_TYPE ] = array(
+			0  => '',
+			1  => 'Minicurso atualizado.',
+			2  => 'Campo personalizado atualizado.',
+			3  => 'Campo personalizado atualizado.',
+			4  => 'Minicurso atualizado.',
+			5  => isset( $_GET['revision'] ) ? sprintf( 'Minicurso restaurado para revisão às %s.', wp_post_revision_title( (int)$_GET['revision'], false ) ) : false,
+			6  => 'Minicurso criado.',
+			7  => 'Minicurso salvo.',
+			8  => 'Minicurso submetido.',
+			9  => sprintf( 'Minicurso agendado para: <strong>%1$s</strong>.', date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ) ),
+			10 => 'Rascunho do minicurso atualizado.',
+		);
+
+		return $messages;
 	}
 
 	public function define_metaboxes()
