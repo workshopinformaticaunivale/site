@@ -6,7 +6,7 @@
  * @subpackage Images Intermediate
  * @since 1.0
  */
-class WS_Plugin_Template_Image_Controller
+class WS_Register_Image_Controller
 {
 	/**
 	 * Instance of this class.

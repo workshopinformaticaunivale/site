@@ -6,7 +6,7 @@
  * @subpackage Widgets
  * @since 1.0
  */
-class WS_Plugin_Template_Widget_Controller
+class WS_Manager_Widget_Controller
 {
 	/**
 	 * Instance of this class.

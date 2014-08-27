@@ -6,7 +6,7 @@
  * @subpackage Featured
  * @since 1.0
  */
-class WS_Plugin_Template_Featured_Controller
+class WS_Manager_Featured_Controller
 {
 	/**
 	 * Instance of this class.
@@ -43,9 +43,9 @@ class WS_Plugin_Template_Featured_Controller
 		add_action( 'init', array( &$this, 'register_post_type' ) );
 		add_action( 'after_setup_theme', array( &$this, 'define_image_sizes' ) );
 		add_action( 'add_meta_boxes', array( &$this, 'define_metaboxes' ) );
-		add_filter( 'ws_metas_' . WS_Plugin_Template_Featured::POST_TYPE . '_is_valid_save_post', array( &$this, 'nonce_valid_save_post' ) );
-		add_filter( 'manage_' . WS_Plugin_Template_Featured::POST_TYPE . '_posts_columns', array( &$this, 'post_columns_head' ) );
-		add_action( 'manage_' . WS_Plugin_Template_Featured::POST_TYPE . '_posts_custom_column', array( &$this, 'post_columns_content' ), 10, 2 );
+		add_filter( 'ws_metas_' . WS_Manager_Featured::POST_TYPE . '_is_valid_save_post', array( &$this, 'nonce_valid_save_post' ) );
+		add_filter( 'manage_' . WS_Manager_Featured::POST_TYPE . '_posts_columns', array( &$this, 'post_columns_head' ) );
+		add_action( 'manage_' . WS_Manager_Featured::POST_TYPE . '_posts_custom_column', array( &$this, 'post_columns_content' ), 10, 2 );
 	}
 
 	public function post_columns_head( $headers )
@@ -61,7 +61,7 @@ class WS_Plugin_Template_Featured_Controller
 			return;
 
 		//instance $model this if use more columns
-		$model = new WS_Plugin_Template_Featured( $post_id );
+		$model = new WS_Manager_Featured( $post_id );
 
 		if ( property_exists( $model, $column_name ) ) :
 			echo esc_html( $model->$column_name );
@@ -81,8 +81,8 @@ class WS_Plugin_Template_Featured_Controller
 		add_meta_box(
 			'ws-metabox-featured-link',
 			'Link',
-			array( 'WS_Plugin_Template_Featured_View', 'render_link_control' ),
-			WS_Plugin_Template_Featured::POST_TYPE,
+			array( 'WS_Manager_Featured_View', 'render_link_control' ),
+			WS_Manager_Featured::POST_TYPE,
 			'normal',
 			'low'
 		);
@@ -91,20 +91,20 @@ class WS_Plugin_Template_Featured_Controller
 	public function get_list( $args = array() )
 	{
 		$defaults = array(
-			'post_type' => WS_Plugin_Template_Featured::POST_TYPE,
+			'post_type' => WS_Manager_Featured::POST_TYPE,
 			'order'		=> 'ASC',
 			'orderby'	=> 'menu_order',
 		);
 
 		$args = wp_parse_args( $args, $defaults );
 
-		return $this->_parse_list( WS_Plugin_Template_Utils_Helper::get_query( $args ) );
+		return $this->_parse_list( WS_Manager_Utils_Helper::get_query( $args ) );
 	}
 
 	public function register_post_type()
 	{
 		register_post_type(
-			WS_Plugin_Template_Featured::POST_TYPE,
+			WS_Manager_Featured::POST_TYPE,
 			array(
 				'labels' => array(
 					'name'               => 'Banners de Destaque',
@@ -124,14 +124,14 @@ class WS_Plugin_Template_Featured_Controller
 				'menu_position' 	=> 5,
 				'supports'      	=> array( 'title', 'excerpt', 'thumbnail', 'page-attributes' ),
 				'menu_icon'			=> 'dashicons-images-alt2',
-				'capability_type'   => WS_Plugin_Template_Featured::POST_TYPE,
+				'capability_type'   => WS_Manager_Featured::POST_TYPE,
 			)
 		);
 	}
 
 	public function nonce_valid_save_post( $is_valid )
 	{
-		$link_nonce = WS_Plugin_Template_Utils_Helper::post_method_params( self::NONCE_LINK_NAME, false );
+		$link_nonce = WS_Manager_Utils_Helper::post_method_params( self::NONCE_LINK_NAME, false );
 
 		if ( ! $link_nonce || ! wp_verify_nonce( $link_nonce, self::NONCE_LINK_ACTION ) )
 			return false;
@@ -142,12 +142,12 @@ class WS_Plugin_Template_Featured_Controller
 	public function define_image_sizes()
 	{
 		//controller image
-		$controller_image = WS_Plugin_Template_Image_Controller::get_instance();
+		$controller_image = WS_Manager_Image_Controller::get_instance();
 
 		$controller_image->define(
-			WS_Plugin_Template_Featured::POST_TYPE,
+			WS_Manager_Featured::POST_TYPE,
 			array(
-				WS_Plugin_Template_Featured::IMAGE_SIZE_LARGE => array( 978, 260, true ),
+				WS_Manager_Featured::IMAGE_SIZE_LARGE => array( 978, 260, true ),
 			)
 		);
 	}
@@ -159,7 +159,7 @@ class WS_Plugin_Template_Featured_Controller
 	 */
 	public static function add_post_type_capabilities()
 	{
-		$capability_type = WS_Plugin_Template_Featured::POST_TYPE;
+		$capability_type = WS_Manager_Featured::POST_TYPE;
 
 		$caps = array(
 			"edit_{$capability_type}",
@@ -177,7 +177,7 @@ class WS_Plugin_Template_Featured_Controller
 			"edit_published_{$capability_type}s",
 		);
 
-		WS_Plugin_Template_Utils_Helper::add_custom_capabilities( 'administrator', $caps );
+		WS_Manager_Utils_Helper::add_custom_capabilities( 'administrator', $caps );
 	}
 
 	/**
@@ -204,7 +204,7 @@ class WS_Plugin_Template_Featured_Controller
 		$list = array();
 
 		foreach ( $wp_query->posts as $featured )
-			$list[] = new WS_Plugin_Template_Featured( $featured->ID );
+			$list[] = new WS_Manager_Featured( $featured->ID );
 
 		return $list;
 	}

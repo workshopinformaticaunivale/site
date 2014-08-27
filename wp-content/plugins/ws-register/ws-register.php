@@ -9,19 +9,19 @@ Author URI: http://example.com.br/
 License: MIT
 */
 
-spl_autoload_register( '__autoload_ws_plugin_template' );
+spl_autoload_register( '__autoload_ws_register' );
 
-function __autoload_ws_plugin_template( $class_name )
+function __autoload_ws_register( $class_name )
 {		
-	if ( strpos( $class_name, 'WS_Plugin_Template' ) === false )
+	if ( strpos( $class_name, 'WS_Register' ) === false )
 		return false;
 
-	if ( $class_name == 'WS_Plugin_Template' ) :
+	if ( $class_name == 'WS_Register' ) :
 		require_once sprintf( '%s/class-%s.php', dirname( __FILE__ ), str_replace( '_', '-', strtolower( $class_name ) ) );
 		return false;
 	endif;
 
-	$class_name = strtolower( str_replace( 'WS_Plugin_Template_', '', $class_name ) );
+	$class_name = strtolower( str_replace( 'WS_Register_', '', $class_name ) );
 	$class_name = explode( '_', $class_name );
 	$class_type = ( isset( $class_name[1] ) ) ? $class_name[1] : 'model';
 
@@ -45,6 +45,6 @@ function __autoload_ws_plugin_template( $class_name )
 }
 
 //Plugin Active
-register_activation_hook( __FILE__, array( 'WS_Plugin_Template', 'activate' ) );
+register_activation_hook( __FILE__, array( 'WS_Register', 'activate' ) );
 //Plugins loaded
-add_action( 'plugins_loaded', array( 'WS_Plugin_Template', 'get_instance' ) );
+add_action( 'plugins_loaded', array( 'WS_Register', 'get_instance' ) );

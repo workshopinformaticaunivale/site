@@ -5,7 +5,7 @@
  * @package WS Plugin Template Manager
  * @subpackage Featured
  */
-class WS_Plugin_Template_Featured
+class WS_Manager_Featured
 {
 	/**
 	 * Featured ID

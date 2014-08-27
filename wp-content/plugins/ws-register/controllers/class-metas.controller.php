@@ -6,7 +6,7 @@
  * @subpackage Metas
  * @since 1.0
  */
-class WS_Plugin_Template_Metas_Controller
+class WS_Register_Metas_Controller
 {
 	/**
 	 * Instance of this class.
@@ -70,7 +70,7 @@ class WS_Plugin_Template_Metas_Controller
 
 	private function _save( $post_id, $post )
 	{
-		$elements = WS_Plugin_Template_Utils_Helper::post_method_params( 'ws-metas', false );
+		$elements = WS_Register_Utils_Helper::post_method_params( 'ws-metas', false );
 
 		if ( ! $elements )
 			return;

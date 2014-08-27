@@ -5,7 +5,7 @@
  * @package WS Plugin Template Manager
  * @version 1.0
  */
-class WS_Plugin_Template
+class WS_Manager
 {
 	protected $version = '1.0';
 
@@ -29,10 +29,10 @@ class WS_Plugin_Template
 		add_action( 'admin_enqueue_scripts', array( &$this, 'scripts_admin' ) );
 		add_action( 'admin_enqueue_scripts', array( &$this, 'styles_admin' ) );
 
-		WS_Plugin_Template_Image_Controller::get_instance();
-		WS_Plugin_Template_Metas_Controller::get_instance();
-		WS_Plugin_Template_Featured_Controller::get_instance();
-		WS_Plugin_Template_Widget_Controller::get_instance();
+		WS_Register_Image_Controller::get_instance();
+		WS_Register_Metas_Controller::get_instance();
+		WS_Register_Widget_Controller::get_instance();
+		//WS_Register_Featured_Controller::get_instance();
 	}
 
 	/**
@@ -89,6 +89,6 @@ class WS_Plugin_Template
 	public static function activate()
 	{
 		//is code active plugin
-		WS_Plugin_Template_Featured_Controller::add_post_type_capabilities();
+		WS_Register_Featured_Controller::add_post_type_capabilities();
 	}
 }
