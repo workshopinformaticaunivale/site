@@ -46,7 +46,7 @@ class WS_Manager_Courses_Controller
 		add_filter( 'ws_metas_' . WS_Manager_Featured::POST_TYPE . '_is_valid_save_post', array( &$this, 'nonce_valid_save_post' ) );
 	}
 
-	public function get_list( $args = array() )
+	public function get_courses( $args = array() )
 	{
 		$defaults = array(
 			'post_type' => WS_Manager_Course::POST_TYPE,
@@ -139,18 +139,5 @@ class WS_Manager_Courses_Controller
 		}
 
 		return self::$instance;
-	}
-
-	private function _parse_list( $wp_query )
-	{
-		if ( ! $wp_query->have_posts() )
-			return false;
-
-		$list = array();
-
-		foreach ( $wp_query->posts as $featured )
-			$list[] = new WS_Manager_Course( $featured->ID );
-
-		return $list;
 	}
 }
