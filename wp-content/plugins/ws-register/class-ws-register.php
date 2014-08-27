@@ -90,6 +90,7 @@ class WS_Register
 	public static function activate()
 	{
 		//is code active plugin
-		WS_Register_Featured_Controller::add_post_type_capabilities();
+		//WS_Register_Featured_Controller::add_post_type_capabilities();
+		WS_Register_Courses_Controller::add_post_type_capabilities();
 	}
 }

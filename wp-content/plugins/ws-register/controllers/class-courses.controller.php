@@ -41,9 +41,6 @@ class WS_Register_Courses_Controller
 	public function __construct()
 	{
 		add_action( 'init', array( &$this, 'register_post_type' ) );
-		//add_action( 'after_setup_theme', array( &$this, 'define_image_sizes' ) );
-		//add_action( 'add_meta_boxes', array( &$this, 'define_metaboxes' ) );
-		//add_filter( 'ws_metas_' . WS_Register_Course::POST_TYPE . '_is_valid_save_post', array( &$this, 'nonce_valid_save_post' ) );
 	}
 
 	public function get_courses( $args = array() )
@@ -65,23 +62,23 @@ class WS_Register_Courses_Controller
 			WS_Register_Course::POST_TYPE,
 			array(
 				'labels' => array(
-					'name'               => 'Banners de Destaque',
-					'singular_name'      => 'Banner',
-					'all_items'          => 'Todos os banners',
+					'name'               => 'Minicursos',
+					'singular_name'      => 'Minicurso',
+					'all_items'          => 'Todos os minicursos',
 					'add_new'            => 'Adicionar novo',
-					'add_new_item'       => 'Adicionar novo banner',
-					'edit_item'          => 'Editar banner',
-					'new_item'           => 'Novo banner',
-					'view_item'          => 'Visualizar banner',
-					'search_items'       => 'Pesquisar banners',
-					'not_found'          => 'Nenhum banner encontrado',
-					'not_found_in_trash' => 'Nenhum banner encontrado na lixeira',
+					'add_new_item'       => 'Adicionar novo minicurso',
+					'edit_item'          => 'Editar minicurso',
+					'new_item'           => 'Novo minicurso',
+					'view_item'          => 'Visualizar minicurso',
+					'search_items'       => 'Pesquisar minicursos',
+					'not_found'          => 'Nenhum minicurso encontrado',
+					'not_found_in_trash' => 'Nenhum minicurso encontrado na lixeira',
 				),
 				'public'        	=> false,
 				'show_ui'			=> true,
 				'menu_position' 	=> 5,
-				'supports'      	=> array( 'title', 'excerpt', 'thumbnail', 'page-attributes' ),
-				'menu_icon'			=> 'dashicons-images-alt2',
+				'supports'      	=> array( 'title', 'editor' ),
+				'menu_icon'			=> 'dashicons-welcome-learn-more',
 				'capability_type'   => WS_Register_Course::POST_TYPE,
 			)
 		);
