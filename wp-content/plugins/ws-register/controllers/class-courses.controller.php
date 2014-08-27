@@ -91,7 +91,7 @@ class WS_Register_Courses_Controller
 		add_meta_box(
 			'ws-metabox-speaker-requirements',
 			'Requisitos do curso',
-			array( 'WS_Register_Course_View', 'render_speaker_requirements_control' ),
+			array( 'WS_Register_Courses_View', 'render_speaker_requirements_control' ),
 			WS_Register_Course::POST_TYPE,
 			'normal',
 			'low'
