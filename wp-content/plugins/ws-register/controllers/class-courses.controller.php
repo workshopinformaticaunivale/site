@@ -22,7 +22,7 @@ class WS_Register_Courses_Controller
 	 * @since 1.0
 	 * @var object
 	 */
-	const NONCE_LINK_ACTION = '_ws_courses_link_action';
+	const NONCE_SPEAKER_REQUIREMENTS_ACTION = '_ws_courses_speaker_requirements_action';
 
 	/**
 	 * Nonce Name
@@ -30,7 +30,7 @@ class WS_Register_Courses_Controller
 	 * @since 1.0
 	 * @var object
 	 */
-	const NONCE_LINK_NAME = '_ws_courses_link_name';
+	const NONCE_SPEAKER_REQUIREMENTS_NAME = '_ws_courses_speaker_requirements_name';
 
 	/**
 	 * Adds needed actions to create submenu and page
@@ -41,6 +41,8 @@ class WS_Register_Courses_Controller
 	public function __construct()
 	{
 		add_action( 'init', array( &$this, 'register_post_type' ) );
+		add_action( 'add_meta_boxes', array( &$this, 'define_metaboxes' ) );
+		add_filter( 'ws_metas_' . WS_Register_Course::POST_TYPE . '_is_valid_save_post', array( &$this, 'nonce_valid_save_post' ) );
 	}
 
 	public function get_courses( $args = array() )
@@ -84,11 +86,23 @@ class WS_Register_Courses_Controller
 		);
 	}
 
+	public function define_metaboxes()
+	{
+		add_meta_box(
+			'ws-metabox-speaker-requirements',
+			'Requisitos do curso',
+			array( 'WS_Register_Course_View', 'render_speaker_requirements_control' ),
+			WS_Register_Course::POST_TYPE,
+			'normal',
+			'low'
+		);
+	}
+
 	public function nonce_valid_save_post( $is_valid )
 	{
-		$link_nonce = WS_Utils_Helper::post_method_params( self::NONCE_LINK_NAME, false );
+		$requirements_nonce = WS_Utils_Helper::post_method_params( self::NONCE_SPEAKER_REQUIREMENTS_NAME, false );
 
-		if ( ! $link_nonce || ! wp_verify_nonce( $link_nonce, self::NONCE_LINK_ACTION ) )
+		if ( ! $requirements_nonce || ! wp_verify_nonce( $requirements_nonce, self::NONCE_SPEAKER_REQUIREMENTS_ACTION ) )
 			return false;
 
 		return true;
