@@ -40,12 +40,28 @@ class WS_Register_Course
 	private $excerpt;
 
 	/**
+	 * Course Speaker Requirements
+	 *
+	 * @since 1.0
+	 * @var string
+	 */
+	private $speaker_requirements;
+
+	/**
 	 * Post Type name
 	 *
 	 * @since 1.0
 	 * @var string
 	 */
 	const POST_TYPE = 'ws-course';
+
+	/**
+	 * Post Metas
+	 *
+	 * @since 1.0
+	 * @var string
+	 */
+	const POST_META_SPEAKER_REQUIREMENTS = 'ws-course-speaker-requirements';
 
 	/**
      * Constructor of the class. Instantiate and incializate it.
@@ -106,6 +122,12 @@ class WS_Register_Course
 					$this->excerpt = get_post_field( 'post_excerpt', $this->ID );
 				endif;
 				break;
+
+			case 'speaker_requirements' :
+				if ( ! isset( $this->speaker_requirements ) ) :
+					$this->speaker_requirements = get_post_meta( $this->ID, self::POST_META_SPEAKER_REQUIREMENTS, true );
+				endif;
+				break;	
 		}
 
 		return $this->$prop_name;
