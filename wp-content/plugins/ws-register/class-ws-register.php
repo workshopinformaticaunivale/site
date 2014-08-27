@@ -5,7 +5,7 @@
  * @package WS Plugin Template Manager
  * @version 1.0
  */
-class WS_Manager
+class WS_Register
 {
 	protected $version = '1.0';
 
@@ -29,10 +29,10 @@ class WS_Manager
 		add_action( 'admin_enqueue_scripts', array( &$this, 'scripts_admin' ) );
 		add_action( 'admin_enqueue_scripts', array( &$this, 'styles_admin' ) );
 
-		WS_Register_Image_Controller::get_instance();
-		WS_Register_Metas_Controller::get_instance();
+		WS_Images_Library::get_instance();
+		WS_Metas_Library::get_instance();
 		WS_Register_Widget_Controller::get_instance();
-		//WS_Register_Featured_Controller::get_instance();
+		WS_Register_Featured_Controller::get_instance();
 	}
 
 	/**

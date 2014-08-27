@@ -53,7 +53,7 @@ class WS_Manager_Featured
 	 * @since 1.0
 	 * @var string
 	 */
-	const POST_TYPE = 'ws-featured';
+	const POST_TYPE = 'ws-featured-first';
 
 	/**
 	 * Image size large

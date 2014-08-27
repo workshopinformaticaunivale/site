@@ -1,12 +1,12 @@
 <?php
 /**
- * Controller Metas
+ * Metas
  *
- * @package WS Plugin Template Manager
+ * @package WS Metas Library
  * @subpackage Metas
  * @since 1.0
  */
-class WS_Register_Metas_Controller
+class WS_Metas_Library
 {
 	/**
 	 * Instance of this class.
@@ -70,7 +70,7 @@ class WS_Register_Metas_Controller
 
 	private function _save( $post_id, $post )
 	{
-		$elements = WS_Register_Utils_Helper::post_method_params( 'ws-metas', false );
+		$elements = WS_Utils_Helper::post_method_params( 'ws-metas', false );
 
 		if ( ! $elements )
 			return;

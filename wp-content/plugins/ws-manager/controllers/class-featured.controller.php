@@ -98,7 +98,7 @@ class WS_Manager_Featured_Controller
 
 		$args = wp_parse_args( $args, $defaults );
 
-		return $this->_parse_list( WS_Manager_Utils_Helper::get_query( $args ) );
+		return $this->_parse_list( WS_Utils_Helper::get_query( $args ) );
 	}
 
 	public function register_post_type()
@@ -131,7 +131,7 @@ class WS_Manager_Featured_Controller
 
 	public function nonce_valid_save_post( $is_valid )
 	{
-		$link_nonce = WS_Manager_Utils_Helper::post_method_params( self::NONCE_LINK_NAME, false );
+		$link_nonce = WS_Utils_Helper::post_method_params( self::NONCE_LINK_NAME, false );
 
 		if ( ! $link_nonce || ! wp_verify_nonce( $link_nonce, self::NONCE_LINK_ACTION ) )
 			return false;
@@ -142,7 +142,7 @@ class WS_Manager_Featured_Controller
 	public function define_image_sizes()
 	{
 		//controller image
-		$controller_image = WS_Manager_Image_Controller::get_instance();
+		$controller_image = WS_Images_Library::get_instance();
 
 		$controller_image->define(
 			WS_Manager_Featured::POST_TYPE,
@@ -177,7 +177,7 @@ class WS_Manager_Featured_Controller
 			"edit_published_{$capability_type}s",
 		);
 
-		WS_Manager_Utils_Helper::add_custom_capabilities( 'administrator', $caps );
+		WS_Utils_Helper::add_custom_capabilities( 'administrator', $caps );
 	}
 
 	/**

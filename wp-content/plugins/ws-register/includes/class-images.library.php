@@ -1,12 +1,12 @@
 <?php
 /**
- * Controller Images
+ * Images
  *
- * @package WS Plugin Template Manager
+ * @package WS Images Library
  * @subpackage Images Intermediate
  * @since 1.0
  */
-class WS_Manager_Image_Controller
+class WS_Images_Library
 {
 	/**
 	 * Instance of this class.

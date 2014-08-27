@@ -1,6 +1,6 @@
 <?php
 
-class WS_Manager_Utils_Helper
+class WS_Utils_Helper
 {
 	/**
 	* Retrieves the database charset do create new tables.

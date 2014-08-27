@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Name Example
+Plugin Name: Plugin Gerenciador dos Alunos
 Plugin URI: http://example.com.br/
-Description: Description Example
+Description: Control dos eventos, minicursos e alunos
 Version: 1.0
 Author: Workshop de Informática
 Author URI: http://example.com.br/
@@ -13,6 +13,21 @@ spl_autoload_register( '__autoload_ws_register' );
 
 function __autoload_ws_register( $class_name )
 {		
+	if ( $class_name == 'WS_Metas_Library' and ! class_exists( 'WS_Metas_Library' ) ) :
+		require_once sprintf( '%s/includes/class-metas.library.php', dirname( __FILE__ ) );
+		return false;
+	endif;
+
+	if ( $class_name == 'WS_Images_Library' and ! class_exists( 'WS_Images_Library' ) ) :
+		require_once sprintf( '%s/includes/class-images.library.php', dirname( __FILE__ ) );
+		return false;
+	endif;
+
+	if ( $class_name == 'WS_Utils_Helper' and ! class_exists( 'WS_Utils_Helper' ) ) :
+		require_once sprintf( '%s/helpers/class-utils.helper.php', dirname( __FILE__ ) );
+		return false;
+	endif;
+
 	if ( strpos( $class_name, 'WS_Register' ) === false )
 		return false;
 

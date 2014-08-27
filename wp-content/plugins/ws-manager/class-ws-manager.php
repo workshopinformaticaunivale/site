@@ -29,10 +29,10 @@ class WS_Manager
 		add_action( 'admin_enqueue_scripts', array( &$this, 'scripts_admin' ) );
 		add_action( 'admin_enqueue_scripts', array( &$this, 'styles_admin' ) );
 
-		WS_Manager_Image_Controller::get_instance();
-		WS_Manager_Metas_Controller::get_instance();
+		WS_Images_Library::get_instance();
+		WS_Metas_Library::get_instance();
 		WS_Manager_Widget_Controller::get_instance();
-		//WS_Manager_Featured_Controller::get_instance();
+		WS_Manager_Featured_Controller::get_instance();
 	}
 
 	/**
