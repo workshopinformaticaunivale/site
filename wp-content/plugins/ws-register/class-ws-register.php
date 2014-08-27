@@ -33,6 +33,7 @@ class WS_Register
 		WS_Metas_Library::get_instance();
 		WS_Register_Widget_Controller::get_instance();
 		WS_Register_Featured_Controller::get_instance();
+		WS_Register_Event_Controller::get_instance();		
 	}
 
 	/**
@@ -90,5 +91,7 @@ class WS_Register
 	{
 		//is code active plugin
 		WS_Register_Featured_Controller::add_post_type_capabilities();
+		WS_Register_Event_Controller::add_post_type_capabilities();
+
 	}
 }
