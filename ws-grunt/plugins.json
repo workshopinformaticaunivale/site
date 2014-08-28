@@ -1,0 +1,12 @@
+[
+	{
+		"name"						: "WS-REGISTER",
+		"base" 						: "../wp-content/plugins/ws-wp-register/",
+		"javascripts"				: "assets/javascripts/",
+		"css"						: "assets/less/",
+		"images"					: "assets/images/",
+		"isAdminJavascriptsControl"	: true,
+		"isFrontJavascriptsControl"	: false,
+		"isLessControl"				: false
+	}
+]
