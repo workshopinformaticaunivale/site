@@ -37,8 +37,6 @@ Module("WS.ControlDays", function(ControlDays) {
 		_datepicker = datepicker;
 		_maskAttribute = maskAttribute;
 
-		console.log(maskAttribute);
-
 		this.container = container;
 		//...
 		this.init();
