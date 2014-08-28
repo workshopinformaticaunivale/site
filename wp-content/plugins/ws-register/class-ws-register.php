@@ -44,21 +44,21 @@ class WS_Register
 	 */
 	public function scripts_admin()
 	{
-		// wp_enqueue_script(
-		// 	self::PLUGIN_SLUG . '-admin-script',
-		// 	plugins_url( 'assets/javascripts/admin.script.min.js', __FILE__ ),
-		// 	array( 'jquery' ),
-		// 	filemtime( plugin_dir_path(  __FILE__  ) . 'assets/javascripts/admin.script.min.js' ),
-		// 	true
-		// );
+		wp_enqueue_script(
+			self::PLUGIN_SLUG . '-admin-script',
+			plugins_url( 'assets/javascripts/admin.script.min.js', __FILE__ ),
+			array( 'jquery', 'jquery-ui-datepicker' ),
+			filemtime( plugin_dir_path(  __FILE__  ) . 'assets/javascripts/admin.script.min.js' ),
+			true
+		);
 
-		// wp_localize_script(
-		// 	self::PLUGIN_SLUG . '-admin-script',
-		// 	'WPAdminVars',
-		// 	array(
-		// 		'ajaxUrl' => admin_url( 'admin-ajax.php' )
-		// 	)
-		// );
+		wp_localize_script(
+			self::PLUGIN_SLUG . '-admin-script',
+			'WPAdminVars',
+			array(
+				'ajaxUrl' => admin_url( 'admin-ajax.php' )
+			)
+		);
 	}
 
 	public function styles_admin()

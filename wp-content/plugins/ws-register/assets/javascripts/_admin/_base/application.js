@@ -4,9 +4,9 @@ Module('WS.Application', function(Application) {
 		
 	};
 
-	Application['pagenow'] = {
-		action : function(container) {
-
+	Application['ws-course'] = {
+		action : function( container ) {
+			WS.Datepicker( container );
 		}
 	};
 });

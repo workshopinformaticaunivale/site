@@ -1,7 +1,7 @@
 [
 	{
-		"name"						: "WS-REGISTER",
-		"base" 						: "../wp-content/plugins/ws-wp-register/",
+		"name"						: "WSREGISTER",
+		"base" 						: "../wp-content/plugins/ws-register/",
 		"javascripts"				: "assets/javascripts/",
 		"css"						: "assets/less/",
 		"images"					: "assets/images/",
