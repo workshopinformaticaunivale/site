@@ -6,7 +6,11 @@ Module('WS.Application', function(Application) {
 
 	Application['ws-course'] = {
 		action : function( container ) {
-			WS.Datepicker( container );
+			WS.ControlDays(
+				  container.find( '.container-day' )
+				, WS.Datepicker( container )
+				, WS.MaskAttribute()
+			);
 		}
 	};
 });

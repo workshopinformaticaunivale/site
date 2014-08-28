@@ -1,0 +1,96 @@
+.container-day .blank {
+	display: none;
+}
+.container-day {
+	overflow: hidden;
+	margin-bottom: 0;
+}
+.container-day .day {
+	-webkit-transition: -webkit-transform .2s ease, opacity .2s ease-in;
+	transition: transform .2s ease, opacity .2s ease-in;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+/* item div/divisor */
+.container-day .day div {
+	float: left;
+	margin: 0 30px 10px 0;
+	display: table;
+}
+.container-day .day.hide {
+	-webkit-transform: translate(40px, 0);
+	transform: translate(40px, 0);
+	opacity: 0;
+}
+
+/* wrap-buttons - botoes add/remove */
+.container-day .day .wrap-buttons { margin-right: 0; }
+.container-day .wrap-buttons .button-primary,
+.container-day .wrap-buttons .button-secondary {
+	float: left;
+	margin: 0 10px 5px 0;
+}
+
+/* label */
+
+/* timepicker, datetimepicker */
+.container-day .day .timepicker, .container-day .day .datetimepicker { text-align: center; }
+/* timepicker */
+.container-day .day .timepicker { width: 65px; }
+/* datetimepicker */
+.container-day .day .datetimepicker { width: 135px; }
+
+/* none */
+#apiki-wp-metabox-awpl_access_time_metabox,
+#apiki-wp-metabox-awpl_workload_metabox { display: none; }
+
+#side-sortables .day div, #side-sortables .day .datetimepicker,
+#side-sortables .day .timepicker { width: 99%; margin-bottom: 10px; }
+
+#side-sortables .container-day .wrap-buttons .button-primary,
+#side-sortables .container-day .wrap-buttons .button-secondary {
+	margin-right: 16px;
+}
+#side-sortables .container-day .wrap-buttons .button-secondary { margin-right: 0; }
+
+/* Screen media */
+
+@media (max-width: 1279px) {
+	.container-day .day .datetimepicker { width: 165px; }
+	.container-day .day .timepicker { width: 100px; }
+
+	.container-day .day label { display: block; }
+	.container-day .day .wrap-buttons { margin-top: 17px; }
+}
+@media (max-width: 1132px) {
+	.container-day .day .datetimepicker { width: 135px; }
+	.container-day .day div { margin-right: 13px; }
+}
+@media (max-width: 1066px) { .container-day .day .timepicker { width: 80px; } }
+@media (max-width: 1045px) { .container-day .day .datetimepicker { width: 132px; } }
+@media (max-width: 1031px) {
+	.container-day .day .datetimepicker { width: 180px; }
+	.container-day .day .timepicker { width: 110px; }
+	.container-day .day .wrap-buttons { margin: 0; }
+}
+@media (max-width: 846px) {
+	.container-day .day div { margin-bottom: -10px; }
+	.container-day .day .wrap-buttons { margin: 18px 0 0 0; }
+}
+@media (max-width: 640px) {
+	.container-day .day .timepicker { width: 132px; }
+	.container-day .day .datetimepicker { width: 210px; }
+}
+@media (max-width: 782px) {
+	.container-day .wrap-buttons input[type="button"] { height: 37px; }
+}
+@media (max-width: 439px) {
+	.container-day .day .datetimepicker { width: 180px; }
+	.container-day .day .timepicker { width: 110px; }
+}
+@media (max-width: 469px) {
+	.container-day .day div { margin-bottom: 5px; width: 100%; }
+	.container-day .day div input[type="text"] { width: 99%; }
+	.ui-datepicker { width: 88%; }
+}
