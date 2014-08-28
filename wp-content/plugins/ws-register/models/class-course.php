@@ -55,6 +55,13 @@ class WS_Register_Course
 	 */
 	private $workload;
 
+	/**
+	 * Course Datetime Count
+	 *
+	 * @since 1.0
+	 * @var string
+	 */
+	private $datetime_count;
 
 	/**
 	 * Post Type name
@@ -71,7 +78,10 @@ class WS_Register_Course
 	 * @var string
 	 */
 	const POST_META_SPEAKER_REQUIREMENTS = 'ws-course-speaker-requirements';
-	const POST_META_WORKLOAD             = 'wp-course-workload';
+	const POST_META_WORKLOAD             = 'ws-course-workload';
+	const POST_META_DATETIME_START       = 'ws-course-datetime-start';
+	const POST_META_DATETIME_END         = 'ws-course-datetime-end';
+	const POST_META_DATETIME_COUNT       = 'ws-course-datetime-count';
 
 	/**
      * Constructor of the class. Instantiate and incializate it.
@@ -98,6 +108,80 @@ class WS_Register_Course
 	public function __get( $prop_name )
 	{
 		return $this->_get_property( $prop_name );
+	}
+
+	/**
+	 * Function to post meta datetime start, index param 0, index init 1
+	 *
+	 * @since 1.0
+	 * @param int $index index datetime start
+	 * @return mixed The post meta value
+	 */
+	public function get_datetime_start( $index = 1, $format = '' )
+	{
+		$date = get_post_meta( $this->ID, self::POST_META_DATETIME_START . '_' . $index, true );
+
+		return ( empty( $format ) ? $date : mysql2date( $format, $date ) );
+	}
+
+	/**
+	 * Function to post meta datetime end, index param 0, index init 1
+	 *
+	 * @since 1.0
+	 * @param int $index index datetime end
+	 * @return mixed The post meta value
+	 */
+	public function get_datetime_end( $index = 1, $format = '' )
+	{
+		$date = get_post_meta( $this->ID, self::POST_META_DATETIME_END . '_' . $index, true );
+
+		return ( empty( $format ) ? $date : mysql2date( $format, $date ) );
+	}
+
+	/**
+	 * Function to remove post meta datetime end, index param 0, index init 1
+	 *
+	 * @since 1.0
+	 * @param int $index index datetime end
+	 * @return void
+	 */
+	public function remove_datetime_end( $index = 1 )
+	{
+		delete_post_meta( $this->ID, self::POST_META_DATETIME_END . '_' . $index, $this->get_datetime_end( $index ) );
+	}
+
+	/**
+	 * Function to remove post meta datetime start, index param 0, index init 1
+	 *
+	 * @since 1.0
+	 * @param int $index index datetime end
+	 * @return void
+	 */
+	public function remove_datetime_start( $index = 1 )
+	{
+		delete_post_meta( $this->ID, self::POST_META_DATETIME_START . '_' . $index, $this->get_datetime_start( $index ) );
+	}
+
+	/**
+	 * Gets dates
+	 *
+	 * @since 1.0
+	 * @return array
+	 */
+	public function get_dates()
+	{
+		$datetime_count = $this->_get_property( 'datetime_count' );
+		$dates_array    = array();
+
+		if ( empty( $datetime_count ) )
+			return $dates_array;
+
+		for ( $index = 1; $index <= $datetime_count; $index++ ) :
+			$single_date = $this->get_datetime_start( $index, 'd/m/Y H:i' ) . ' a ' . $this->get_datetime_end( $index, 'H:i' );
+			array_push( $dates_array, $single_date );
+		endfor;
+
+		return $dates_array;
 	}
 
 	/**
@@ -143,7 +227,13 @@ class WS_Register_Course
 				if ( ! isset( $this->workload ) ) :
 					$this->workload = get_post_meta( $this->ID, self::POST_META_WORKLOAD, true );
 				endif;
-				break;		
+				break;
+
+			case 'datetime_count' :
+				if ( ! isset( $this->datetime_count ) ):
+					$this->datetime_count = intval( get_post_meta( $this->ID, self::POST_META_DATETIME_COUNT, true ) );
+				endif;
+				break;			
 		}
 
 		return $this->$prop_name;
