@@ -22,4 +22,19 @@ class WS_Register_Courses_View
 			WS_Register_Courses_Controller::NONCE_SPEAKER_REQUIREMENTS_NAME
 		);
 	}
+
+	public static function render_workload_control( $post )
+	{
+		$model = new WS_Register_Course( $post->ID );
+
+		?>
+		<input type="number" min="0" name="ws-metas[<?php echo esc_attr( WS_Register_Course::POST_META_WORKLOAD ); ?>]" value="<?php echo esc_html( $model->workload ); ?>">
+		<p class="description">Insira aqui a carga horária em minutos.</p>
+		<?php
+
+		wp_nonce_field(
+			WS_Register_Courses_Controller::NONCE_WORKLOAD_ACTION,
+			WS_Register_Courses_Controller::NONCE_WORKLOAD_NAME
+		);
+	}
 }

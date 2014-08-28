@@ -17,20 +17,22 @@ class WS_Register_Courses_Controller
 	protected static $instance = null;
 
 	/**
-	 * Nonce Action
+	 * Nonce Actions
 	 *
 	 * @since 1.0
 	 * @var object
 	 */
 	const NONCE_SPEAKER_REQUIREMENTS_ACTION = '_ws_courses_speaker_requirements_action';
+	const NONCE_WORKLOAD_ACTION             = '_ws_courses_workload_action';
 
 	/**
-	 * Nonce Name
+	 * Nonce Names
 	 *
 	 * @since 1.0
 	 * @var object
 	 */
 	const NONCE_SPEAKER_REQUIREMENTS_NAME = '_ws_courses_speaker_requirements_name';
+	const NONCE_WORKLOAD_NAME             = '_ws_courses_workload_name';
 
 	/**
 	 * Adds needed actions to create submenu and page
@@ -125,13 +127,26 @@ class WS_Register_Courses_Controller
 			'normal',
 			'low'
 		);
+
+		add_meta_box(
+			'ws-metabox-workload',
+			'Carga Horária',
+			array( 'WS_Register_Courses_View', 'render_workload_control' ),
+			WS_Register_Course::POST_TYPE,
+			'side',
+			'low'
+		);
 	}
 
 	public function nonce_valid_save_post( $is_valid )
 	{
 		$requirements_nonce = WS_Utils_Helper::post_method_params( self::NONCE_SPEAKER_REQUIREMENTS_NAME, false );
+		$workload_nonce     = WS_Utils_Helper::post_method_params( self::NONCE_WORKLOAD_NAME, false );
 
 		if ( ! $requirements_nonce || ! wp_verify_nonce( $requirements_nonce, self::NONCE_SPEAKER_REQUIREMENTS_ACTION ) )
+			return false;
+
+		if ( ! $workload_nonce || ! wp_verify_nonce( $workload_nonce, self::NONCE_WORKLOAD_ACTION ) )
 			return false;
 
 		return true;

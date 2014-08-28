@@ -48,6 +48,15 @@ class WS_Register_Course
 	private $speaker_requirements;
 
 	/**
+	 * Course Workload
+	 *
+	 * @since 1.0
+	 * @var string
+	 */
+	private $workload;
+
+
+	/**
 	 * Post Type name
 	 *
 	 * @since 1.0
@@ -62,6 +71,7 @@ class WS_Register_Course
 	 * @var string
 	 */
 	const POST_META_SPEAKER_REQUIREMENTS = 'ws-course-speaker-requirements';
+	const POST_META_WORKLOAD             = 'wp-course-workload';
 
 	/**
      * Constructor of the class. Instantiate and incializate it.
@@ -127,7 +137,13 @@ class WS_Register_Course
 				if ( ! isset( $this->speaker_requirements ) ) :
 					$this->speaker_requirements = get_post_meta( $this->ID, self::POST_META_SPEAKER_REQUIREMENTS, true );
 				endif;
-				break;	
+				break;
+
+			case 'workload' :
+				if ( ! isset( $this->workload ) ) :
+					$this->workload = get_post_meta( $this->ID, self::POST_META_WORKLOAD, true );
+				endif;
+				break;		
 		}
 
 		return $this->$prop_name;
