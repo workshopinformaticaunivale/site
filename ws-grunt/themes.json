@@ -1,0 +1,19 @@
+[
+	{
+		"name"						: "WORKSHOP",
+		"base" 						: "../wp-content/themes/site/",
+		"javascripts"				: "assets/javascripts/",
+		"css"						: "assets/less/",
+		"images"					: "assets/images/",
+		"isAdminJavascriptsControl"	: false,
+		"isFrontJavascriptsControl"	: true,
+		"isLessControl"				: true,
+		"header" : {
+			"name" : "Workshop Univale",
+			"description": "Tema desenvolvido para o Workshop Univale 2014",
+			"author"	 : "Accácio Franklin, Danilo Alves, Guilherme Souza, Emanuel Inácio, Jhonathan Souza",
+			"authorUri"	 : "https://github.com/workshopinformaticaunivale/site",
+			"version"	 : "2014.08"
+		}
+	}
+]

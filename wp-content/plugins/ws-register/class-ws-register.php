@@ -31,8 +31,9 @@ class WS_Register
 
 		WS_Images_Library::get_instance();
 		WS_Metas_Library::get_instance();
-		WS_Register_Widget_Controller::get_instance();
-		WS_Register_Featured_Controller::get_instance();
+		//WS_Register_Widget_Controller::get_instance();
+		//WS_Register_Featured_Controller::get_instance();
+		WS_Register_Courses_Controller::get_instance();
 	}
 
 	/**
@@ -43,31 +44,45 @@ class WS_Register
 	 */
 	public function scripts_admin()
 	{
-		// wp_enqueue_script(
-		// 	self::PLUGIN_SLUG . '-admin-script',
-		// 	plugins_url( 'assets/javascripts/admin.script.min.js', __FILE__ ),
-		// 	array( 'jquery' ),
-		// 	filemtime( plugin_dir_path(  __FILE__  ) . 'assets/javascripts/admin.script.min.js' ),
-		// 	true
-		// );
+		wp_enqueue_script(
+			self::PLUGIN_SLUG . '-admin-script',
+			plugins_url( 'assets/javascripts/admin.script.min.js', __FILE__ ),
+			array( 'jquery', 'jquery-ui-datepicker', 'jquery-ui-slider' ),
+			filemtime( plugin_dir_path(  __FILE__  ) . 'assets/javascripts/admin.script.min.js' ),
+			true
+		);
 
-		// wp_localize_script(
-		// 	self::PLUGIN_SLUG . '-admin-script',
-		// 	'WPAdminVars',
-		// 	array(
-		// 		'ajaxUrl' => admin_url( 'admin-ajax.php' )
-		// 	)
-		// );
+		wp_localize_script(
+			self::PLUGIN_SLUG . '-admin-script',
+			'WPAdminVars',
+			array(
+				'ajaxUrl' => admin_url( 'admin-ajax.php' )
+			)
+		);
 	}
 
 	public function styles_admin()
 	{
-		// wp_enqueue_style(
-		// 	self::PLUGIN_SLUG . '-admin-style',
-		// 	plugins_url( 'assets/css/admin.css', __FILE__ ),
-		// 	array(),
-		// 	filemtime( plugin_dir_path(  __FILE__  ) . 'assets/css/admin.css' )
-		// );
+		wp_enqueue_style(
+			'admin-jquery-ui-' . self::PLUGIN_SLUG,
+			plugins_url( '/assets/stylesheets/jquery.ui.datetimepicker.css', __FILE__ ),
+			array(),
+			'1.10.3'
+		);
+
+		wp_enqueue_style(
+			'admin-chosen-' . self::PLUGIN_SLUG,
+			plugins_url( '/assets/stylesheets/chosen/chosen.css', __FILE__ ),
+			array(),
+			'1.0.0'
+		);
+
+		wp_enqueue_style(
+			self::PLUGIN_SLUG . '-admin-style',
+			plugins_url( 'assets/stylesheets/admin.css', __FILE__ ),
+			array(),
+			filemtime( plugin_dir_path(  __FILE__  ) . 'assets/stylesheets/admin.css' )
+		);
 	}
 
 	/**
@@ -89,6 +104,7 @@ class WS_Register
 	public static function activate()
 	{
 		//is code active plugin
-		WS_Register_Featured_Controller::add_post_type_capabilities();
+		//WS_Register_Featured_Controller::add_post_type_capabilities();
+		WS_Register_Courses_Controller::add_post_type_capabilities();
 	}
 }
