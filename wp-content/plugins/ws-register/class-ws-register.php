@@ -47,7 +47,7 @@ class WS_Register
 		wp_enqueue_script(
 			self::PLUGIN_SLUG . '-admin-script',
 			plugins_url( 'assets/javascripts/admin.script.min.js', __FILE__ ),
-			array( 'jquery', 'jquery-ui-datepicker' ),
+			array( 'jquery', 'jquery-ui-datepicker', 'jquery-ui-slider' ),
 			filemtime( plugin_dir_path(  __FILE__  ) . 'assets/javascripts/admin.script.min.js' ),
 			true
 		);
