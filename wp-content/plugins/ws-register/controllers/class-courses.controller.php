@@ -349,7 +349,7 @@ class WS_Register_Courses_Controller
 	}
 
 	/**
-	 * Valid save post meta
+	 * Valid save post meta date
 	 *
 	 * @since 1.0
 	 * @return void

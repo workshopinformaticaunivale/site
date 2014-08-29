@@ -28,7 +28,7 @@ class WS_Register_Courses_View
 		$model = new WS_Register_Course( $post->ID );
 
 		?>
-		<input type="number" min="0" name="ws-metas[<?php echo esc_attr( WS_Register_Course::POST_META_WORKLOAD ); ?>]" value="<?php echo esc_html( $model->workload ); ?>">
+		<input type="number" class="large-text" min="0" name="ws-metas[<?php echo esc_attr( WS_Register_Course::POST_META_WORKLOAD ); ?>]" value="<?php echo esc_html( $model->workload ); ?>">
 		<p class="description">Insira aqui a carga horária em minutos.</p>
 		<?php
 
