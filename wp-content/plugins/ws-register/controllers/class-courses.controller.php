@@ -43,6 +43,8 @@ class WS_Register_Courses_Controller
 	public function __construct()
 	{
 		add_action( 'init', array( &$this, 'register_post_type' ) );
+		add_action( 'init', array( &$this, 'register_taxonomies' ) );
+		add_action( 'admin_menu', array( &$this, 'customize_admin_menu' ) );
 		add_action( 'add_meta_boxes', array( &$this, 'define_metaboxes' ) );
 		add_action( 'save_post_' . WS_Register_Course::POST_TYPE, array( &$this, 'save_date' ), 11, 2 );
 		add_filter( 'ws_metas_' . WS_Register_Course::POST_TYPE . '_is_valid_save_post', array( &$this, 'nonce_valid_save_post' ) );
@@ -87,6 +89,53 @@ class WS_Register_Courses_Controller
 				'menu_icon'			=> 'dashicons-welcome-learn-more',
 				'capability_type'   => WS_Register_Course::POST_TYPE,
 			)
+		);
+	}
+
+	/**
+	 * Register all taxonomies for this class
+	 *
+	 * @return void
+	 */
+	public function register_taxonomies()
+	{
+		register_taxonomy(
+			WS_Register_Course::TAXONOMY_LABORATORY,
+			WS_Register_Course::POST_TYPE,
+			$args = array(
+				'labels' => array(
+					'name'              => 'Laboratórios',
+					'singular_name'     => 'Laboratório',
+					'search_items'      => 'Pesquisar laboratório',
+					'popular_items'     => 'Laboratórios populares',
+					'all_items'         => 'Todos os laboratórios',
+					'edit_item'         => 'Editar laboratórios',
+					'update_item'       => 'Atualizar laboratórios',
+					'add_new_item'      => 'Adicionar novo laboratório',
+					'new_item_name'     => 'Nome do novo laboratório',
+					'menu_name'         => 'Laboratórios',
+				),
+				'public'            => false,
+				'hierarchical'      => true,
+				'show_ui'           => false,
+			)
+		);
+	}
+
+	/**
+	 * Customize admin menu
+	 *
+	 * @return void
+	 * @since 1.0
+	 */
+	public function customize_admin_menu()
+	{
+		add_submenu_page(
+			'edit.php?post_type=' . WS_Register_Course::POST_TYPE,
+			'Laboratórios',
+			'Laboratórios',
+			'edit_posts',
+			'edit-tags.php?taxonomy=' . WS_Register_Course::TAXONOMY_LABORATORY
 		);
 	}
 
@@ -144,6 +193,15 @@ class WS_Register_Courses_Controller
 			array( 'WS_Register_Courses_View', 'render_date_control' ),
 			WS_Register_Course::POST_TYPE,
 			'normal',
+			'low'
+		);
+
+		add_meta_box(
+			'ws-course-metabox-laboratory',
+			'Laboratórios',
+			array( 'WS_Register_Courses_View', 'render_laboratory_control' ),
+			WS_Register_Course::POST_TYPE,
+			'side',
 			'low'
 		);
 	}

@@ -84,6 +84,14 @@ class WS_Register_Course
 	const POST_META_DATETIME_COUNT       = 'ws-course-datetime-count';
 
 	/**
+	 * Taxonomies
+	 *
+	 * @since 1.0
+	 * @var string
+	 */
+	const TAXONOMY_LABORATORY = 'ws-course-taxonomy-laboratory';
+
+	/**
      * Constructor of the class. Instantiate and incializate it.
      *
      * @since 1.0.0

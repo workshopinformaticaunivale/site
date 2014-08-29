@@ -38,6 +38,25 @@ class WS_Register_Courses_View
 		);
 	}
 
+	public static function render_laboratory_control( $post )
+	{
+		$terms        = get_terms( WS_Register_Course::TAXONOMY_LABORATORY, array( 'hide_empty' => 0 ) );
+		$post_terms   = wp_get_object_terms( $post->ID, WS_Register_Course::TAXONOMY_LABORATORY );
+		$current_term = ( ! empty( $post_terms ) ) ? array_shift( $post_terms ) : '';
+
+		?>
+		<select name="tax_input[ws-course-taxonomy-laboratory][]">
+			<option value="-1">Selecione um laboratório</option>
+			<?php 
+				foreach ( $terms as $term ) :
+					$selected = ( ! empty( $current_term ) ) ? selected( $current_term->term_id, $term->term_id, false ) : '';
+					printf( '<option %s value="%s">%s</option>', $selected, $term->term_id, $term->name );
+				endforeach;
+			?>
+		</select>
+		<?php
+	}
+
 	public static function render_date_item_control( $datetime_start = '', $datetime_end = '' )
 	{
 		?>
