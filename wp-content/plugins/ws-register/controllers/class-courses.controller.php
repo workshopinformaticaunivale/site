@@ -134,7 +134,7 @@ class WS_Register_Courses_Controller
 			'edit.php?post_type=' . WS_Register_Course::POST_TYPE,
 			'Laboratórios',
 			'Laboratórios',
-			'edit_posts',
+			'edit_ws-courses',
 			'edit-tags.php?taxonomy=' . WS_Register_Course::TAXONOMY_LABORATORY
 		);
 	}
