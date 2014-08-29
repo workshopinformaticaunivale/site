@@ -44,7 +44,7 @@ class WS_Register_Courses_Controller
 	{
 		add_action( 'init', array( &$this, 'register_post_type' ) );
 		add_action( 'init', array( &$this, 'register_taxonomies' ) );
-		add_action( 'admin_menu', array( &$this, 'customize_admin_menu' ) );
+		add_action( 'admin_menu', array( &$this, 'remove_taxonomy_metabox' ) );
 		add_action( 'add_meta_boxes', array( &$this, 'define_metaboxes' ) );
 		add_action( 'save_post_' . WS_Register_Course::POST_TYPE, array( &$this, 'save_date' ), 11, 2 );
 		add_filter( 'ws_metas_' . WS_Register_Course::POST_TYPE . '_is_valid_save_post', array( &$this, 'nonce_valid_save_post' ) );
@@ -117,26 +117,20 @@ class WS_Register_Courses_Controller
 				),
 				'public'            => false,
 				'hierarchical'      => true,
-				'show_ui'           => false,
+				'show_ui'           => true,
 			)
 		);
 	}
 
 	/**
-	 * Customize admin menu
+	 * Remove taxonomy metabox
 	 *
 	 * @return void
 	 * @since 1.0
 	 */
-	public function customize_admin_menu()
+	public function remove_taxonomy_metabox()
 	{
-		add_submenu_page(
-			'edit.php?post_type=' . WS_Register_Course::POST_TYPE,
-			'Laboratórios',
-			'Laboratórios',
-			'edit_ws-courses',
-			'edit-tags.php?taxonomy=' . WS_Register_Course::TAXONOMY_LABORATORY
-		);
+		remove_meta_box( WS_Register_Course::TAXONOMY_LABORATORY .'div', WS_Register_Course::POST_TYPE, 'side' );
 	}
 
 	/**
