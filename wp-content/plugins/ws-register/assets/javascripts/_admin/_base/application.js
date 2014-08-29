@@ -1,7 +1,7 @@
 Module('WS.Application', function(Application) {
 	//loader in all area site
 	Application.init = function(container) {
-		
+		Application.setChosen();
 	};
 
 	Application['ws-course'] = {
@@ -13,4 +13,8 @@ Module('WS.Application', function(Application) {
 			);
 		}
 	};
+
+	Application.setChosen = function() {
+		jQuery('.chosen-select').chosen({width: '100%'});
+	}
 });

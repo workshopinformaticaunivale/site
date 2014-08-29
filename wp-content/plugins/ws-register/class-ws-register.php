@@ -71,6 +71,13 @@ class WS_Register
 		);
 
 		wp_enqueue_style(
+			'admin-chosen-' . self::PLUGIN_SLUG,
+			plugins_url( '/assets/stylesheets/chosen/chosen.css', __FILE__ ),
+			array(),
+			'1.0.0'
+		);
+
+		wp_enqueue_style(
 			self::PLUGIN_SLUG . '-admin-style',
 			plugins_url( 'assets/stylesheets/admin.css', __FILE__ ),
 			array(),

@@ -45,7 +45,7 @@ class WS_Register_Courses_View
 		$current_term = ( ! empty( $post_terms ) ) ? array_shift( $post_terms ) : '';
 
 		?>
-		<select name="tax_input[ws-course-taxonomy-laboratory][]">
+		<select class="chosen-select" name="tax_input[ws-course-taxonomy-laboratory][]">
 			<option value="-1">Selecione um laboratório</option>
 			<?php 
 				foreach ( $terms as $term ) :
