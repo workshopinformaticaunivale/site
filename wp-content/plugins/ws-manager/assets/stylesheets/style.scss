@@ -1,5 +1,13 @@
 //Compass Required Import All Libs
 @import "compass";
 
+//Import variables
+@import "sass/variables";
+
+//Import mixins
+@import "sass/mixins";
+
 //Import for files this project
-@import "sass/example";
+@import "sass/dashicons";
+@import "sass/welcome_panel";
+@import "sass/wp_scheme";

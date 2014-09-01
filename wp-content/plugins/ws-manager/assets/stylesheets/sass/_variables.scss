@@ -1,0 +1,51 @@
+//core variables
+$text-color: #fff;
+$base-color: #1365a5;
+$icon-color: #fff;
+$highlight-color: #03a8c1;
+$notification-color: #dd3333;
+$icon-branding: 'assets/images/branding.png';
+
+//global
+$body-background: #f1f1f1;
+
+$link: #0074a2;
+$link-focus: lighten( $link, 10% );
+
+$button-color: $highlight-color;
+$form-checked: $highlight-color;
+
+//admin menu & admin-bar
+$menu-text: $text-color;
+$menu-icon: $icon-color;
+$menu-background: $base-color;
+
+$menu-highlight-text: $text-color;
+$menu-highlight-icon: $text-color;
+$menu-highlight-background: $highlight-color;
+
+$menu-current-text: $menu-highlight-text;
+$menu-current-icon: $menu-highlight-icon;
+$menu-current-background: $menu-highlight-background;
+
+$menu-submenu-text: mix( $base-color, $text-color, 30% );
+$menu-submenu-background: darken( $base-color, 7% );
+$menu-submenu-background-alt: desaturate( lighten( $menu-background, 7% ), 7% );
+
+$menu-submenu-focus-text: $highlight-color;
+$menu-submenu-current-text: $text-color;
+
+$menu-bubble-text: $text-color;
+$menu-bubble-background: $notification-color;
+$menu-bubble-current-text: $text-color;
+$menu-bubble-current-background: $menu-submenu-background;
+
+$menu-collapse-text: $menu-icon;
+$menu-collapse-icon: $menu-icon;
+$menu-collapse-focus-text: $text-color;
+$menu-collapse-focus-icon: $menu-highlight-icon;
+
+$adminbar-avatar-frame: lighten( $menu-background, 7% );
+$adminbar-input-background: lighten( $menu-background, 7% );
+
+$menu-customizer-text: mix( $base-color, $text-color, 40% );

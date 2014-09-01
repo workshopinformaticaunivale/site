@@ -62,12 +62,12 @@ class WS_Manager
 
 	public function styles_admin()
 	{
-		// wp_enqueue_style(
-		// 	self::PLUGIN_SLUG . '-admin-style',
-		// 	plugins_url( 'assets/css/admin.css', __FILE__ ),
-		// 	array(),
-		// 	filemtime( plugin_dir_path(  __FILE__  ) . 'assets/css/admin.css' )
-		// );
+		wp_enqueue_style(
+			self::PLUGIN_SLUG . '-admin-style',
+			plugins_url( 'style.css', __FILE__ ),
+			array(),
+			filemtime( plugin_dir_path(  __FILE__  ) . 'style.css' )
+		);
 	}
 
 	/**
@@ -86,9 +86,13 @@ class WS_Manager
 		return self::$instance;
 	}
 
+	public static function get_url_assets( $path = '' )
+	{
+		return plugins_url( 'assets/' . $path, __FILE__ );
+	}
+
 	public static function activate()
 	{
 		//is code active plugin
-		WS_Manager_Featured_Controller::add_post_type_capabilities();
 	}
 }
