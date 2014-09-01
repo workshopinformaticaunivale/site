@@ -64,24 +64,10 @@ class WS_Register
 	public function styles_admin()
 	{
 		wp_enqueue_style(
-			'admin-jquery-ui-' . self::PLUGIN_SLUG,
-			plugins_url( '/assets/stylesheets/jquery.ui.datetimepicker.css', __FILE__ ),
-			array(),
-			'1.10.3'
-		);
-
-		wp_enqueue_style(
-			'admin-chosen-' . self::PLUGIN_SLUG,
-			plugins_url( '/assets/stylesheets/chosen/chosen.css', __FILE__ ),
-			array(),
-			'1.0.0'
-		);
-
-		wp_enqueue_style(
 			self::PLUGIN_SLUG . '-admin-style',
-			plugins_url( 'assets/stylesheets/admin.css', __FILE__ ),
+			plugins_url( 'style.css', __FILE__ ),
 			array(),
-			filemtime( plugin_dir_path(  __FILE__  ) . 'assets/stylesheets/admin.css' )
+			filemtime( plugin_dir_path(  __FILE__  ) . 'style.css' )
 		);
 	}
 
