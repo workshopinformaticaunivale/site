@@ -509,14 +509,14 @@ div#wp-responsive-toggle a:before {
 	background: $menu-submenu-background;
 }
 
-#wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
-	content: '';
-	background: url($icon-branding) no-repeat;
-	display: block;
-	width: 30px;
-	height: 30px;
-	position: relative;
-	top: -3px;
-	left: -1px;
-	background-size: 26px;
-}
+// #wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
+// 	content: '';
+// 	background: url($icon-branding) no-repeat;
+// 	display: block;
+// 	width: 30px;
+// 	height: 30px;
+// 	position: relative;
+// 	top: 0;
+// 	left: -1px;
+// 	background-size: 26px;
+// }

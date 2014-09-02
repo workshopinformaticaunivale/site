@@ -16,7 +16,7 @@ class WS_Manager
 	 *
 	 * @since 1.0
 	 */
-	const PLUGIN_SLUG = 'ws-plugin-template';
+	const PLUGIN_SLUG = 'ws-manager';
 
 	/**
 	 * Initialize the plugin by setting localization, filters, and administration functions.
@@ -31,6 +31,7 @@ class WS_Manager
 
 		WS_Images_Library::get_instance();
 		WS_Metas_Library::get_instance();
+		WS_Manager_Dashboard_Controller::get_instance();
 		//WS_Manager_Widget_Controller::get_instance();
 		//WS_Manager_Featured_Controller::get_instance();
 	}

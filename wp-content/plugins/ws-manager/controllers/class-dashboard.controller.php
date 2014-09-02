@@ -24,8 +24,8 @@ class WS_Manager_Dashboard_Controller
 	 */
 	public function __construct()
 	{
-		add_action( 'admin_head', array( &$this, 'favicon' ) );
-		add_action( 'welcome_panel',  array( 'Sopro_Interface_Dashboard_view', 'render_welcome_panel' ) );
+		//add_action( 'admin_head', array( &$this, 'favicon' ) );
+		add_action( 'welcome_panel',  array( 'WS_Manager_Dashboard_view', 'render_welcome_panel' ) );
 		add_action( 'wp_dashboard_setup', array( &$this, 'widgets_remove' ) );
 	}
 

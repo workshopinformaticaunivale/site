@@ -1,11 +1,14 @@
-.welcome-panel-content {
+.welcome-panel-content,
+.welcome-panel-close {
 	display: none;
 }
 
 .custom-welcome-panel-content {
-	
-	h3 {
-		margin-top: 15px;
-		margin-bottom: 15px;
+	display: block;
+
+	.branding-large {
+		display: block;
+		margin: 0 auto;
+		height: 310px;
 	}
 }
