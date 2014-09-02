@@ -16,7 +16,7 @@ class WS_Register
 	 *
 	 * @since 1.0
 	 */
-	const PLUGIN_SLUG = 'ws-plugin-template';
+	const PLUGIN_SLUG = 'ws-register';
 
 	/**
 	 * Initialize the plugin by setting localization, filters, and administration functions.
