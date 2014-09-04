@@ -1238,3 +1238,122 @@
     width: 88%;
   }
 }
+/* line 2, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-wrap {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.025);
+  overflow: hidden;
+}
+
+/* line 10, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-content {
+  padding: 20px;
+  overflow: auto;
+  position: relative;
+  z-index: 5;
+}
+
+/* line 17, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-header {
+  float: left;
+  margin: 1em 0;
+  width: 17%;
+  position: relative;
+  z-index: 4;
+}
+/* line 24, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-header .active {
+  border-left: 2px solid #426fb7;
+  background: #f6fbfd;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02), 0 1px 0 rgba(0, 0, 0, 0.02);
+  margin-right: -1px;
+}
+/* line 30, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-header .active a {
+  border-color: #e1e1e1;
+}
+/* line 35, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-header li {
+  list-style-type: none;
+  border-style: solid;
+  border-width: 0 0 0 2px;
+  border-color: transparent;
+}
+/* line 42, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-header a {
+  display: block;
+  padding: 5px 5px 5px 12px;
+  line-height: 18px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-right: 0;
+  border-left: 0;
+  color: #333;
+}
+
+/* line 54, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-bg {
+  background: #f6fbfd;
+  z-index: 3;
+  left: 17%;
+  right: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid #e1e1e1;
+}
+
+/* line 67, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-wrap .hide {
+  display: none;
+}
+/* line 71, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-wrap .form-table {
+  display: table !important;
+}
+/* line 75, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-wrap h3 {
+  display: block !important;
+}
+
+/* line 1, assets/stylesheets/sass/_profile.scss */
+.ws-avatar-profile {
+  min-width: 150px;
+  min-height: 150px;
+  height: auto;
+  background: transparent;
+  padding-top: 5px;
+  border: 2px dashed #B3B3B3;
+  opacity: .7;
+  cursor: pointer;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+/* line 14, assets/stylesheets/sass/_profile.scss */
+.ws-avatar-profile.created-image, .ws-avatar-profile:hover {
+  opacity: 1;
+}
+/* line 18, assets/stylesheets/sass/_profile.scss */
+.ws-avatar-profile img {
+  max-width: 150px;
+}
+/* line 24, assets/stylesheets/sass/_profile.scss */
+.ws-avatar-profile.created-image .description,
+.ws-avatar-profile.created-image .dashicons {
+  display: none;
+}
+/* line 29, assets/stylesheets/sass/_profile.scss */
+.ws-avatar-profile .dashicons {
+  font-size: 7em;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* line 39, assets/stylesheets/sass/_profile.scss */
+#your-profile h3,
+#your-profile .form-table {
+  display: none;
+}
