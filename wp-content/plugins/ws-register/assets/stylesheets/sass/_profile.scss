@@ -1,0 +1,41 @@
+.ws-avatar-profile {
+	min-width: 150px;
+	min-height: 150px;
+	height: auto;
+	background: transparent;
+	padding-top: 5px;
+	border: 2px dashed #B3B3B3;
+	opacity: .7;
+	cursor: pointer;
+	-webkit-transition: opacity 300ms ease-in-out;
+	transition: opacity 300ms ease-in-out;
+
+	&.created-image,
+	&:hover {
+		opacity: 1;
+	}
+
+	img {
+		max-width: 150px;
+	}
+
+	&.created-image {
+		.description,
+		.dashicons {
+			display: none;
+		}
+	}
+
+	.dashicons {
+		font-size: 7em;
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+}
+
+#your-profile h3,
+#your-profile .form-table {
+	display: none;
+}
