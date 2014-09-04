@@ -14,6 +14,26 @@ Module('WS.Application', function(Application) {
 		}
 	};
 
+	Application['user-edit'] = {
+		before : function(container) {
+			WS.ControlTabsUsers( container );
+		},
+		action : function(container) {
+			WS.FactoryComponent
+				.create( container, 'UploadFile', '[data-component-upload-file]' )
+			;
+		}
+	};
+
+	Application['profile'] = {
+		before : function(container) {
+			Application['user-edit'].before( container );
+		},
+		action : function(container) {
+			Application['user-edit'].action( container );
+		}
+	};
+
 	Application.setChosen = function() {
 		jQuery('.chosen-select').chosen({width: '100%'});
 	}
