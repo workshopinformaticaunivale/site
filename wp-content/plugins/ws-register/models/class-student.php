@@ -5,7 +5,7 @@
  * @package WS Plugin Template Manager
  * @subpackage Student
  */
-class Resuta_Manager_Student
+class WS_Register_Student
 {
 	/**
 	 * Student ID
