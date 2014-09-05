@@ -157,7 +157,7 @@ class WS_Register_Courses_Controller
 			array( 'WS_Register_Courses_View', 'render_speaker_requirements_control' ),
 			WS_Register_Course::POST_TYPE,
 			'normal',
-			'low'
+			'high'
 		);
 
 		add_meta_box(
@@ -175,7 +175,7 @@ class WS_Register_Courses_Controller
 			array( 'WS_Register_Courses_View', 'render_date_control' ),
 			WS_Register_Course::POST_TYPE,
 			'normal',
-			'low'
+			'high'
 		);
 
 		add_meta_box(
