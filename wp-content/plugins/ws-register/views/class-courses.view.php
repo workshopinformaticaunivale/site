@@ -44,17 +44,24 @@ class WS_Register_Courses_View
 		$post_terms   = wp_get_object_terms( $post->ID, WS_Register_Course::TAXONOMY_LABORATORY );
 		$current_term = ( ! empty( $post_terms ) ) ? array_shift( $post_terms ) : '';
 
-		?>
-		<select class="chosen-select" name="tax_input[ws-course-taxonomy-laboratory][]">
-			<option value="-1">Selecione um laboratório</option>
-			<?php 
-				foreach ( $terms as $term ) :
-					$selected = ( ! empty( $current_term ) ) ? selected( $current_term->term_id, $term->term_id, false ) : '';
-					printf( '<option %s value="%s">%s</option>', $selected, $term->term_id, $term->name );
-				endforeach;
+		if ( empty( $terms ) ):
 			?>
-		</select>
-		<?php
+			<span>Nenhum laboratório cadastrado.</span>
+			<a class="button-secondary" href="<?php echo esc_url( 'edit-tags.php?taxonomy=' . WS_Register_Course::TAXONOMY_LABORATORY. '&post_type='. WS_Register_Course::POST_TYPE ); ?>">Adicionar novo</a>
+			<?php
+		else :
+			?>
+			<select class="chosen-select" name="tax_input[ws-course-taxonomy-laboratory][]">
+				<option value="-1">Selecione um laboratório</option>
+				<?php 
+					foreach ( $terms as $term ) :
+						$selected = ( ! empty( $current_term ) ) ? selected( $current_term->term_id, $term->term_id, false ) : '';
+						printf( '<option %s value="%s">%s</option>', $selected, $term->term_id, $term->name );
+					endforeach;
+				?>
+			</select>
+			<?php
+		endif;	
 	}
 
 	public static function render_date_item_control( $datetime_start = '', $datetime_end = '' )
