@@ -84,7 +84,7 @@ class WS_Register_Courses_Controller
 				'public'        	=> false,
 				'show_ui'			=> true,
 				'menu_position' 	=> 5,
-				'supports'      	=> array( 'title', 'editor' ),
+				'supports'      	=> array( 'title', 'editor', 'author' ),
 				'menu_icon'			=> 'dashicons-welcome-learn-more',
 				'capability_type'   => WS_Register_Course::POST_TYPE,
 			)
@@ -315,7 +315,7 @@ class WS_Register_Courses_Controller
 	private function _remove_metaboxes()
 	{
 		remove_meta_box( WS_Register_Course::TAXONOMY_LABORATORY .'div', WS_Register_Course::POST_TYPE, 'side' );
-		
+
 		if ( current_user_can( 'publish_ws-courses' ) )
 			return;
 
