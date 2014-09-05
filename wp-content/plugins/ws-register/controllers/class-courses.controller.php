@@ -314,10 +314,11 @@ class WS_Register_Courses_Controller
 	 */
 	private function _remove_metaboxes()
 	{
-		if ( current_user_can( 'publish-ws-courses' ) )
+		remove_meta_box( WS_Register_Course::TAXONOMY_LABORATORY .'div', WS_Register_Course::POST_TYPE, 'side' );
+		
+		if ( current_user_can( 'publish_ws-courses' ) )
 			return;
 
-		remove_meta_box( WS_Register_Course::TAXONOMY_LABORATORY .'div', WS_Register_Course::POST_TYPE, 'side' );
 		remove_meta_box( 'ws-course-metabox-date', WS_Register_Course::POST_TYPE, 'normal' );
 		remove_meta_box( 'ws-course-metabox-laboratory', WS_Register_Course::POST_TYPE, 'side' );
 	}

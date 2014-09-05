@@ -86,7 +86,6 @@ class WS_Register_Students_Controller
 			"read_{$capability_type}",
 			"delete_{$capability_type}",
 			"edit_{$capability_type}s",
-			"publish_{$capability_type}s",
 			'read',
 			'upload_files',
 		);
