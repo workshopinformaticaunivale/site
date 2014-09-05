@@ -1,0 +1,1359 @@
+/***  Datepicker  ***/
+/* line 2, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker {
+  width: 20em;
+  display: none;
+  border-radius: 0 0 3px 3px;
+  border: 1px solid rgba(221, 221, 221, 0.56);
+}
+
+/* DATEPICKER HEADER */
+/* line 10, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker .ui-datepicker-header {
+  position: relative;
+  background: #2F2E2C;
+  color: #fff;
+  height: 40px;
+  line-height: 40px;
+}
+
+/* line 18, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+  margin-top: -7px;
+  text-indent: -99999px;
+  cursor: pointer;
+}
+
+/* line 27, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker .ui-datepicker-prev {
+  left: 10px;
+  border-right: 8px solid #94908F;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+/* line 33, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker .ui-datepicker-next {
+  right: 10px;
+  border-left: 8px solid #94908F;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+/* line 39, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker .ui-datepicker-title {
+  margin: 0 0 16px 0;
+  text-align: center;
+  background: #2F2E2C;
+  height: 34px;
+  line-height: 38px;
+  color: #fff;
+  font-size: 16px;
+  padding-bottom: 6px;
+  border-radius: 5px 5px 0 0;
+}
+
+/* line 50, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker .ui-datepicker-title select {
+  font-size: 1em;
+  margin: 1px 0;
+}
+
+/* line 55, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year {
+  width: 49%;
+}
+
+/* DATEPICKER TABLE */
+/* line 60, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker table {
+  width: 100%;
+  font-size: .9em;
+  border-collapse: collapse;
+  margin: 0 0 0;
+  background: #fff;
+}
+
+/* line 67, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker thead {
+  background: #3E3C3D;
+  position: relative;
+}
+
+/* line 71, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker th {
+  color: #9d9d9d;
+  font-size: 12px;
+  font-weight: normal;
+  text-align: center;
+  background: #3E3C3D;
+  padding: 6px 4px;
+}
+
+/* line 79, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker td {
+  border: 0;
+  width: 26px;
+  border: 1px solid #e1e1e1;
+  text-align: center;
+}
+
+/* current day */
+/* line 87, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker .ui-state-highlight {
+  background: #ddd;
+}
+
+/* line 88, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker .ui-state-highlight:hover {
+  background: #ddd !important;
+}
+
+/* current click */
+/* line 91, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker .ui-state-active {
+  background: #2EA2CC;
+  color: #fff;
+}
+
+/* line 95, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker .ui-state-active:hover {
+  background: #2EA2CC !important;
+}
+
+/* line 97, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker .ui-state-disabled {
+  background: #EBEBEB;
+}
+
+/* line 99, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker td a {
+  color: #333;
+  padding: 5px 0;
+  margin: -1px;
+  display: block;
+  text-decoration: none;
+}
+
+/* line 106, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker td a:hover {
+  background: #f9f9f9;
+}
+
+/*  Range  */
+/* line 110, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-timepicker-div {
+  background: #fff;
+  padding: 10px 10px 0 10px;
+  overflow: hidden;
+  font-size: 14px;
+  color: #6d6d6d;
+}
+
+/* line 117, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-timepicker-div dl {
+  margin: 0;
+}
+
+/* line 118, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-timepicker-div dd {
+  margin: 0;
+}
+
+/* line 119, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-timepicker-div .ui_tpicker_time_label {
+  width: 30%;
+  float: left;
+  margin-bottom: 10px;
+}
+
+/* line 124, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-timepicker-div .ui_tpicker_time {
+  margin: 0;
+  width: 65%;
+  float: right;
+  margin-bottom: 10px;
+  line-height: 105%;
+}
+
+/* line 134, assets/stylesheets/sass/_datetimepicker.scss */
+.ui_tpicker_hour_label, .ui_tpicker_minute_label,
+.ui_tpicker_second_label, .ui_tpicker_millisec_label,
+.ui_tpicker_timezone_label, .ui_tpicker_timezone_label {
+  clear: left;
+  width: 30%;
+  float: left;
+  line-height: 105%;
+  margin-bottom: 15px;
+}
+
+/* line 143, assets/stylesheets/sass/_datetimepicker.scss */
+.ui_tpicker_hour, .ui_tpicker_minute, .ui_tpicker_second,
+.ui_tpicker_millisec, .ui_tpicker_timezone {
+  float: right;
+  width: 65%;
+  margin-bottom: 15px;
+}
+
+/* line 148, assets/stylesheets/sass/_datetimepicker.scss */
+.ui_tpicker_timezone select {
+  width: 98%;
+}
+
+/* line 150, assets/stylesheets/sass/_datetimepicker.scss */
+.ui_tpicker_millisec {
+  width: 54%;
+}
+
+/* line 151, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-timepicker-div .ui-slider {
+  height: 15px;
+  border-radius: 5px;
+  border: 1px solid #E1E1E1;
+}
+
+/* line 156, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-timepicker-div .ui-slider a {
+  background: #BCB7B7;
+  top: 0;
+  margin: 0;
+  height: 22px;
+  cursor: pointer;
+  top: -4px;
+  margin-left: -8px;
+  border-radius: 4px;
+}
+
+/* Button picker */
+/* line 169, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker .ui-datepicker-buttonpane {
+  background: #fff;
+  margin: 0 0 0 0;
+  padding: 15px 10px 10px 10px;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  overflow: hidden;
+}
+
+/* line 178, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker .ui-datepicker-buttonpane button {
+  float: right;
+  overflow: visible;
+  border: 0;
+  color: #fff;
+  height: 30px;
+  line-height: 28px;
+  padding: 0 25px;
+  background: #2EA2CC;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* line 190, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker .ui-datepicker-buttonpane button:hover {
+  background: #2C96BA;
+}
+
+/* line 191, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+  float: left;
+  background: #ddd;
+  color: #9a9a9a;
+}
+
+/* line 196, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current:hover {
+  background: #d5d5d5;
+}
+
+/* with multiple calendars */
+/* line 199, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker.ui-datepicker-multi {
+  width: auto;
+}
+
+/* line 202, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker-multi .ui-datepicker-group {
+  float: left;
+}
+
+/* line 205, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker-multi .ui-datepicker-group table {
+  width: 95%;
+  margin: 0 auto .4em;
+}
+
+/* line 209, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker-multi-2 .ui-datepicker-group {
+  width: 50%;
+}
+
+/* line 212, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker-multi-3 .ui-datepicker-group {
+  width: 33.3%;
+}
+
+/* line 215, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker-multi-4 .ui-datepicker-group {
+  width: 25%;
+}
+
+/* line 219, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header,
+.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
+  border-left-width: 0;
+}
+
+/* line 222, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker-multi .ui-datepicker-buttonpane {
+  clear: left;
+}
+
+/* line 225, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker-row-break {
+  clear: both;
+  width: 100%;
+  font-size: 0;
+}
+
+/* RTL support */
+/* line 232, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker-rtl {
+  direction: rtl;
+}
+
+/* line 235, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker-rtl .ui-datepicker-prev {
+  right: 2px;
+  left: auto;
+}
+
+/* line 239, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker-rtl .ui-datepicker-next {
+  left: 2px;
+  right: auto;
+}
+
+/* line 243, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker-rtl .ui-datepicker-prev:hover {
+  right: 1px;
+  left: auto;
+}
+
+/* line 247, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker-rtl .ui-datepicker-next:hover {
+  left: 1px;
+  right: auto;
+}
+
+/* line 251, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker-rtl .ui-datepicker-buttonpane {
+  clear: right;
+}
+
+/* line 254, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker-rtl .ui-datepicker-buttonpane button {
+  float: left;
+}
+
+/* line 258, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current,
+.ui-datepicker-rtl .ui-datepicker-group {
+  float: right;
+}
+
+/* line 262, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header,
+.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
+  border-right-width: 0;
+  border-left-width: 1px;
+}
+
+/*!
+ * jQuery UI Slider @VERSION
+ * http://jqueryui.com
+ *
+ * Copyright 2014 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/slider/#theming
+ */
+/* line 277, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-slider {
+  position: relative;
+  text-align: left;
+}
+
+/* line 281, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  width: 1.2em;
+  height: 1.2em;
+  cursor: default;
+  -ms-touch-action: none;
+  touch-action: none;
+}
+
+/* line 290, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-slider .ui-slider-range {
+  position: absolute;
+  z-index: 1;
+  font-size: .7em;
+  display: block;
+  border: 0;
+  background-position: 0 0;
+}
+
+/* For IE8 - See #6727 */
+/* line 301, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-slider.ui-state-disabled .ui-slider-handle,
+.ui-slider.ui-state-disabled .ui-slider-range {
+  filter: inherit;
+}
+
+/* line 305, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-slider-horizontal {
+  height: .8em;
+}
+
+/* line 308, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-slider-horizontal .ui-slider-handle {
+  top: -.3em;
+  margin-left: -.6em;
+}
+
+/* line 312, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-slider-horizontal .ui-slider-range {
+  top: 0;
+  height: 100%;
+}
+
+/* line 316, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-slider-horizontal .ui-slider-range-min {
+  left: 0;
+}
+
+/* line 319, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-slider-horizontal .ui-slider-range-max {
+  right: 0;
+}
+
+/* line 323, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-slider-vertical {
+  width: .8em;
+  height: 100px;
+}
+
+/* line 327, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-slider-vertical .ui-slider-handle {
+  left: -.3em;
+  margin-left: 0;
+  margin-bottom: -.6em;
+}
+
+/* line 332, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-slider-vertical .ui-slider-range {
+  left: 0;
+  width: 100%;
+}
+
+/* line 336, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-slider-vertical .ui-slider-range-min {
+  bottom: 0;
+}
+
+/* line 339, assets/stylesheets/sass/_datetimepicker.scss */
+.ui-slider-vertical .ui-slider-range-max {
+  top: 0;
+}
+
+/* @group Base */
+/* line 2, assets/stylesheets/sass/_chosen.scss */
+.chosen-container {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 13px;
+  zoom: 1;
+  *display: inline;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+/* line 13, assets/stylesheets/sass/_chosen.scss */
+.chosen-container .chosen-drop {
+  position: absolute;
+  top: 100%;
+  left: -9999px;
+  z-index: 1010;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #aaa;
+  border-top: 0;
+  background: #fff;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* line 27, assets/stylesheets/sass/_chosen.scss */
+.chosen-container.chosen-with-drop .chosen-drop {
+  left: 0;
+}
+
+/* line 30, assets/stylesheets/sass/_chosen.scss */
+.chosen-container a {
+  cursor: pointer;
+}
+
+/* @end */
+/* @group Single Chosen */
+/* line 36, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-single .chosen-single {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 0 0 0 8px;
+  height: 23px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  background-color: #fff;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, white), color-stop(50%, #f6f6f6), color-stop(52%, #eeeeee), color-stop(100%, #f4f4f4));
+  background: -webkit-linear-gradient(top, white 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+  background: -moz-linear-gradient(top, white 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+  background: -o-linear-gradient(top, white 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+  background: linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+  background-clip: padding-box;
+  box-shadow: 0 0 3px white inset, 0 1px 1px rgba(0, 0, 0, 0.1);
+  color: #444;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 24px;
+}
+
+/* line 57, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-single .chosen-default {
+  color: #999;
+}
+
+/* line 60, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-single .chosen-single span {
+  display: block;
+  overflow: hidden;
+  margin-right: 26px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* line 67, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-single .chosen-single-with-deselect span {
+  margin-right: 38px;
+}
+
+/* line 70, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-single .chosen-single abbr {
+  position: absolute;
+  top: 6px;
+  right: 26px;
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: url('assets/images/chosen-sprite.png') -42px 1px no-repeat;
+  font-size: 1px;
+}
+
+/* line 80, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-single .chosen-single abbr:hover {
+  background-position: -42px -10px;
+}
+
+/* line 83, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-single.chosen-disabled .chosen-single abbr:hover {
+  background-position: -42px -10px;
+}
+
+/* line 86, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-single .chosen-single div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 18px;
+  height: 100%;
+}
+
+/* line 94, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-single .chosen-single div b {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url('assets/images/chosen-sprite.png') no-repeat 0px 2px;
+}
+
+/* line 100, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-single .chosen-search {
+  position: relative;
+  z-index: 1010;
+  margin: 0;
+  padding: 3px 4px;
+  white-space: nowrap;
+}
+
+/* line 107, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-single .chosen-search input[type="text"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 1px 0;
+  padding: 4px 20px 4px 5px;
+  width: 100%;
+  height: auto;
+  outline: 0;
+  border: 1px solid #aaa;
+  background: white url('assets/images/chosen-sprite.png') no-repeat 100% -20px;
+  background: url('assets/images/chosen-sprite.png') no-repeat 100% -20px, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(1%, #eeeeee), color-stop(15%, white));
+  background: url('assets/images/chosen-sprite.png') no-repeat 100% -20px, -webkit-linear-gradient(#eeeeee 1%, white 15%);
+  background: url('assets/images/chosen-sprite.png') no-repeat 100% -20px, -moz-linear-gradient(#eeeeee 1%, white 15%);
+  background: url('assets/images/chosen-sprite.png') no-repeat 100% -20px, -o-linear-gradient(#eeeeee 1%, white 15%);
+  background: url('assets/images/chosen-sprite.png') no-repeat 100% -20px, linear-gradient(#eeeeee 1%, #ffffff 15%);
+  font-size: 1em;
+  font-family: sans-serif;
+  line-height: normal;
+  border-radius: 0;
+}
+
+/* line 128, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-single .chosen-drop {
+  margin-top: -1px;
+  border-radius: 0 0 4px 4px;
+  background-clip: padding-box;
+}
+
+/* line 133, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-single.chosen-container-single-nosearch .chosen-search {
+  position: absolute;
+  left: -9999px;
+}
+
+/* @end */
+/* @group Results */
+/* line 140, assets/stylesheets/sass/_chosen.scss */
+.chosen-container .chosen-results {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0 4px 4px 0;
+  padding: 0 0 0 4px;
+  max-height: 240px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* line 149, assets/stylesheets/sass/_chosen.scss */
+.chosen-container .chosen-results li {
+  display: none;
+  margin: 0;
+  padding: 5px 6px;
+  list-style: none;
+  line-height: 15px;
+}
+
+/* line 156, assets/stylesheets/sass/_chosen.scss */
+.chosen-container .chosen-results li.active-result {
+  display: list-item;
+  cursor: pointer;
+}
+
+/* line 160, assets/stylesheets/sass/_chosen.scss */
+.chosen-container .chosen-results li.disabled-result {
+  display: list-item;
+  color: #ccc;
+  cursor: default;
+}
+
+/* line 165, assets/stylesheets/sass/_chosen.scss */
+.chosen-container .chosen-results li.highlighted {
+  background-color: #3875d7;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #3875d7), color-stop(90%, #2a62bc));
+  background-image: -webkit-linear-gradient(#3875d7 20%, #2a62bc 90%);
+  background-image: -moz-linear-gradient(#3875d7 20%, #2a62bc 90%);
+  background-image: -o-linear-gradient(#3875d7 20%, #2a62bc 90%);
+  background-image: linear-gradient(#3875d7 20%, #2a62bc 90%);
+  color: #fff;
+}
+
+/* line 174, assets/stylesheets/sass/_chosen.scss */
+.chosen-container .chosen-results li.no-results {
+  display: list-item;
+  background: #f4f4f4;
+}
+
+/* line 178, assets/stylesheets/sass/_chosen.scss */
+.chosen-container .chosen-results li.group-result {
+  display: list-item;
+  font-weight: bold;
+  cursor: default;
+}
+
+/* line 183, assets/stylesheets/sass/_chosen.scss */
+.chosen-container .chosen-results li.group-option {
+  padding-left: 15px;
+}
+
+/* line 186, assets/stylesheets/sass/_chosen.scss */
+.chosen-container .chosen-results li em {
+  font-style: normal;
+  text-decoration: underline;
+}
+
+/* @end */
+/* @group Multi Chosen */
+/* line 193, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-multi .chosen-choices {
+  position: relative;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto !important;
+  height: 1%;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(1%, #eeeeee), color-stop(15%, white));
+  background-image: -webkit-linear-gradient(#eeeeee 1%, white 15%);
+  background-image: -moz-linear-gradient(#eeeeee 1%, white 15%);
+  background-image: -o-linear-gradient(#eeeeee 1%, white 15%);
+  background-image: linear-gradient(#eeeeee 1%, #ffffff 15%);
+  cursor: text;
+}
+
+/* line 213, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-multi .chosen-choices li {
+  float: left;
+  list-style: none;
+}
+
+/* line 217, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-multi .chosen-choices li.search-field {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* line 222, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+  margin: 1px 0;
+  padding: 5px;
+  height: 15px;
+  outline: 0;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none;
+  color: #666;
+  font-size: 100%;
+  font-family: sans-serif;
+  line-height: normal;
+  border-radius: 0;
+}
+
+/* line 236, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-multi .chosen-choices li.search-field .default {
+  color: #999;
+}
+
+/* line 239, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-multi .chosen-choices li.search-choice {
+  position: relative;
+  margin: 3px 0 3px 5px;
+  padding: 3px 20px 3px 5px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  background-color: #e4e4e4;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eeeeee));
+  background-image: -webkit-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: -moz-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: -o-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-clip: padding-box;
+  box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+  color: #333;
+  line-height: 13px;
+  cursor: default;
+}
+
+/* line 257, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
+  position: absolute;
+  top: 4px;
+  right: 3px;
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: url('assets/images/chosen-sprite.png') -42px 1px no-repeat;
+  font-size: 1px;
+}
+
+/* line 267, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-multi .chosen-choices li.search-choice .search-choice-close:hover {
+  background-position: -42px -10px;
+}
+
+/* line 270, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-multi .chosen-choices li.search-choice-disabled {
+  padding-right: 5px;
+  border: 1px solid #ccc;
+  background-color: #e4e4e4;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eeeeee));
+  background-image: -webkit-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: -moz-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: -o-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  color: #666;
+}
+
+/* line 281, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-multi .chosen-choices li.search-choice-focus {
+  background: #d4d4d4;
+}
+
+/* line 284, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-multi .chosen-choices li.search-choice-focus .search-choice-close {
+  background-position: -42px -10px;
+}
+
+/* line 287, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-multi .chosen-results {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 291, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-multi .chosen-drop .result-selected {
+  display: list-item;
+  color: #ccc;
+  cursor: default;
+}
+
+/* @end */
+/* @group Active  */
+/* line 299, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-active .chosen-single {
+  border: 1px solid #5897fb;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* line 303, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-active.chosen-with-drop .chosen-single {
+  border: 1px solid #aaa;
+  -moz-border-radius-bottomright: 0;
+  border-bottom-right-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  border-bottom-left-radius: 0;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #eeeeee), color-stop(80%, white));
+  background-image: -webkit-linear-gradient(#eeeeee 20%, white 80%);
+  background-image: -moz-linear-gradient(#eeeeee 20%, white 80%);
+  background-image: -o-linear-gradient(#eeeeee 20%, white 80%);
+  background-image: linear-gradient(#eeeeee 20%, #ffffff 80%);
+  box-shadow: 0 1px 0 #fff inset;
+}
+
+/* line 316, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-active.chosen-with-drop .chosen-single div {
+  border-left: none;
+  background: transparent;
+}
+
+/* line 320, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-active.chosen-with-drop .chosen-single div b {
+  background-position: -18px 2px;
+}
+
+/* line 323, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-active .chosen-choices {
+  border: 1px solid #5897fb;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* line 327, assets/stylesheets/sass/_chosen.scss */
+.chosen-container-active .chosen-choices li.search-field input[type="text"] {
+  color: #111 !important;
+}
+
+/* @end */
+/* @group Disabled Support */
+/* line 333, assets/stylesheets/sass/_chosen.scss */
+.chosen-disabled {
+  opacity: 0.5 !important;
+  cursor: default;
+}
+
+/* line 337, assets/stylesheets/sass/_chosen.scss */
+.chosen-disabled .chosen-single {
+  cursor: default;
+}
+
+/* line 340, assets/stylesheets/sass/_chosen.scss */
+.chosen-disabled .chosen-choices .search-choice .search-choice-close {
+  cursor: default;
+}
+
+/* @end */
+/* @group Right to Left */
+/* line 346, assets/stylesheets/sass/_chosen.scss */
+.chosen-rtl {
+  text-align: right;
+}
+
+/* line 349, assets/stylesheets/sass/_chosen.scss */
+.chosen-rtl .chosen-single {
+  overflow: visible;
+  padding: 0 8px 0 0;
+}
+
+/* line 353, assets/stylesheets/sass/_chosen.scss */
+.chosen-rtl .chosen-single span {
+  margin-right: 0;
+  margin-left: 26px;
+  direction: rtl;
+}
+
+/* line 358, assets/stylesheets/sass/_chosen.scss */
+.chosen-rtl .chosen-single-with-deselect span {
+  margin-left: 38px;
+}
+
+/* line 361, assets/stylesheets/sass/_chosen.scss */
+.chosen-rtl .chosen-single div {
+  right: auto;
+  left: 3px;
+}
+
+/* line 365, assets/stylesheets/sass/_chosen.scss */
+.chosen-rtl .chosen-single abbr {
+  right: auto;
+  left: 26px;
+}
+
+/* line 369, assets/stylesheets/sass/_chosen.scss */
+.chosen-rtl .chosen-choices li {
+  float: right;
+}
+
+/* line 372, assets/stylesheets/sass/_chosen.scss */
+.chosen-rtl .chosen-choices li.search-field input[type="text"] {
+  direction: rtl;
+}
+
+/* line 375, assets/stylesheets/sass/_chosen.scss */
+.chosen-rtl .chosen-choices li.search-choice {
+  margin: 3px 5px 3px 0;
+  padding: 3px 5px 3px 19px;
+}
+
+/* line 379, assets/stylesheets/sass/_chosen.scss */
+.chosen-rtl .chosen-choices li.search-choice .search-choice-close {
+  right: auto;
+  left: 4px;
+}
+
+/* line 384, assets/stylesheets/sass/_chosen.scss */
+.chosen-rtl.chosen-container-single-nosearch .chosen-search,
+.chosen-rtl .chosen-drop {
+  left: 9999px;
+}
+
+/* line 387, assets/stylesheets/sass/_chosen.scss */
+.chosen-rtl.chosen-container-single .chosen-results {
+  margin: 0 0 4px 4px;
+  padding: 0 4px 0 0;
+}
+
+/* line 391, assets/stylesheets/sass/_chosen.scss */
+.chosen-rtl .chosen-results li.group-option {
+  padding-right: 15px;
+  padding-left: 0;
+}
+
+/* line 395, assets/stylesheets/sass/_chosen.scss */
+.chosen-rtl.chosen-container-active.chosen-with-drop .chosen-single div {
+  border-right: none;
+}
+
+/* line 398, assets/stylesheets/sass/_chosen.scss */
+.chosen-rtl .chosen-search input[type="text"] {
+  padding: 4px 5px 4px 20px;
+  background: white url('assets/images/chosen-sprite.png') no-repeat -30px -20px;
+  background: url('assets/images/chosen-sprite.png') no-repeat -30px -20px, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(1%, #eeeeee), color-stop(15%, white));
+  background: url('assets/images/chosen-sprite.png') no-repeat -30px -20px, -webkit-linear-gradient(#eeeeee 1%, white 15%);
+  background: url('assets/images/chosen-sprite.png') no-repeat -30px -20px, -moz-linear-gradient(#eeeeee 1%, white 15%);
+  background: url('assets/images/chosen-sprite.png') no-repeat -30px -20px, -o-linear-gradient(#eeeeee 1%, white 15%);
+  background: url('assets/images/chosen-sprite.png') no-repeat -30px -20px, linear-gradient(#eeeeee 1%, #ffffff 15%);
+  direction: rtl;
+}
+
+/* line 408, assets/stylesheets/sass/_chosen.scss */
+.chosen-rtl.chosen-container-single .chosen-single div b {
+  background-position: 6px 2px;
+}
+
+/* line 411, assets/stylesheets/sass/_chosen.scss */
+.chosen-rtl.chosen-container-single.chosen-with-drop .chosen-single div b {
+  background-position: -12px 2px;
+}
+
+/* @end */
+/* @group Retina compatibility */
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 144dpi) {
+  /* line 424, assets/stylesheets/sass/_chosen.scss */
+  .chosen-rtl .chosen-search input[type="text"],
+  .chosen-container-single .chosen-single abbr,
+  .chosen-container-single .chosen-single div b,
+  .chosen-container-single .chosen-search input[type="text"],
+  .chosen-container-multi .chosen-choices .search-choice .search-choice-close,
+  .chosen-container .chosen-results-scroll-down span,
+  .chosen-container .chosen-results-scroll-up span {
+    background-image: url('assets/images/chosen-sprite@2x.png') !important;
+    background-size: 52px 37px !important;
+    background-repeat: no-repeat !important;
+  }
+}
+/* @end */
+/* line 1, assets/stylesheets/sass/_courses.scss */
+.container-day .blank {
+  display: none;
+}
+
+/* line 4, assets/stylesheets/sass/_courses.scss */
+.container-day {
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+/* line 8, assets/stylesheets/sass/_courses.scss */
+.container-day .day {
+  -webkit-transition: -webkit-transform .2s ease, opacity .2s ease-in;
+  transition: transform .2s ease, opacity .2s ease-in;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+/* item div/divisor */
+/* line 16, assets/stylesheets/sass/_courses.scss */
+.container-day .day div {
+  float: left;
+  margin: 0 30px 10px 0;
+  display: table;
+}
+
+/* line 21, assets/stylesheets/sass/_courses.scss */
+.container-day .day.hide {
+  -webkit-transform: translate(40px, 0);
+  transform: translate(40px, 0);
+  opacity: 0;
+}
+
+/* wrap-buttons - botoes add/remove */
+/* line 28, assets/stylesheets/sass/_courses.scss */
+.container-day .day .wrap-buttons {
+  margin-right: 0;
+}
+
+/* line 30, assets/stylesheets/sass/_courses.scss */
+.container-day .wrap-buttons .button-primary,
+.container-day .wrap-buttons .button-secondary {
+  float: left;
+  margin: 0 10px 5px 0;
+}
+
+/* label */
+/* timepicker, datetimepicker */
+/* line 38, assets/stylesheets/sass/_courses.scss */
+.container-day .day .timepicker, .container-day .day .datetimepicker {
+  text-align: center;
+}
+
+/* timepicker */
+/* line 40, assets/stylesheets/sass/_courses.scss */
+.container-day .day .timepicker {
+  width: 65px;
+}
+
+/* datetimepicker */
+/* line 42, assets/stylesheets/sass/_courses.scss */
+.container-day .day .datetimepicker {
+  width: 135px;
+}
+
+/* none */
+/* line 46, assets/stylesheets/sass/_courses.scss */
+#apiki-wp-metabox-awpl_access_time_metabox,
+#apiki-wp-metabox-awpl_workload_metabox {
+  display: none;
+}
+
+/* line 49, assets/stylesheets/sass/_courses.scss */
+#side-sortables .day div, #side-sortables .day .datetimepicker,
+#side-sortables .day .timepicker {
+  width: 99%;
+  margin-bottom: 10px;
+}
+
+/* line 52, assets/stylesheets/sass/_courses.scss */
+#side-sortables .container-day .wrap-buttons .button-primary,
+#side-sortables .container-day .wrap-buttons .button-secondary {
+  margin-right: 16px;
+}
+
+/* line 55, assets/stylesheets/sass/_courses.scss */
+#side-sortables .container-day .wrap-buttons .button-secondary {
+  margin-right: 0;
+}
+
+/* Screen media */
+@media (max-width: 1279px) {
+  /* line 60, assets/stylesheets/sass/_courses.scss */
+  .container-day .day .datetimepicker {
+    width: 165px;
+  }
+
+  /* line 61, assets/stylesheets/sass/_courses.scss */
+  .container-day .day .timepicker {
+    width: 100px;
+  }
+
+  /* line 63, assets/stylesheets/sass/_courses.scss */
+  .container-day .day label {
+    display: block;
+  }
+
+  /* line 64, assets/stylesheets/sass/_courses.scss */
+  .container-day .day .wrap-buttons {
+    margin-top: 17px;
+  }
+}
+@media (max-width: 1132px) {
+  /* line 67, assets/stylesheets/sass/_courses.scss */
+  .container-day .day .datetimepicker {
+    width: 135px;
+  }
+
+  /* line 68, assets/stylesheets/sass/_courses.scss */
+  .container-day .day div {
+    margin-right: 13px;
+  }
+}
+@media (max-width: 1066px) {
+  /* line 70, assets/stylesheets/sass/_courses.scss */
+  .container-day .day .timepicker {
+    width: 80px;
+  }
+}
+@media (max-width: 1045px) {
+  /* line 71, assets/stylesheets/sass/_courses.scss */
+  .container-day .day .datetimepicker {
+    width: 132px;
+  }
+}
+@media (max-width: 1031px) {
+  /* line 73, assets/stylesheets/sass/_courses.scss */
+  .container-day .day .datetimepicker {
+    width: 180px;
+  }
+
+  /* line 74, assets/stylesheets/sass/_courses.scss */
+  .container-day .day .timepicker {
+    width: 110px;
+  }
+
+  /* line 75, assets/stylesheets/sass/_courses.scss */
+  .container-day .day .wrap-buttons {
+    margin: 0;
+  }
+}
+@media (max-width: 846px) {
+  /* line 78, assets/stylesheets/sass/_courses.scss */
+  .container-day .day div {
+    margin-bottom: -10px;
+  }
+
+  /* line 79, assets/stylesheets/sass/_courses.scss */
+  .container-day .day .wrap-buttons {
+    margin: 18px 0 0 0;
+  }
+}
+@media (max-width: 640px) {
+  /* line 82, assets/stylesheets/sass/_courses.scss */
+  .container-day .day .timepicker {
+    width: 132px;
+  }
+
+  /* line 83, assets/stylesheets/sass/_courses.scss */
+  .container-day .day .datetimepicker {
+    width: 210px;
+  }
+}
+@media (max-width: 782px) {
+  /* line 86, assets/stylesheets/sass/_courses.scss */
+  .container-day .wrap-buttons input[type="button"] {
+    height: 37px;
+  }
+}
+@media (max-width: 439px) {
+  /* line 89, assets/stylesheets/sass/_courses.scss */
+  .container-day .day .datetimepicker {
+    width: 180px;
+  }
+
+  /* line 90, assets/stylesheets/sass/_courses.scss */
+  .container-day .day .timepicker {
+    width: 110px;
+  }
+}
+@media (max-width: 469px) {
+  /* line 93, assets/stylesheets/sass/_courses.scss */
+  .container-day .day div {
+    margin-bottom: 5px;
+    width: 100%;
+  }
+
+  /* line 94, assets/stylesheets/sass/_courses.scss */
+  .container-day .day div input[type="text"] {
+    width: 99%;
+  }
+
+  /* line 95, assets/stylesheets/sass/_courses.scss */
+  .ui-datepicker {
+    width: 88%;
+  }
+}
+/* line 2, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-wrap {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.025);
+  overflow: hidden;
+}
+
+/* line 10, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-content {
+  padding: 20px;
+  overflow: auto;
+  position: relative;
+  z-index: 5;
+}
+
+/* line 17, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-header {
+  float: left;
+  margin: 1em 0;
+  width: 17%;
+  position: relative;
+  z-index: 4;
+}
+/* line 24, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-header .active {
+  border-left: 2px solid #426fb7;
+  background: #f6fbfd;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02), 0 1px 0 rgba(0, 0, 0, 0.02);
+  margin-right: -1px;
+}
+/* line 30, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-header .active a {
+  border-color: #e1e1e1;
+}
+/* line 35, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-header li {
+  list-style-type: none;
+  border-style: solid;
+  border-width: 0 0 0 2px;
+  border-color: transparent;
+}
+/* line 42, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-header a {
+  display: block;
+  padding: 5px 5px 5px 12px;
+  line-height: 18px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-right: 0;
+  border-left: 0;
+  color: #333;
+}
+
+/* line 54, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-bg {
+  background: #f6fbfd;
+  z-index: 3;
+  left: 17%;
+  right: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid #e1e1e1;
+}
+
+/* line 67, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-wrap .hide {
+  display: none;
+}
+/* line 71, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-wrap .form-table {
+  display: table !important;
+}
+/* line 75, assets/stylesheets/sass/_tabs.scss */
+.contextual-tabs-wrap h3 {
+  display: block !important;
+}
+
+/* line 1, assets/stylesheets/sass/_profile.scss */
+.ws-avatar-profile {
+  min-width: 150px;
+  min-height: 150px;
+  height: auto;
+  background: transparent;
+  padding-top: 5px;
+  border: 2px dashed #B3B3B3;
+  opacity: .7;
+  cursor: pointer;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+/* line 14, assets/stylesheets/sass/_profile.scss */
+.ws-avatar-profile.created-image, .ws-avatar-profile:hover {
+  opacity: 1;
+}
+/* line 18, assets/stylesheets/sass/_profile.scss */
+.ws-avatar-profile img {
+  max-width: 150px;
+}
+/* line 24, assets/stylesheets/sass/_profile.scss */
+.ws-avatar-profile.created-image .description,
+.ws-avatar-profile.created-image .dashicons {
+  display: none;
+}
+/* line 29, assets/stylesheets/sass/_profile.scss */
+.ws-avatar-profile .dashicons {
+  font-size: 7em;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* line 39, assets/stylesheets/sass/_profile.scss */
+#your-profile h3,
+#your-profile .form-table {
+  display: none;
+}

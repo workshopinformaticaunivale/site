@@ -16,7 +16,7 @@ class WS_Manager
 	 *
 	 * @since 1.0
 	 */
-	const PLUGIN_SLUG = 'ws-plugin-template';
+	const PLUGIN_SLUG = 'ws-manager';
 
 	/**
 	 * Initialize the plugin by setting localization, filters, and administration functions.
@@ -29,8 +29,12 @@ class WS_Manager
 		add_action( 'admin_enqueue_scripts', array( &$this, 'scripts_admin' ) );
 		add_action( 'admin_enqueue_scripts', array( &$this, 'styles_admin' ) );
 
+		//remove scheme color
+		remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
+
 		WS_Images_Library::get_instance();
 		WS_Metas_Library::get_instance();
+		WS_Manager_Dashboard_Controller::get_instance();
 		//WS_Manager_Widget_Controller::get_instance();
 		//WS_Manager_Featured_Controller::get_instance();
 	}
@@ -62,12 +66,12 @@ class WS_Manager
 
 	public function styles_admin()
 	{
-		// wp_enqueue_style(
-		// 	self::PLUGIN_SLUG . '-admin-style',
-		// 	plugins_url( 'assets/css/admin.css', __FILE__ ),
-		// 	array(),
-		// 	filemtime( plugin_dir_path(  __FILE__  ) . 'assets/css/admin.css' )
-		// );
+		wp_enqueue_style(
+			self::PLUGIN_SLUG . '-admin-style',
+			plugins_url( 'style.css', __FILE__ ),
+			array(),
+			filemtime( plugin_dir_path(  __FILE__  ) . 'style.css' )
+		);
 	}
 
 	/**
@@ -86,9 +90,13 @@ class WS_Manager
 		return self::$instance;
 	}
 
+	public static function get_url_assets( $path = '' )
+	{
+		return plugins_url( 'assets/' . $path, __FILE__ );
+	}
+
 	public static function activate()
 	{
 		//is code active plugin
-		WS_Manager_Featured_Controller::add_post_type_capabilities();
 	}
 }

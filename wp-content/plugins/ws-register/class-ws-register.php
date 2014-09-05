@@ -16,7 +16,7 @@ class WS_Register
 	 *
 	 * @since 1.0
 	 */
-	const PLUGIN_SLUG = 'ws-plugin-template';
+	const PLUGIN_SLUG = 'ws-register';
 
 	/**
 	 * Initialize the plugin by setting localization, filters, and administration functions.
@@ -33,6 +33,7 @@ class WS_Register
 		WS_Metas_Library::get_instance();
 		//WS_Register_Widget_Controller::get_instance();
 		//WS_Register_Featured_Controller::get_instance();
+		WS_Register_Students_Controller::get_instance();
 		WS_Register_Courses_Controller::get_instance();
 	}
 
@@ -44,6 +45,8 @@ class WS_Register
 	 */
 	public function scripts_admin()
 	{
+		$this->_load_wp_media();
+
 		wp_enqueue_script(
 			self::PLUGIN_SLUG . '-admin-script',
 			plugins_url( 'assets/javascripts/admin.script.min.js', __FILE__ ),
@@ -64,26 +67,12 @@ class WS_Register
 	public function styles_admin()
 	{
 		wp_enqueue_style(
-			'admin-jquery-ui-' . self::PLUGIN_SLUG,
-			plugins_url( '/assets/stylesheets/jquery.ui.datetimepicker.css', __FILE__ ),
-			array(),
-			'1.10.3'
-		);
-
-		wp_enqueue_style(
-			'admin-chosen-' . self::PLUGIN_SLUG,
-			plugins_url( '/assets/stylesheets/chosen/chosen.css', __FILE__ ),
-			array(),
-			'1.0.0'
-		);
-
-		wp_enqueue_style(
 			self::PLUGIN_SLUG . '-admin-style',
-			plugins_url( 'assets/stylesheets/admin.css', __FILE__ ),
+			plugins_url( 'style.css', __FILE__ ),
 			array(),
-			filemtime( plugin_dir_path(  __FILE__  ) . 'assets/stylesheets/admin.css' )
+			filemtime( plugin_dir_path(  __FILE__  ) . 'style.css' )
 		);
-	}
+	}	
 
 	/**
 	 * Return an instance of this class.
@@ -105,6 +94,24 @@ class WS_Register
 	{
 		//is code active plugin
 		//WS_Register_Featured_Controller::add_post_type_capabilities();
+		WS_Register_Students_Controller::create_role();
 		WS_Register_Courses_Controller::add_post_type_capabilities();
+	}
+
+	/**
+	 * Loads wp.media class on pages that do not.
+	 *
+	 * @since 1.0
+	 * @return void
+	 */
+	private function _load_wp_media()
+	{
+		global $pagenow;
+
+		if ( did_action( 'wp_enqueue_media' ) )
+			return;
+
+		if ( in_array( $pagenow, array( 'user-edit.php', 'profile.php' ) ) )
+			wp_enqueue_media();
 	}
 }

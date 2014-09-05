@@ -23,7 +23,14 @@ Module('WS.ControlTabsUsers', function(ControlTabsUsers) {
 	};
 
 	ControlTabsUsers.fn._hideBoxIsNotEnterprisesUser = function() {
-		
+		if ( this.isColumnStudent() ) {
+			this.form.find( 'table:has([name=email]:not([data-not-remove]))' ).remove();
+			this.form.find( 'tr:has([name=display_name]:not([data-not-remove]))' ).remove();
+		}
+	};
+
+	ControlTabsUsers.fn.isColumnStudent = function() {
+		return ( this.form.find( '[data-column=student]' ).length );
 	};
 
 	ControlTabsUsers.fn.getHashIndex = function() {
