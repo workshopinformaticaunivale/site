@@ -197,6 +197,18 @@ class WS_Register_Courses_Controller
 
 	public function define_metaboxes()
 	{
+		
+		if ( current_user_can( 'administrator' ) ):
+			add_meta_box(
+				'ws-course-metabox-course-data',
+				'Dados do minicurso',
+				array( 'WS_Register_Courses_View', 'render_course_data_control' ),
+				WS_Register_Course::POST_TYPE,
+				'normal',
+				'high'
+			);
+		endif;
+
 		add_meta_box(
 			'ws-course-metabox-speaker-requirements',
 			'Requisitos do curso',
