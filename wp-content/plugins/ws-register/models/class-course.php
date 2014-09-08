@@ -185,7 +185,7 @@ class WS_Register_Course
 			return $dates_array;
 
 		for ( $index = 1; $index <= $datetime_count; $index++ ) :
-			$single_date = $this->get_datetime_start( $index, 'd/m/Y H:i' ) . ' a ' . $this->get_datetime_end( $index, 'H:i' );
+			$single_date = $this->get_datetime_start( $index, 'd/m/Y H:i' ) . ' às ' . $this->get_datetime_end( $index, 'H:i' );
 			array_push( $dates_array, $single_date );
 		endfor;
 

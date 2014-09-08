@@ -46,8 +46,10 @@ class WS_Register_Courses_Controller
 		add_action( 'init', array( &$this, 'register_taxonomies' ) );
 		add_action( 'add_meta_boxes', array( &$this, 'define_metaboxes' ) );
 		add_action( 'save_post_' . WS_Register_Course::POST_TYPE, array( &$this, 'save_date' ), 11, 2 );
+		add_action( 'manage_' . WS_Register_Course::POST_TYPE . '_posts_custom_column', array( &$this, 'set_admin_column_date_content' ), 10, 2 );
 		add_filter( 'ws_metas_' . WS_Register_Course::POST_TYPE . '_is_valid_save_post', array( &$this, 'nonce_valid_save_post' ) );
 		add_filter( 'post_updated_messages', array( &$this, 'set_post_updated_messages' ) );
+		add_filter( 'manage_' . WS_Register_Course::POST_TYPE . '_posts_columns', array( &$this, 'set_admin_column_date_head' ) );
 	}
 
 	public function get_courses( $args = array() )
@@ -148,6 +150,49 @@ class WS_Register_Courses_Controller
 		);
 
 		return $messages;
+	}
+
+	/**
+	 * Sets the column date head in admin
+	 *
+	 * @since 1.0
+	 * @param array $default_heads
+	 * @return array Heads
+	 */
+	public function set_admin_column_date_head( $heads )
+	{
+		unset( $heads['author'] );
+		unset( $heads['date'] );
+		
+		$heads[ 'date-class' ] = 'Data e Horário';
+		$heads[ 'author' ]     = 'Autor';
+		$heads[ 'date' ]       = 'Data';
+
+		return $heads;
+	}
+
+	/**
+	 * Sets the column date content in admin
+	 *
+	 * @since 1.0
+	 * @param string $column_name
+	 * @param int $post_id
+	 * @return void
+	 */
+	public function set_admin_column_date_content( $column_name, $post_id )
+	{
+		if ( $column_name != 'date-class' )
+			return;
+
+		$model = new WS_Register_Course( $post_id );
+		$dates = $model->get_dates();
+
+		if ( ! $dates ) :
+			echo '__';
+			return;
+		endif;
+
+		echo implode( '<br>', $dates );
 	}
 
 	public function define_metaboxes()
