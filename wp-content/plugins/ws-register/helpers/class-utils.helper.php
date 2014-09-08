@@ -232,13 +232,4 @@ class WS_Utils_Helper
 			$current_role->add_cap( $cap );
 		}
 	}
-
-	public static function get_screen_mode()
-	{		
-		if ( isset( $_GET['action'] ) && ! empty( $_GET['action'] ) ) {
-			return $_GET['action'];
-		}
-		
-		return false;
-	}
 }

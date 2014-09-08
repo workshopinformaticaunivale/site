@@ -65,30 +65,31 @@ class WS_Register_Courses_Controller
 
 	public function register_post_type()
 	{
-		register_post_type(
-			WS_Register_Course::POST_TYPE,
-			array(
-				'labels' => array(
-					'name'               => 'Minicursos',
-					'singular_name'      => 'Minicurso',
-					'all_items'          => 'Todos os minicursos',
-					'add_new'            => 'Adicionar novo',
-					'add_new_item'       => 'Adicionar novo minicurso',
-					'edit_item'          => 'Editar minicurso',
-					'new_item'           => 'Novo minicurso',
-					'view_item'          => 'Visualizar minicurso',
-					'search_items'       => 'Pesquisar minicursos',
-					'not_found'          => 'Nenhum minicurso encontrado',
-					'not_found_in_trash' => 'Nenhum minicurso encontrado na lixeira',
-				),
-				'public'        	=> false,
-				'show_ui'			=> true,
-				'menu_position' 	=> 5,
-				'supports'      	=> array( 'title', 'editor', 'author' ),
-				'menu_icon'			=> 'dashicons-welcome-learn-more',
-				'capability_type'   => WS_Register_Course::POST_TYPE,
-			)
+		$supports = $this->_get_supports_by_current_page();
+		
+		$args = array(
+			'labels' => array(
+				'name'               => 'Minicursos',
+				'singular_name'      => 'Minicurso',
+				'all_items'          => 'Todos os minicursos',
+				'add_new'            => 'Adicionar novo',
+				'add_new_item'       => 'Adicionar novo minicurso',
+				'edit_item'          => 'Editar minicurso',
+				'new_item'           => 'Novo minicurso',
+				'view_item'          => 'Visualizar minicurso',
+				'search_items'       => 'Pesquisar minicursos',
+				'not_found'          => 'Nenhum minicurso encontrado',
+				'not_found_in_trash' => 'Nenhum minicurso encontrado na lixeira',
+			),
+			'public'        	=> false,
+			'show_ui'			=> true,
+			'menu_position' 	=> 5,
+			'supports'      	=> $supports,
+			'menu_icon'			=> 'dashicons-welcome-learn-more',
+			'capability_type'   => WS_Register_Course::POST_TYPE,
 		);
+
+		register_post_type( WS_Register_Course::POST_TYPE, $args );
 	}
 
 	/**
@@ -314,6 +315,8 @@ class WS_Register_Courses_Controller
 	 */
 	private function _remove_metaboxes()
 	{
+		global $post;
+
 		remove_meta_box( WS_Register_Course::TAXONOMY_LABORATORY .'div', WS_Register_Course::POST_TYPE, 'side' );
 
 		if ( current_user_can( 'publish_ws-courses' ) )
@@ -321,6 +324,9 @@ class WS_Register_Courses_Controller
 
 		remove_meta_box( 'ws-course-metabox-date', WS_Register_Course::POST_TYPE, 'normal' );
 		remove_meta_box( 'ws-course-metabox-laboratory', WS_Register_Course::POST_TYPE, 'side' );
+
+		if ( $post->post_status === 'publish' )
+			remove_meta_box( 'submitdiv', WS_Register_Course::POST_TYPE, 'side' );
 	}
 
 	/**
@@ -442,5 +448,22 @@ class WS_Register_Courses_Controller
 			return substr( $date_start, 0, 10 ) . ' ' . $date_end;
 
 		return str_replace( substr( $date_end, 0, 10 ), substr( $date_start, 0, 10 ), $date_end );
+	}
+
+	private function _get_supports_by_current_page()
+	{
+		if (  $this->_get_screen_mode() === 'edit' && current_user_can( 'administrator' ) )
+			return array( 'author' );
+
+		return array( 'title', 'editor', 'author' );
+	}
+
+	private function _get_screen_mode()
+	{		
+		if ( isset( $_GET['action'] ) && ! empty( $_GET['action'] ) ) {
+			return $_GET['action'];
+		}
+		
+		return false;
 	}
 }
