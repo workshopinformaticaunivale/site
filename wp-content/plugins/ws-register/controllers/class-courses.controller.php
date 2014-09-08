@@ -493,6 +493,9 @@ class WS_Register_Courses_Controller
 		if ( wp_is_post_revision( $post->ID ) )
 			return false;
 
+		if ( $post->post_status == 'publish' && ! current_user_can( 'publish_ws-courses' ) )
+			wp_die( 'Trapaceando né?! Você não tem permissão para executar essa ação.' );
+
 		return true;
 	}
 
