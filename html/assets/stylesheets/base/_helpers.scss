@@ -1,0 +1,43 @@
+%clearfix {
+	&:after {
+		clear: both;
+		content: '';
+		display: block;
+		font-size: 0;
+		height: 0;
+		visibility: hidden;
+	}
+}
+
+%ellipsis {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+%image_replacement {
+	text-indent: 101%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+%font_icons {
+	cursor: default;
+	font-family: $fontIcon;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	line-height: 1;
+	speak: none;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;	
+}
+
+%section_home {
+	margin-top: 30px;
+
+	.title-section {
+		margin-bottom: 30px;
+	}
+}

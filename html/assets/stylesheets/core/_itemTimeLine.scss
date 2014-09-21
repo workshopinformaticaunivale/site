@@ -1,0 +1,49 @@
+.item-time-line {
+	@extend %clearfix;
+	$info: 780px;
+
+	.date {
+		background: $colorPri;
+		border-radius: 100%;
+		color: #fff;
+		display: block;
+		font-weight: bold;
+		float: left;
+		height: 60px;
+		line-height: 60px;
+		margin-right: perc(50px,$container);
+		text-align: center;
+		width: 60px;
+	}
+
+	.course {
+		border-right: 1px solid $colorDet;
+		color: $colorPri;
+		margin-right: perc(20px,$info);
+		width: perc(285px,$info);
+	}
+
+	p {
+		padding-left: perc(20px,$info);
+		width: perc(470px,$info);
+	}
+
+	.info {
+		height: 60px;
+		float: left;
+		width: perc($info,$container);
+	}
+
+
+	.course,
+	p {
+		display: table-cell;
+		vertical-align: middle;
+		height: 60px;
+	}
+
+	.btn-sec {
+		float: right;
+		margin-top: 15px;
+	}
+}

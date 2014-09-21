@@ -1,0 +1,109 @@
+.header {
+	background: #28445d;
+	min-height: 180px;
+	padding: 40px 0;
+
+	.container {
+		position: relative;
+	}
+
+	.branding,
+	.branding img {
+		float: left;
+	}
+
+	.info {
+		border-left: 1px solid rgba($colorDefault,.1);
+		color: $colorDefault;
+		display: inline-block;
+		margin-left: 30px;
+		min-height: 100px;
+		padding: 20px 0 0 30px;
+		overflow: hidden;
+
+		strong {
+			font-size: em(20px);
+			opacity: .5;
+		}
+
+		.date {
+			margin-top: 10px;
+			font-size: em($fontXLarge);
+		}
+	}
+}
+
+.header .box-login {
+	position: absolute;
+	right: 0;
+	margin-top: -15px;
+	top: 50%;
+
+	.login {
+		@include transition( color .2s );
+		background: none;
+		border: none;
+		color: rgba($colorDefault, .5);
+		cursor: pointer;
+		margin-right: 20px;
+		text-transform: uppercase;
+
+		&:hover {
+			color: $colorDefault;
+		}
+	}
+}
+
+.form-login {
+	background: $colorDefault;
+	box-shadow: 0 0 10px 0 rgba( #000, .2 );
+	border-radius: 5px;
+	display: none;
+	right: 0;
+	margin-top: 20px;
+	padding: 20px;
+	position: absolute;
+	top: 100%;
+	z-index: 10;
+
+	&:before {
+		content: '';
+		border-color: transparent transparent $colorDefault transparent;
+		border-style: solid;
+		border-width: 10px;
+		bottom: 100%;
+		left: 28px;
+		position: absolute;
+	}	
+
+	ul {
+		list-style: none;
+	}
+
+	li {
+		margin-bottom: 8px;
+
+		&:last-child {
+			margin-bottom: 0;
+			text-align: right;
+		}
+	}
+
+	label {
+		display: inline-block;
+		margin-bottom: 3px;
+	}
+
+	input {
+		border: 1px solid $colorDet;
+		height: 25px;
+	}
+
+	.btn-sec {
+		border: none;
+	}
+
+	.active-form & {
+		display: block;
+	}
+}

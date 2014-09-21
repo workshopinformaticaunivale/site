@@ -1,0 +1,24 @@
+.time-line 		{ @extend %section_home; }
+.list-time-line	{ @extend %clearfix; }
+
+
+.time-line .box-day {
+	border-top: 1px solid $colorDet;
+	padding-top: 10px;
+	margin-top: 30px;
+
+	&:first-child { margin-top: 0; }
+ 
+	.day {
+		display: inline-block;
+		font-weight: bold;
+		margin-bottom: 15px;
+		text-transform: uppercase;
+	}
+}
+
+.list-time-line .item-time-line {
+	margin-top: 20px;
+
+	&:first-child {	margin-top: 0; }
+}

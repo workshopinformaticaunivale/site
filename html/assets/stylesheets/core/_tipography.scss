@@ -1,0 +1,15 @@
+.title-section {
+	color: $colorPri;
+	font: normal em($fontXLarge)/1 $fontPri;
+}
+
+.title-content {
+	color: $colorPri;
+	font: em($fontLarge)/1 $fontSec;
+}
+
+.title-content a,
+.title-section a {
+	color: inherit;
+	text-decoration: none;
+}
