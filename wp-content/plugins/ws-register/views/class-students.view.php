@@ -37,7 +37,7 @@ class WS_Register_Students_View
 					</tr>
 					<tr>
 						<th scope="row">
-							<label for="ws-code-enrollment">Nº Matricula</label>
+							<label for="ws-code-enrollment">Nº Matrícula</label>
 						</th>
 						<td>
 							<input type="number" name="<?php echo esc_attr( WS_Register_Student::USER_META_CODE_ENROLLMENT ); ?>"
@@ -88,6 +88,23 @@ class WS_Register_Students_View
 					</tr>
 				</tbody>
 			</table>
+		<?php
+	}
+
+	public static function render_filter_code_enrollment()
+	{
+		$current_code = WS_Utils_Helper::get_method_params( WS_Register_Student::USER_META_CODE_ENROLLMENT, false );
+
+		?>
+		<div class="ws-filter-users">
+			<input type="number" name="<?php echo esc_attr( WS_Register_Student::USER_META_CODE_ENROLLMENT ); ?>"
+				   id="ws-code-enrollment" value="<?php echo esc_attr( $current_code ); ?>"
+				   class="medium-text">			
+
+			<input type="hidden" value="<?php echo esc_attr( WS_Register_Student::ROLE ); ?>" name="role">
+
+			<?php submit_button( 'Pesquisar Matrícula', 'button', '', false ); ?>
+		</div>
 		<?php
 	}
 }

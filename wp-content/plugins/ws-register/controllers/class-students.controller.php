@@ -30,6 +30,11 @@ class WS_Register_Students_Controller
 		add_action( 'edit_user_profile_students', array( &$this, 'edit_page_profile' ) );
 		add_action( 'save_user_profile_students', array( &$this, 'save_page_profile' ) );
 		add_action( 'after_setup_theme', array( &$this, 'define_image_sizes' ) );
+		add_filter( 'manage_users_columns', array( &$this, 'add_custom_columns' ) );
+		add_filter( 'ws_manage_users_column_' . WS_Register_Student::USER_META_CODE_ENROLLMENT, array( &$this, 'users_column_code_enrollment' ) );
+		add_action( 'restrict_manage_users', array( &$this, 'add_filter_code_enrollment' ) );
+		add_action( 'ws_admin_head_page_users', array( &$this, 'addicional_page_css' ) );
+		add_action( 'pre_get_users', array( &$this, 'custom_query_code_enrollment' ) );
 	}
 	
 	public function save_page_profile( $user_id )
@@ -45,6 +50,55 @@ class WS_Register_Students_Controller
 
 		if ( $avatar )
 			update_user_meta( $user_id, WS_Register_Student::USER_META_AVATAR, $avatar );
+	}
+
+	public function add_custom_columns( $columns )
+	{
+		$columns[ WS_Register_Student::USER_META_CODE_ENROLLMENT ] = 'Nº Matrícula';
+
+		return $columns;
+	}	
+
+	public function users_column_code_enrollment( $user_id )
+	{
+		$model = new WS_Register_Student( $user_id );
+
+		return ( (bool)$model->code_enrollment ) ? $model->code_enrollment : '__';
+	}
+
+	public function add_filter_code_enrollment()
+	{
+		if ( $this->_is_filter_role_valid() )
+			WS_Register_Students_View::render_filter_code_enrollment();
+	}
+
+	public function addicional_page_css()
+	{
+		if ( ! $this->_is_filter_role_valid() )
+			return;
+
+		?>
+		<style>
+			#new_role,
+			#changeit {
+				display: none;
+			}
+		</style>
+		<?php
+	}
+
+	public function custom_query_code_enrollment( $query )
+	{
+		if ( ! is_admin() || ! $this->_is_filter_role_valid() )
+			return;		
+
+		$code_enrollment = WS_Utils_Helper::get_method_params( WS_Register_Student::USER_META_CODE_ENROLLMENT, false, 'intval' );
+		
+		if ( ! $code_enrollment )
+			return;
+
+		$query->query_vars['meta_key']   = WS_Register_Student::USER_META_CODE_ENROLLMENT;
+		$query->query_vars['meta_value'] = $code_enrollment;
 	}
 
 	public function proxy_page_profile( $user )
@@ -114,5 +168,12 @@ class WS_Register_Students_Controller
 		}
 
 		return self::$instance;
-	}	
+	}
+
+	private function _is_filter_role_valid()
+	{
+		$role_filter = WS_Utils_Helper::get_method_params( 'role' );
+
+		return ( $role_filter == WS_Register_Student::ROLE );
+	}
 }

@@ -1359,6 +1359,11 @@
 }
 
 /* line 43, assets/stylesheets/sass/_profile.scss */
+.ws-filter-users {
+  display: inline-block;
+}
+
+/* line 47, assets/stylesheets/sass/_profile.scss */
 #your-profile h3,
 #your-profile .form-table {
   display: none;
