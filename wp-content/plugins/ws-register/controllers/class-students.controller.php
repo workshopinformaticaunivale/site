@@ -34,13 +34,13 @@ class WS_Register_Students_Controller
 	
 	public function save_page_profile( $user_id )
 	{
-		$code_enrollment = WS_Utils_Helper::post_method_params( WS_Register_Student::USER_META_CODE_ENROLLMENT, false );
-		$period          = WS_Utils_Helper::post_method_params( WS_Register_Student::USER_META_PERIOD, false );
+		$code_enrollment = WS_Utils_Helper::post_method_params( WS_Register_Student::USER_META_CODE_ENROLLMENT, false, 'intval' );
+		$period          = WS_Utils_Helper::post_method_params( WS_Register_Student::USER_META_PERIOD, false, 'intval' );
 		$course          = WS_Utils_Helper::post_method_params( WS_Register_Student::USER_META_COURSE, false );
 		$avatar          = WS_Utils_Helper::post_method_params( WS_Register_Student::USER_META_AVATAR, false );		
 		
-		update_user_meta( $user_id, WS_Register_Student::USER_META_CODE_ENROLLMENT, intval( $code_enrollment ) );
-		update_user_meta( $user_id, WS_Register_Student::USER_META_PERIOD, intval( $period ) );
+		update_user_meta( $user_id, WS_Register_Student::USER_META_CODE_ENROLLMENT, $code_enrollment );
+		update_user_meta( $user_id, WS_Register_Student::USER_META_PERIOD, $period );
 		update_user_meta( $user_id, WS_Register_Student::USER_META_COURSE, $course );
 
 		if ( $avatar )

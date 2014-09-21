@@ -41,8 +41,10 @@ class WS_Register_Students_View
 						</th>
 						<td>
 							<input type="number" name="<?php echo esc_attr( WS_Register_Student::USER_META_CODE_ENROLLMENT ); ?>"
-								   id="ws-code-enrollment" value="<?php echo intval( $model->code_enrollment ); ?>"
+								   id="ws-code-enrollment" value="<?php echo esc_attr( $model->code_enrollment ); ?>"
 								   class="medium-text">
+							<br>
+							<span class="description ws-attention"><i class="dashicons dashicons-info"></i> Preencha o campo acima somente com números.</span>	   
 						</td>
 					</tr>
 					<tr>
@@ -61,8 +63,10 @@ class WS_Register_Students_View
 						</th>
 						<td>
 							<input type="number" name="<?php echo esc_attr( WS_Register_Student::USER_META_PERIOD ); ?>"
-								   id="ws-period" value="<?php echo intval( $model->period ); ?>"
+								   id="ws-period" value="<?php echo esc_attr( $model->period ); ?>"
 								   class="medium-text">
+							<br>
+							<span class="description ws-attention"><i class="dashicons dashicons-info"></i> Preencha o campo acima somente com números.</span>
 						</td>
 					</tr>
 					<tr>
