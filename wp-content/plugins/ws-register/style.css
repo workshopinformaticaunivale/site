@@ -17,7 +17,7 @@
   line-height: 40px;
 }
 
-/* line 18, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 17, assets/stylesheets/sass/_datetimepicker.scss */
 .ui-datepicker .ui-datepicker-prev,
 .ui-datepicker .ui-datepicker-next {
   position: absolute;
@@ -64,7 +64,7 @@
   margin: 1px 0;
 }
 
-/* line 55, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 54, assets/stylesheets/sass/_datetimepicker.scss */
 .ui-datepicker select.ui-datepicker-month,
 .ui-datepicker select.ui-datepicker-year {
   width: 49%;
@@ -182,7 +182,7 @@
   line-height: 105%;
 }
 
-/* line 134, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 132, assets/stylesheets/sass/_datetimepicker.scss */
 .ui_tpicker_hour_label, .ui_tpicker_minute_label,
 .ui_tpicker_second_label, .ui_tpicker_millisec_label,
 .ui_tpicker_timezone_label, .ui_tpicker_timezone_label {
@@ -193,7 +193,7 @@
   margin-bottom: 15px;
 }
 
-/* line 143, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 142, assets/stylesheets/sass/_datetimepicker.scss */
 .ui_tpicker_hour, .ui_tpicker_minute, .ui_tpicker_second,
 .ui_tpicker_millisec, .ui_tpicker_timezone {
   float: right;
@@ -305,7 +305,7 @@
   width: 25%;
 }
 
-/* line 219, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 218, assets/stylesheets/sass/_datetimepicker.scss */
 .ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header,
 .ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
   border-left-width: 0;
@@ -363,13 +363,13 @@
   float: left;
 }
 
-/* line 258, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 257, assets/stylesheets/sass/_datetimepicker.scss */
 .ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current,
 .ui-datepicker-rtl .ui-datepicker-group {
   float: right;
 }
 
-/* line 262, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 261, assets/stylesheets/sass/_datetimepicker.scss */
 .ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header,
 .ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
   border-right-width: 0;
@@ -414,7 +414,7 @@
 }
 
 /* For IE8 - See #6727 */
-/* line 301, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 300, assets/stylesheets/sass/_datetimepicker.scss */
 .ui-slider.ui-state-disabled .ui-slider-handle,
 .ui-slider.ui-state-disabled .ui-slider-range {
   filter: inherit;
@@ -528,11 +528,11 @@
   border: 1px solid #aaa;
   border-radius: 5px;
   background-color: #fff;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, white), color-stop(50%, #f6f6f6), color-stop(52%, #eeeeee), color-stop(100%, #f4f4f4));
-  background: -webkit-linear-gradient(top, white 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
-  background: -moz-linear-gradient(top, white 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
-  background: -o-linear-gradient(top, white 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
-  background: linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #ffffff), color-stop(50%, #f6f6f6), color-stop(52%, #eeeeee), color-stop(100%, #f4f4f4));
+  background: -webkit-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+  background: -moz-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+  background: -o-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+  background: linear-gradient(to bottom, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
   background-clip: padding-box;
   box-shadow: 0 0 3px white inset, 0 1px 1px rgba(0, 0, 0, 0.1);
   color: #444;
@@ -621,10 +621,10 @@
   outline: 0;
   border: 1px solid #aaa;
   background: white url('assets/images/chosen-sprite.png') no-repeat 100% -20px;
-  background: url('assets/images/chosen-sprite.png') no-repeat 100% -20px, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(1%, #eeeeee), color-stop(15%, white));
-  background: url('assets/images/chosen-sprite.png') no-repeat 100% -20px, -webkit-linear-gradient(#eeeeee 1%, white 15%);
-  background: url('assets/images/chosen-sprite.png') no-repeat 100% -20px, -moz-linear-gradient(#eeeeee 1%, white 15%);
-  background: url('assets/images/chosen-sprite.png') no-repeat 100% -20px, -o-linear-gradient(#eeeeee 1%, white 15%);
+  background: url('assets/images/chosen-sprite.png') no-repeat 100% -20px, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(1%, #eeeeee), color-stop(15%, #ffffff));
+  background: url('assets/images/chosen-sprite.png') no-repeat 100% -20px, -webkit-linear-gradient(#eeeeee 1%, #ffffff 15%);
+  background: url('assets/images/chosen-sprite.png') no-repeat 100% -20px, -moz-linear-gradient(#eeeeee 1%, #ffffff 15%);
+  background: url('assets/images/chosen-sprite.png') no-repeat 100% -20px, -o-linear-gradient(#eeeeee 1%, #ffffff 15%);
   background: url('assets/images/chosen-sprite.png') no-repeat 100% -20px, linear-gradient(#eeeeee 1%, #ffffff 15%);
   font-size: 1em;
   font-family: sans-serif;
@@ -731,10 +731,10 @@
   height: 1%;
   border: 1px solid #aaa;
   background-color: #fff;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(1%, #eeeeee), color-stop(15%, white));
-  background-image: -webkit-linear-gradient(#eeeeee 1%, white 15%);
-  background-image: -moz-linear-gradient(#eeeeee 1%, white 15%);
-  background-image: -o-linear-gradient(#eeeeee 1%, white 15%);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(1%, #eeeeee), color-stop(15%, #ffffff));
+  background-image: -webkit-linear-gradient(#eeeeee 1%, #ffffff 15%);
+  background-image: -moz-linear-gradient(#eeeeee 1%, #ffffff 15%);
+  background-image: -o-linear-gradient(#eeeeee 1%, #ffffff 15%);
   background-image: linear-gradient(#eeeeee 1%, #ffffff 15%);
   cursor: text;
 }
@@ -819,7 +819,7 @@
   background-image: -webkit-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
   background-image: -moz-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
   background-image: -o-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-  background-image: linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: linear-gradient(to bottom, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
   color: #666;
 }
 
@@ -861,10 +861,10 @@
   border-bottom-right-radius: 0;
   -moz-border-radius-bottomleft: 0;
   border-bottom-left-radius: 0;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #eeeeee), color-stop(80%, white));
-  background-image: -webkit-linear-gradient(#eeeeee 20%, white 80%);
-  background-image: -moz-linear-gradient(#eeeeee 20%, white 80%);
-  background-image: -o-linear-gradient(#eeeeee 20%, white 80%);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #eeeeee), color-stop(80%, #ffffff));
+  background-image: -webkit-linear-gradient(#eeeeee 20%, #ffffff 80%);
+  background-image: -moz-linear-gradient(#eeeeee 20%, #ffffff 80%);
+  background-image: -o-linear-gradient(#eeeeee 20%, #ffffff 80%);
   background-image: linear-gradient(#eeeeee 20%, #ffffff 80%);
   box-shadow: 0 1px 0 #fff inset;
 }
@@ -968,7 +968,7 @@
   left: 4px;
 }
 
-/* line 384, assets/stylesheets/sass/_chosen.scss */
+/* line 383, assets/stylesheets/sass/_chosen.scss */
 .chosen-rtl.chosen-container-single-nosearch .chosen-search,
 .chosen-rtl .chosen-drop {
   left: 9999px;
@@ -995,10 +995,10 @@
 .chosen-rtl .chosen-search input[type="text"] {
   padding: 4px 5px 4px 20px;
   background: white url('assets/images/chosen-sprite.png') no-repeat -30px -20px;
-  background: url('assets/images/chosen-sprite.png') no-repeat -30px -20px, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(1%, #eeeeee), color-stop(15%, white));
-  background: url('assets/images/chosen-sprite.png') no-repeat -30px -20px, -webkit-linear-gradient(#eeeeee 1%, white 15%);
-  background: url('assets/images/chosen-sprite.png') no-repeat -30px -20px, -moz-linear-gradient(#eeeeee 1%, white 15%);
-  background: url('assets/images/chosen-sprite.png') no-repeat -30px -20px, -o-linear-gradient(#eeeeee 1%, white 15%);
+  background: url('assets/images/chosen-sprite.png') no-repeat -30px -20px, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(1%, #eeeeee), color-stop(15%, #ffffff));
+  background: url('assets/images/chosen-sprite.png') no-repeat -30px -20px, -webkit-linear-gradient(#eeeeee 1%, #ffffff 15%);
+  background: url('assets/images/chosen-sprite.png') no-repeat -30px -20px, -moz-linear-gradient(#eeeeee 1%, #ffffff 15%);
+  background: url('assets/images/chosen-sprite.png') no-repeat -30px -20px, -o-linear-gradient(#eeeeee 1%, #ffffff 15%);
   background: url('assets/images/chosen-sprite.png') no-repeat -30px -20px, linear-gradient(#eeeeee 1%, #ffffff 15%);
   direction: rtl;
 }
@@ -1016,7 +1016,7 @@
 /* @end */
 /* @group Retina compatibility */
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 144dpi) {
-  /* line 424, assets/stylesheets/sass/_chosen.scss */
+  /* line 418, assets/stylesheets/sass/_chosen.scss */
   .chosen-rtl .chosen-search input[type="text"],
   .chosen-container-single .chosen-single abbr,
   .chosen-container-single .chosen-single div b,
@@ -1070,7 +1070,7 @@
   margin-right: 0;
 }
 
-/* line 30, assets/stylesheets/sass/_courses.scss */
+/* line 29, assets/stylesheets/sass/_courses.scss */
 .container-day .wrap-buttons .button-primary,
 .container-day .wrap-buttons .button-secondary {
   float: left;
@@ -1097,20 +1097,20 @@
 }
 
 /* none */
-/* line 46, assets/stylesheets/sass/_courses.scss */
+/* line 45, assets/stylesheets/sass/_courses.scss */
 #apiki-wp-metabox-awpl_access_time_metabox,
 #apiki-wp-metabox-awpl_workload_metabox {
   display: none;
 }
 
-/* line 49, assets/stylesheets/sass/_courses.scss */
+/* line 48, assets/stylesheets/sass/_courses.scss */
 #side-sortables .day div, #side-sortables .day .datetimepicker,
 #side-sortables .day .timepicker {
   width: 99%;
   margin-bottom: 10px;
 }
 
-/* line 52, assets/stylesheets/sass/_courses.scss */
+/* line 51, assets/stylesheets/sass/_courses.scss */
 #side-sortables .container-day .wrap-buttons .button-primary,
 #side-sortables .container-day .wrap-buttons .button-secondary {
   margin-right: 16px;
@@ -1331,7 +1331,7 @@
   -webkit-transition: opacity 300ms ease-in-out;
   transition: opacity 300ms ease-in-out;
 }
-/* line 14, assets/stylesheets/sass/_profile.scss */
+/* line 13, assets/stylesheets/sass/_profile.scss */
 .ws-avatar-profile.created-image, .ws-avatar-profile:hover {
   opacity: 1;
 }
@@ -1339,7 +1339,7 @@
 .ws-avatar-profile img {
   max-width: 150px;
 }
-/* line 24, assets/stylesheets/sass/_profile.scss */
+/* line 23, assets/stylesheets/sass/_profile.scss */
 .ws-avatar-profile.created-image .description,
 .ws-avatar-profile.created-image .dashicons {
   display: none;
@@ -1352,7 +1352,13 @@
   height: auto;
 }
 
-/* line 39, assets/stylesheets/sass/_profile.scss */
+/* line 38, assets/stylesheets/sass/_profile.scss */
+.ws-attention {
+  margin-top: 5px;
+  display: block;
+}
+
+/* line 43, assets/stylesheets/sass/_profile.scss */
 #your-profile h3,
 #your-profile .form-table {
   display: none;
