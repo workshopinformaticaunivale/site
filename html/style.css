@@ -882,57 +882,59 @@ body {
 
 /* line 1, assets/stylesheets/modules/_contact.scss */
 .contact {
-  background: #073b4f;
+  background: #073b4f url('assets/images/bg-univale.png?1411376873') center bottom no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   color: #fff;
   margin-top: 50px;
   padding: 30px 0;
   text-align: center;
 }
-/* line 8, assets/stylesheets/modules/_contact.scss */
+/* line 10, assets/stylesheets/modules/_contact.scss */
 .contact .info {
   margin: 30px auto 0;
   width: 50%;
 }
-/* line 13, assets/stylesheets/modules/_contact.scss */
+/* line 15, assets/stylesheets/modules/_contact.scss */
 .contact .title-section {
   color: #fff;
 }
 
-/* line 18, assets/stylesheets/modules/_contact.scss */
+/* line 20, assets/stylesheets/modules/_contact.scss */
 .contact .box-contact {
   margin: 30px auto 0;
   text-align: left;
   width: 33.33333%;
 }
-/* line 24, assets/stylesheets/modules/_contact.scss */
+/* line 26, assets/stylesheets/modules/_contact.scss */
 .contact .box-contact label {
   display: none;
 }
-/* line 26, assets/stylesheets/modules/_contact.scss */
+/* line 28, assets/stylesheets/modules/_contact.scss */
 .contact .box-contact li {
   margin-bottom: 5px;
 }
-/* line 29, assets/stylesheets/modules/_contact.scss */
+/* line 31, assets/stylesheets/modules/_contact.scss */
 .contact .box-contact li:last-child {
   text-align: right;
 }
-/* line 32, assets/stylesheets/modules/_contact.scss */
+/* line 34, assets/stylesheets/modules/_contact.scss */
 .contact .box-contact .small {
   width: 25%;
 }
-/* line 33, assets/stylesheets/modules/_contact.scss */
+/* line 35, assets/stylesheets/modules/_contact.scss */
 .contact .box-contact .medium {
   width: 72.5%;
 }
-/* line 34, assets/stylesheets/modules/_contact.scss */
+/* line 36, assets/stylesheets/modules/_contact.scss */
 .contact .box-contact .left {
   margin-right: 2.5%;
 }
-/* line 35, assets/stylesheets/modules/_contact.scss */
+/* line 37, assets/stylesheets/modules/_contact.scss */
 .contact .box-contact .clear {
   clear: both;
 }
-/* line 37, assets/stylesheets/modules/_contact.scss */
+/* line 39, assets/stylesheets/modules/_contact.scss */
 .contact .box-contact .small,
 .contact .box-contact .medium {
   float: left;

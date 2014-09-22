@@ -1,5 +1,7 @@
 .contact {
-	background: $colorPri;
+	background: $colorPri image-url('bg-univale.png') center bottom no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
 	color: $colorDefault;
 	margin-top: 50px;
 	padding: 30px 0;
