@@ -35,6 +35,7 @@ class WS_Register_Students_Controller
 		add_action( 'restrict_manage_users', array( &$this, 'add_filter_code_enrollment' ) );
 		add_action( 'ws_admin_head_page_users', array( &$this, 'addicional_page_css' ) );
 		add_action( 'pre_get_users', array( &$this, 'custom_query_code_enrollment' ) );
+		add_filter( 'user_row_actions', array( &$this, 'custom_user_row_actions' ), 10 ,2 );
 	}
 	
 	public function save_page_profile( $user_id )
@@ -57,7 +58,7 @@ class WS_Register_Students_Controller
 		$columns[ WS_Register_Student::USER_META_CODE_ENROLLMENT ] = 'Nº Matrícula';
 
 		return $columns;
-	}	
+	}
 
 	public function users_column_code_enrollment( $user_id )
 	{
@@ -99,6 +100,17 @@ class WS_Register_Students_Controller
 
 		$query->query_vars['meta_key']   = WS_Register_Student::USER_META_CODE_ENROLLMENT;
 		$query->query_vars['meta_value'] = $code_enrollment;
+	}
+
+	public function custom_user_row_actions( $actions, $user )
+	{
+		$actions[ 'show_events' ] = sprintf(
+			'<a href="javascript:void(0);" data-component-events-manager-user data-attr-user="%s">%s</a>',
+			$user->ID,
+			'Eventos'
+		);
+
+		return $actions;
 	}
 
 	public function proxy_page_profile( $user )

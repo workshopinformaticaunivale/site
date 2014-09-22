@@ -240,4 +240,14 @@ class WS_Utils_Helper
 			$current_role->add_cap( $cap );
 		}
 	}
+
+	public static function transform_columns_in_where( $columns = array() )
+	{
+		$where = array();
+
+		foreach ( $columns as $key => $value )
+			$where[] = esc_sql( $key ) . ' = ' . esc_sql( $value );
+
+		return implode( ' AND ', $where );
+	}
 }
