@@ -625,6 +625,11 @@ body {
   float: left;
 }
 /* line 15, assets/stylesheets/layout/_header.scss */
+.header .branding img {
+  position: relative;
+  top: 12px;
+}
+/* line 20, assets/stylesheets/layout/_header.scss */
 .header .info {
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   color: #fff;
@@ -634,25 +639,25 @@ body {
   padding: 20px 0 0 30px;
   overflow: hidden;
 }
-/* line 24, assets/stylesheets/layout/_header.scss */
+/* line 29, assets/stylesheets/layout/_header.scss */
 .header .info strong {
   font-size: 1.42857em;
   opacity: .5;
 }
-/* line 29, assets/stylesheets/layout/_header.scss */
+/* line 34, assets/stylesheets/layout/_header.scss */
 .header .info .date {
   margin-top: 10px;
   font-size: 2.14286em;
 }
 
-/* line 36, assets/stylesheets/layout/_header.scss */
+/* line 41, assets/stylesheets/layout/_header.scss */
 .header .box-login {
   position: absolute;
   right: 0;
   margin-top: -15px;
   top: 50%;
 }
-/* line 42, assets/stylesheets/layout/_header.scss */
+/* line 47, assets/stylesheets/layout/_header.scss */
 .header .box-login .login {
   -moz-transition: color 0.2s;
   -o-transition: color 0.2s;
@@ -665,12 +670,12 @@ body {
   margin-right: 20px;
   text-transform: uppercase;
 }
-/* line 51, assets/stylesheets/layout/_header.scss */
+/* line 56, assets/stylesheets/layout/_header.scss */
 .header .box-login .login:hover {
   color: #fff;
 }
 
-/* line 57, assets/stylesheets/layout/_header.scss */
+/* line 62, assets/stylesheets/layout/_header.scss */
 .form-login {
   background: #fff;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
@@ -683,7 +688,7 @@ body {
   top: 100%;
   z-index: 10;
 }
-/* line 69, assets/stylesheets/layout/_header.scss */
+/* line 74, assets/stylesheets/layout/_header.scss */
 .form-login:before {
   content: '';
   border-color: transparent transparent #fff transparent;
@@ -693,34 +698,34 @@ body {
   left: 28px;
   position: absolute;
 }
-/* line 79, assets/stylesheets/layout/_header.scss */
+/* line 84, assets/stylesheets/layout/_header.scss */
 .form-login ul {
   list-style: none;
 }
-/* line 83, assets/stylesheets/layout/_header.scss */
+/* line 88, assets/stylesheets/layout/_header.scss */
 .form-login li {
   margin-bottom: 8px;
 }
-/* line 86, assets/stylesheets/layout/_header.scss */
+/* line 91, assets/stylesheets/layout/_header.scss */
 .form-login li:last-child {
   margin-bottom: 0;
   text-align: right;
 }
-/* line 92, assets/stylesheets/layout/_header.scss */
+/* line 97, assets/stylesheets/layout/_header.scss */
 .form-login label {
   display: inline-block;
   margin-bottom: 3px;
 }
-/* line 97, assets/stylesheets/layout/_header.scss */
+/* line 102, assets/stylesheets/layout/_header.scss */
 .form-login input {
   border: 1px solid #cecece;
   height: 25px;
 }
-/* line 102, assets/stylesheets/layout/_header.scss */
+/* line 107, assets/stylesheets/layout/_header.scss */
 .form-login .btn-sec {
   border: none;
 }
-/* line 106, assets/stylesheets/layout/_header.scss */
+/* line 111, assets/stylesheets/layout/_header.scss */
 .active-form .form-login {
   display: block;
 }

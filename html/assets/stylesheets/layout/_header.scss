@@ -12,6 +12,11 @@
 		float: left;
 	}
 
+	.branding img {
+		position: relative;
+		top: 12px;
+	}
+
 	.info {
 		border-left: 1px solid rgba($colorDefault,.1);
 		color: $colorDefault;
