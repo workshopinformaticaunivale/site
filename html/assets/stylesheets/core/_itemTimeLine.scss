@@ -2,6 +2,10 @@
 	@extend %clearfix;
 	$info: 780px;
 
+	&:nth-child(2) .date:before {
+		display: none;		
+	}
+
 	.date {
 		background: $colorPri;
 		border-radius: 100%;
@@ -12,8 +16,19 @@
 		height: 60px;
 		line-height: 60px;
 		margin-right: perc(50px,$container);
+		position: relative;
 		text-align: center;
 		width: 60px;
+
+		&:before {
+			border-left: 1px dotted $colorDet;
+			bottom: 100%;
+			content: '';
+			height: 20px;
+			left: 49%;
+			position: absolute;
+			width: 1px;
+		}
 	}
 
 	.course {

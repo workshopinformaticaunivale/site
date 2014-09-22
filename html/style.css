@@ -399,6 +399,10 @@ label {
 }
 
 /* line 5, assets/stylesheets/core/_itemTimeLine.scss */
+.item-time-line:nth-child(2) .date:before {
+  display: none;
+}
+/* line 9, assets/stylesheets/core/_itemTimeLine.scss */
 .item-time-line .date {
   background: #073b4f;
   border-radius: 100%;
@@ -409,35 +413,46 @@ label {
   height: 60px;
   line-height: 60px;
   margin-right: 4.16667%;
+  position: relative;
   text-align: center;
   width: 60px;
 }
-/* line 19, assets/stylesheets/core/_itemTimeLine.scss */
+/* line 23, assets/stylesheets/core/_itemTimeLine.scss */
+.item-time-line .date:before {
+  border-left: 1px dotted #cecece;
+  bottom: 100%;
+  content: '';
+  height: 20px;
+  left: 49%;
+  position: absolute;
+  width: 1px;
+}
+/* line 34, assets/stylesheets/core/_itemTimeLine.scss */
 .item-time-line .course {
   border-right: 1px solid #cecece;
   color: #073b4f;
   margin-right: 2.5641%;
   width: 36.53846%;
 }
-/* line 26, assets/stylesheets/core/_itemTimeLine.scss */
+/* line 41, assets/stylesheets/core/_itemTimeLine.scss */
 .item-time-line p {
   padding-left: 2.5641%;
   width: 60.25641%;
 }
-/* line 31, assets/stylesheets/core/_itemTimeLine.scss */
+/* line 46, assets/stylesheets/core/_itemTimeLine.scss */
 .item-time-line .info {
   height: 60px;
   float: left;
   width: 65%;
 }
-/* line 38, assets/stylesheets/core/_itemTimeLine.scss */
+/* line 53, assets/stylesheets/core/_itemTimeLine.scss */
 .item-time-line .course,
 .item-time-line p {
   display: table-cell;
   vertical-align: middle;
   height: 60px;
 }
-/* line 45, assets/stylesheets/core/_itemTimeLine.scss */
+/* line 60, assets/stylesheets/core/_itemTimeLine.scss */
 .item-time-line .btn-sec {
   float: right;
   margin-top: 15px;
