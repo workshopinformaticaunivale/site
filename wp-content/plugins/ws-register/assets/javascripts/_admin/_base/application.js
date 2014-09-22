@@ -25,6 +25,14 @@ Module('WS.Application', function(Application) {
 		}
 	};
 
+	Application['users'] = {
+		action : function(container) {
+			WS.FactoryComponent
+				.create( container, 'EventsManagerUser', '[data-component-events-manager-user]' )
+			;
+		}
+	};
+
 	Application['profile'] = {
 		before : function(container) {
 			Application['user-edit'].before( container );

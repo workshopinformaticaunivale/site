@@ -33,9 +33,11 @@ class WS_Register
 		WS_Metas_Library::get_instance();
 		//WS_Register_Widget_Controller::get_instance();
 		//WS_Register_Featured_Controller::get_instance();
+		WS_Register_Proxy_Controller::get_instance();
 		WS_Register_Students_Controller::get_instance();
 		WS_Register_Courses_Controller::get_instance();		
-		WS_Register_Event_Controller::get_instance();		
+		WS_Register_Event_Controller::get_instance();
+		WS_Register_Students_Events_Controller::get_instance();		
 	}
 
 	/**
@@ -58,7 +60,7 @@ class WS_Register
 
 		wp_localize_script(
 			self::PLUGIN_SLUG . '-admin-script',
-			'WPAdminVars',
+			'WPRegisterAdminVars',
 			array(
 				'ajaxUrl' => admin_url( 'admin-ajax.php' )
 			)
@@ -98,6 +100,7 @@ class WS_Register
 		WS_Register_Students_Controller::create_role();
 		WS_Register_Courses_Controller::add_post_type_capabilities();
 		WS_Register_Event_Controller::add_post_type_capabilities();
+		WS_Register_Students_Events_Controller::create_table();
 	}
 
 	/**

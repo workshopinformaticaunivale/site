@@ -103,23 +103,23 @@ class WS_Utils_Helper
 		return new WP_Query( $args );
 	}
 
-	public static function get_method_params( $key, $default = '' )
+	public static function get_method_params( $key, $default = '', $sanitize = 'esc_html' )
 	{
 		if ( ! isset( $_GET[ $key ] ) OR empty( $_GET[ $key ] ) )
 			return $default;
 
-		return esc_html( $_GET[ $key ] );
+		return self::sanitize_type( $_GET[ $key ], $sanitize );
 	}
 
-	public static function request_method_params( $key, $default = '' )
+	public static function request_method_params( $key, $default = '', $sanitize = 'esc_html' )
 	{
 		if ( ! isset( $_REQUEST[ $key ] ) OR empty( $_REQUEST[ $key ] ) )
 			return $default;
 
-		return esc_html( $_REQUEST[ $key ] );
+		return self::sanitize_type( $_REQUEST[ $key ], $sanitize );
 	}
 
-	public static function post_method_params( $key, $default = '' )
+	public static function post_method_params( $key, $default = '', $sanitize = 'esc_html' )
 	{
 		if ( ! isset( $_POST[ $key ] ) OR empty( $_POST[ $key ] ) )
 			return $default;
@@ -127,7 +127,15 @@ class WS_Utils_Helper
 		if ( is_array( $_POST[ $key ] ) )
 			return $_POST[ $key ];
 
-		return esc_html( $_POST[ $key ] );
+		return self::sanitize_type( $_POST[ $key ], $sanitize );
+	}
+
+	public static function sanitize_type( $value, $name_function )
+	{
+		if ( ! is_callable( $name_function ) )
+			return esc_html( $value );
+
+		return call_user_func( $name_function, $value );
 	}
 
 	public static function get_post_type()
