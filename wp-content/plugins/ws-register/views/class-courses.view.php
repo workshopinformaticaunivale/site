@@ -67,22 +67,22 @@ class WS_Register_Courses_View
 	public static function render_date_item_control( $datetime_start = '', $datetime_end = '' )
 	{
 		?>
-			<li class="day">
-				<div>
-					<label>Data e horário inicial:
-						<input type="text" data-mask="00/00/0000 00:00" class="datetimepicker" name="<?php echo esc_attr( WS_Register_Course::POST_META_DATETIME_START ); ?>[]" value="<?php echo esc_attr( $datetime_start ); ?>">
-					</label>
-				</div>
-				<div>
-					<label>Horário final:
-						<input type="text" data-mask="00:00" class="timepicker" name="<?php echo esc_attr( WS_Register_Course::POST_META_DATETIME_END ); ?>[]" value="<?php echo esc_attr( $datetime_end ); ?>">
-					</label>
-				</div>
-				<div class="wrap-buttons">
-					<input type="button" class="button-primary add" name="add_new" value="Adicionar novo dia">
-					<input type="button" class="button-secondary remove" name="remove_item" value="Remover dia">
-				</div>
-			</li>
+		<li class="day">
+			<div>
+				<label>Data e horário inicial:
+					<input type="text" data-mask="00/00/0000 00:00" class="datetimepicker" name="<?php echo esc_attr( WS_Register_Course::POST_META_DATETIME_START ); ?>[]" value="<?php echo esc_attr( $datetime_start ); ?>">
+				</label>
+			</div>
+			<div>
+				<label>Horário final:
+					<input type="text" data-mask="00:00" class="timepicker" name="<?php echo esc_attr( WS_Register_Course::POST_META_DATETIME_END ); ?>[]" value="<?php echo esc_attr( $datetime_end ); ?>">
+				</label>
+			</div>
+			<div class="wrap-buttons">
+				<input type="button" class="button-primary add" name="add_new" value="Adicionar novo dia">
+				<input type="button" class="button-secondary remove" name="remove_item" value="Remover dia">
+			</div>
+		</li>
 		<?php
 	}
 
@@ -96,27 +96,47 @@ class WS_Register_Courses_View
 	{
 		$controller = WS_Register_Courses_Controller::get_instance();
 		?>
-			<ul class="container-day">
-				<li class="blank">
-					<div>
-						<label>Data e horário inicial:
-							<input type="text" data-mask="00/00/0000 00:00" class="datetimepicker" data-no-plugin name="<?php echo esc_attr( WS_Register_Course::POST_META_DATETIME_START ); ?>[]" value="">
-						</label>
-					</div>
+		<ul class="container-day">
+			<li class="blank">
+				<div>
+					<label>Data e horário inicial:
+						<input type="text" data-mask="00/00/0000 00:00" class="datetimepicker" data-no-plugin name="<?php echo esc_attr( WS_Register_Course::POST_META_DATETIME_START ); ?>[]" value="">
+					</label>
+				</div>
 
-					<div>
-						<label>Horário final:
-							<input type="text" data-mask="00:00" class="timepicker" data-no-plugin name="<?php echo esc_attr( WS_Register_Course::POST_META_DATETIME_END ); ?>[]" value="">
-						</label>
-					</div>
+				<div>
+					<label>Horário final:
+						<input type="text" data-mask="00:00" class="timepicker" data-no-plugin name="<?php echo esc_attr( WS_Register_Course::POST_META_DATETIME_END ); ?>[]" value="">
+					</label>
+				</div>
 
-					<div class="wrap-buttons">
-						<input type="button" class="button-primary add" name="add_new" value="Adicionar novo dia">
-						<input type="button" class="button-secondary remove" name="remove_item" value="Remover dia">
-					</div>
-				</li>
-				<?php $controller->iterate_date( $post->ID ); ?>
-			</ul>
+				<div class="wrap-buttons">
+					<input type="button" class="button-primary add" name="add_new" value="Adicionar novo dia">
+					<input type="button" class="button-secondary remove" name="remove_item" value="Remover dia">
+				</div>
+			</li>
+			<?php $controller->iterate_date( $post->ID ); ?>
+		</ul>
+		<?php
+	}
+
+	public static function render_course_data_control( $post )
+	{
+		$model = new WS_Register_Course( $post->ID );
+
+		?>
+		<table class="form-table">
+			<tbody>
+				<tr valign="top">
+					<th scope="col">Título</th>
+					<td><?php echo esc_html( $model->title ); ?></td>
+				</tr>
+				<tr valign="top">
+					<th scope="col">Proposta</th>
+					<td><?php echo $model->content; ?></td>
+				</tr>
+			</tbody>
+		</table>
 		<?php
 	}
 }

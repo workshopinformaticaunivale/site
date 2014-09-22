@@ -46,8 +46,10 @@ class WS_Register_Courses_Controller
 		add_action( 'init', array( &$this, 'register_taxonomies' ) );
 		add_action( 'add_meta_boxes', array( &$this, 'define_metaboxes' ) );
 		add_action( 'save_post_' . WS_Register_Course::POST_TYPE, array( &$this, 'save_date' ), 11, 2 );
+		add_action( 'manage_' . WS_Register_Course::POST_TYPE . '_posts_custom_column', array( &$this, 'set_admin_column_date_content' ), 10, 2 );
 		add_filter( 'ws_metas_' . WS_Register_Course::POST_TYPE . '_is_valid_save_post', array( &$this, 'nonce_valid_save_post' ) );
 		add_filter( 'post_updated_messages', array( &$this, 'set_post_updated_messages' ) );
+		add_filter( 'manage_' . WS_Register_Course::POST_TYPE . '_posts_columns', array( &$this, 'set_admin_column_date_head' ) );
 	}
 
 	public function get_courses( $args = array() )
@@ -65,30 +67,31 @@ class WS_Register_Courses_Controller
 
 	public function register_post_type()
 	{
-		register_post_type(
-			WS_Register_Course::POST_TYPE,
-			array(
-				'labels' => array(
-					'name'               => 'Minicursos',
-					'singular_name'      => 'Minicurso',
-					'all_items'          => 'Todos os minicursos',
-					'add_new'            => 'Adicionar novo',
-					'add_new_item'       => 'Adicionar novo minicurso',
-					'edit_item'          => 'Editar minicurso',
-					'new_item'           => 'Novo minicurso',
-					'view_item'          => 'Visualizar minicurso',
-					'search_items'       => 'Pesquisar minicursos',
-					'not_found'          => 'Nenhum minicurso encontrado',
-					'not_found_in_trash' => 'Nenhum minicurso encontrado na lixeira',
-				),
-				'public'        	=> false,
-				'show_ui'			=> true,
-				'menu_position' 	=> 5,
-				'supports'      	=> array( 'title', 'editor', 'author' ),
-				'menu_icon'			=> 'dashicons-welcome-learn-more',
-				'capability_type'   => WS_Register_Course::POST_TYPE,
-			)
+		$supports = $this->_get_supports_by_current_page();
+		
+		$args = array(
+			'labels' => array(
+				'name'               => 'Minicursos',
+				'singular_name'      => 'Minicurso',
+				'all_items'          => 'Todos os minicursos',
+				'add_new'            => 'Adicionar novo',
+				'add_new_item'       => 'Adicionar novo minicurso',
+				'edit_item'          => 'Editar minicurso',
+				'new_item'           => 'Novo minicurso',
+				'view_item'          => 'Visualizar minicurso',
+				'search_items'       => 'Pesquisar minicursos',
+				'not_found'          => 'Nenhum minicurso encontrado',
+				'not_found_in_trash' => 'Nenhum minicurso encontrado na lixeira',
+			),
+			'public'        	=> false,
+			'show_ui'			=> true,
+			'menu_position' 	=> 5,
+			'supports'      	=> $supports,
+			'menu_icon'			=> 'dashicons-welcome-learn-more',
+			'capability_type'   => WS_Register_Course::POST_TYPE,
 		);
+
+		register_post_type( WS_Register_Course::POST_TYPE, $args );
 	}
 
 	/**
@@ -149,8 +152,63 @@ class WS_Register_Courses_Controller
 		return $messages;
 	}
 
+	/**
+	 * Sets the column date head in admin
+	 *
+	 * @since 1.0
+	 * @param array $default_heads
+	 * @return array Heads
+	 */
+	public function set_admin_column_date_head( $heads )
+	{
+		unset( $heads['author'] );
+		unset( $heads['date'] );
+		
+		$heads[ 'date-class' ] = 'Data e Horário';
+		$heads[ 'author' ]     = 'Autor';
+		$heads[ 'date' ]       = 'Data';
+
+		return $heads;
+	}
+
+	/**
+	 * Sets the column date content in admin
+	 *
+	 * @since 1.0
+	 * @param string $column_name
+	 * @param int $post_id
+	 * @return void
+	 */
+	public function set_admin_column_date_content( $column_name, $post_id )
+	{
+		if ( $column_name != 'date-class' )
+			return;
+
+		$model = new WS_Register_Course( $post_id );
+		$dates = $model->get_dates();
+
+		if ( ! $dates ) :
+			echo '__';
+			return;
+		endif;
+
+		echo implode( '<br>', $dates );
+	}
+
 	public function define_metaboxes()
 	{
+		
+		if ( current_user_can( 'administrator' ) ):
+			add_meta_box(
+				'ws-course-metabox-course-data',
+				'Dados do minicurso',
+				array( 'WS_Register_Courses_View', 'render_course_data_control' ),
+				WS_Register_Course::POST_TYPE,
+				'normal',
+				'high'
+			);
+		endif;
+
 		add_meta_box(
 			'ws-course-metabox-speaker-requirements',
 			'Requisitos do curso',
@@ -314,6 +372,8 @@ class WS_Register_Courses_Controller
 	 */
 	private function _remove_metaboxes()
 	{
+		global $post;
+
 		remove_meta_box( WS_Register_Course::TAXONOMY_LABORATORY .'div', WS_Register_Course::POST_TYPE, 'side' );
 
 		if ( current_user_can( 'publish_ws-courses' ) )
@@ -321,6 +381,9 @@ class WS_Register_Courses_Controller
 
 		remove_meta_box( 'ws-course-metabox-date', WS_Register_Course::POST_TYPE, 'normal' );
 		remove_meta_box( 'ws-course-metabox-laboratory', WS_Register_Course::POST_TYPE, 'side' );
+
+		if ( $post->post_status === 'publish' )
+			remove_meta_box( 'submitdiv', WS_Register_Course::POST_TYPE, 'side' );
 	}
 
 	/**
@@ -430,6 +493,9 @@ class WS_Register_Courses_Controller
 		if ( wp_is_post_revision( $post->ID ) )
 			return false;
 
+		if ( $post->post_status == 'publish' && ! current_user_can( 'publish_ws-courses' ) )
+			wp_die( 'Trapaceando né?! Você não tem permissão para executar essa ação.' );
+
 		return true;
 	}
 
@@ -442,5 +508,22 @@ class WS_Register_Courses_Controller
 			return substr( $date_start, 0, 10 ) . ' ' . $date_end;
 
 		return str_replace( substr( $date_end, 0, 10 ), substr( $date_start, 0, 10 ), $date_end );
+	}
+
+	private function _get_supports_by_current_page()
+	{
+		if (  $this->_get_screen_mode() === 'edit' && current_user_can( 'administrator' ) )
+			return array( 'author' );
+
+		return array( 'title', 'editor', 'author' );
+	}
+
+	private function _get_screen_mode()
+	{		
+		if ( isset( $_GET['action'] ) && ! empty( $_GET['action'] ) ) {
+			return $_GET['action'];
+		}
+		
+		return false;
 	}
 }
