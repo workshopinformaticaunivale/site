@@ -37,6 +37,7 @@ class WS_Manager
 		WS_Manager_Dashboard_Controller::get_instance();
 		//WS_Manager_Widget_Controller::get_instance();
 		//WS_Manager_Featured_Controller::get_instance();
+		WS_Manager_Speakers_Controller::get_instance();
 	}
 
 	/**
@@ -98,5 +99,7 @@ class WS_Manager
 	public static function activate()
 	{
 		//is code active plugin
+		WS_Manager_Featured_Controller::add_post_type_capabilities();
+		WS_Manager_Speakers_Controller::add_post_type_capabilities();
 	}
 }
