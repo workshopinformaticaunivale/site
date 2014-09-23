@@ -31,6 +31,10 @@ body {
 	width: perc( $sidebar, $container );
 }
 
+iframe {
+	display: block;
+}
+
 .overlay {
 	background: #000;
 	bottom: 0;
