@@ -48,6 +48,46 @@ class WS_Manager_Speakers
 	private $topic;
 
 	/**
+	 * Speakers facebook
+	 *
+	 * @since 1.0
+	 * @var string
+	 */
+	private $facebook;
+
+	/**
+	 * Speakers twitter
+	 *
+	 * @since 1.0
+	 * @var string
+	 */
+	private $twitter;
+
+	/**
+	 * Speakers linkedin
+	 *
+	 * @since 1.0
+	 * @var string
+	 */
+	private $linkedin;
+
+	/**
+	 * Speakers datetime speech
+	 *
+	 * @since 1.0
+	 * @var datetime
+	 */
+	private $datetime_speech;
+
+	/**
+	 * Speakers event
+	 *
+	 * @since 1.0
+	 * @var int
+	 */
+	private $event_id;
+
+	/**
 	 * Post Type name
 	 *
 	 * @since 1.0
@@ -61,7 +101,7 @@ class WS_Manager_Speakers
 	 * @since 1.0
 	 * @var string
 	 */
-	const IMAGE_SIZE_LARGE = 'ws-speakers-image-size-large';
+	const IMAGE_SIZE_SMALL = 'ws-speakers-image-size-small';
 
 	/**
 	 * Post Metas
@@ -70,6 +110,16 @@ class WS_Manager_Speakers
 	 * @var string
 	 */
 	const POST_META_TOPIC = 'ws-speakers-topic';
+
+	const POST_META_FACEBOOK = 'ws-speakers-facebook';
+
+	const POST_META_TWITTER = 'ws-speakers-twitter';
+
+	const POST_META_LINKEDIN = 'ws-speakers-linkedin';
+
+	const POST_META_DATETIME_SPEECH = 'ws-speakers-datetime-speech';
+
+	const POST_META_EVENT_ID = 'ws-speakers-event-id';
 
 	/**
      * Constructor of the class. Instantiate and incializate it.
@@ -132,6 +182,42 @@ class WS_Manager_Speakers
 					$this->topic = get_post_meta( $this->ID, self::POST_META_TOPIC, true );
 				endif;
 				break;
+
+			case 'topic' :
+				if ( ! isset( $this->topic ) ) :
+					$this->topic = get_post_meta( $this->ID, self::POST_META_TOPIC, true );
+				endif;
+				break;
+
+			case 'facebook' :
+				if ( ! isset( $this->facebook ) ) :
+					$this->facebook = get_post_meta( $this->ID, self::POST_META_FACEBOOK, true );
+				endif;
+				break;
+
+			case 'twitter' :
+				if ( ! isset( $this->twitter ) ) :
+					$this->twitter = get_post_meta( $this->ID, self::POST_META_TWITTER, true );
+				endif;
+				break;
+
+			case 'linkedin' :
+				if ( ! isset( $this->linkedin ) ) :
+					$this->linkedin = get_post_meta( $this->ID, self::POST_META_LINKEDIN, true );
+				endif;
+				break;
+
+			case 'datetime_speech' :
+				if ( ! isset( $this->datetime_speech ) ) :
+					$this->datetime_speech = get_post_meta( $this->ID, self::POST_META_DATETIME_SPEECH, true );
+				endif;
+				break;
+
+			case 'event_id' :
+				if ( ! isset( $this->event_id ) ) :
+					$this->event_id = get_post_meta( $this->ID, self::POST_META_EVENT_ID, true );
+				endif;
+				break;
 		}
 
 		return $this->$prop_name;
@@ -140,7 +226,7 @@ class WS_Manager_Speakers
 	private function _get_thumbnail_url()
 	{
 		$thumbnail_id = get_post_thumbnail_id( $this->ID );
-		$attachment   = wp_get_attachment_image_src( $thumbnail_id, self::IMAGE_SIZE_LARGE );
+		$attachment   = wp_get_attachment_image_src( $thumbnail_id, self::IMAGE_SIZE_SMALL );
 
 		if ( ! $attachment )
 			return false;
