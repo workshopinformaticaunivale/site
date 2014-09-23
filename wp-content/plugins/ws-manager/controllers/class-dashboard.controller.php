@@ -2,7 +2,7 @@
 /**
  * Controller Dashboard
  *
- * @package WS Plugin Template Manager
+ * @package WS Manager
  * @subpackage Dashboard
  * @since 1.0
  */

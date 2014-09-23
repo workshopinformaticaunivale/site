@@ -2,7 +2,7 @@
 /**
  * Controller Speakers
  *
- * @package WS Plugin Template Manager
+ * @package WS Manager
  * @subpackage Speakers
  * @since 1.0
  */

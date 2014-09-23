@@ -1,8 +1,8 @@
 <?php
 /**
- * WS Plugin Template
+ * WS Register
  *
- * @package WS Plugin Template Manager
+ * @package WS Register
  * @version 1.0
  */
 class WS_Register
@@ -28,11 +28,8 @@ class WS_Register
 		// Load public-facing style sheet and JavaScript.
 		add_action( 'admin_enqueue_scripts', array( &$this, 'scripts_admin' ) );
 		add_action( 'admin_enqueue_scripts', array( &$this, 'styles_admin' ) );
-
-		WS_Images_Library::get_instance();
-		WS_Metas_Library::get_instance();
+		
 		//WS_Register_Widget_Controller::get_instance();
-		//WS_Register_Featured_Controller::get_instance();
 		WS_Register_Proxy_Controller::get_instance();
 		WS_Register_Students_Controller::get_instance();
 		WS_Register_Courses_Controller::get_instance();		

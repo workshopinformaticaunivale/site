@@ -2,7 +2,7 @@
 /**
  * Controller Students Events
  *
- * @package WS Plugin Template Manager
+ * @package WS Register
  * @subpackage Students Events
  * @since 1.0
  */

@@ -1,8 +1,8 @@
 <?php
 /**
- * WS Plugin Template
+ * WS Manager
  *
- * @package WS Plugin Template Manager
+ * @package WS Manager
  * @version 1.0
  */
 class WS_Manager
@@ -31,12 +31,9 @@ class WS_Manager
 
 		//remove scheme color
 		remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
-
-		WS_Images_Library::get_instance();
-		WS_Metas_Library::get_instance();
-		WS_Manager_Dashboard_Controller::get_instance();
+		
 		//WS_Manager_Widget_Controller::get_instance();
-		//WS_Manager_Featured_Controller::get_instance();
+		WS_Manager_Dashboard_Controller::get_instance();
 		WS_Manager_Speakers_Controller::get_instance();
 	}
 
@@ -99,7 +96,6 @@ class WS_Manager
 	public static function activate()
 	{
 		//is code active plugin
-		WS_Manager_Featured_Controller::add_post_type_capabilities();
 		WS_Manager_Speakers_Controller::add_post_type_capabilities();
 	}
 }

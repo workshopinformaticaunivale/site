@@ -2,7 +2,7 @@
 /**
  * Course Model
  *
- * @package WS Plugin Template Manager
+ * @package WS Register
  * @subpackage Course
  */
 class WS_Register_Course

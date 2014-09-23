@@ -2,7 +2,7 @@
 /**
  * Student Event Model
  *
- * @package WS Plugin Template Manager
+ * @package WS Register
  * @subpackage Student Event
  */
 class WS_Register_Student_Event
