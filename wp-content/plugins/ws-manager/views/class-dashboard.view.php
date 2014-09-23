@@ -2,7 +2,7 @@
 /**
  * Views Dashboard
  *
- * @package WS Plugin Template Manager
+ * @package WS Manager
  * @subpackage Dashboard Views
  * @version 1.0
  */

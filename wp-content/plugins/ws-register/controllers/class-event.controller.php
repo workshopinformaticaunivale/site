@@ -2,7 +2,7 @@
 /**
  * Controller Event
  *
- * @package WS Plugin Template Manager
+ * @package WS Register
  * @subpackage Event
  * @since 1.0
  */

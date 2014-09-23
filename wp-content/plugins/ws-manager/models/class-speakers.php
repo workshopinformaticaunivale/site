@@ -2,7 +2,7 @@
 /**
  * Speakers Model
  *
- * @package WS Plugin Template Manager
+ * @package WS Manager
  * @subpackage Speakers
  */
 class WS_Manager_Speakers

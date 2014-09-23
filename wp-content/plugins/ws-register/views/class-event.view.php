@@ -2,7 +2,7 @@
 /**
  * Views Event
  *
- * @package WS Plugin Template Manager
+ * @package WS Register
  * @subpackage Event Views
  * @version 1.0
  */

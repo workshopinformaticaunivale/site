@@ -2,7 +2,7 @@
 /**
  * Student Model
  *
- * @package WS Plugin Template Manager
+ * @package WS Register
  * @subpackage Student
  */
 class WS_Register_Student

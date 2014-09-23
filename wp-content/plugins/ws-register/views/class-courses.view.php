@@ -2,7 +2,7 @@
 /**
  * View Courses
  *
- * @package WS Plugin Template Manager
+ * @package WS Register
  * @subpackage Course View
  * @version 1.0
  */

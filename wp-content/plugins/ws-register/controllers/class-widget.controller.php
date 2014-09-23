@@ -2,7 +2,7 @@
 /**
  * Controller Widgets
  *
- * @package WS Plugin Template Manager
+ * @package WS Register
  * @subpackage Widgets
  * @since 1.0
  */

@@ -2,7 +2,7 @@
 /**
  * Featured Model
  *
- * @package WS Plugin Template Manager
+ * @package WS Register
  * @subpackage Event
  */
 class WS_Register_Event
