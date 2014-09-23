@@ -25,20 +25,20 @@ class WS_Manager_Speakers_Controller
 	public function __construct()
 	{
 		add_action( 'init', array( &$this, 'register_post_type' ) );
-		//add_action( 'after_setup_theme', array( &$this, 'define_image_sizes' ) );
+		add_action( 'after_setup_theme', array( &$this, 'define_image_sizes' ) );
 		add_action( 'add_meta_boxes', array( &$this, 'define_metaboxes' ) );
 	}
 
 	public function define_metaboxes()
 	{
-		add_meta_box(
-			'ws-metabox-speakers-link',
-			'Link',
-			array( 'WS_Manager_Speakers_View', 'render_link_control' ),
-			WS_Manager_Speakers::POST_TYPE,
-			'normal',
-			'low'
-		);
+		// add_meta_box(
+		// 	'ws-metabox-speakers-link',
+		// 	'Link',
+		// 	array( 'WS_Manager_Speakers_View', 'render_link_control' ),
+		// 	WS_Manager_Speakers::POST_TYPE,
+		// 	'normal',
+		// 	'low'
+		// );
 	}
 
 	public function register_post_type()
@@ -61,8 +61,8 @@ class WS_Manager_Speakers_Controller
 				),
 				'public'        	=> false,
 				'show_ui'			=> true,
-				'menu_position' 	=> 10,
-				'supports'      	=> array( 'title', 'excerpt', 'thumbnail', 'page-attributes' ),
+				'menu_position' 	=> 5,
+				'supports'      	=> array( 'title', 'editor', 'thumbnail' ),
 				'menu_icon'			=> 'dashicons-admin-users',
 				'capability_type'   => WS_Manager_Speakers::POST_TYPE,
 			)
@@ -77,7 +77,7 @@ class WS_Manager_Speakers_Controller
 		$controller_image->define(
 			WS_Manager_Speakers::POST_TYPE,
 			array(
-				WS_Manager_Speakers::IMAGE_SIZE_LARGE => array( 978, 260, true ),
+				WS_Manager_Speakers::IMAGE_SIZE_SMALL => array( 100, 100, true ),
 			)
 		);
 	}
