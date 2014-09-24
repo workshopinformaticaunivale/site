@@ -1,6 +1,6 @@
 <?php
 /**
- * Students Controller
+ * Controller Students
  *
  * @package WS Register
  * @subpackage Students

@@ -2,10 +2,10 @@
 /**
  * Speakers Model
  *
- * @package WS Manager
+ * @package WS Register
  * @subpackage Speakers
  */
-class WS_Manager_Speakers
+class WS_Register_Speakers
 {
 	/**
 	 * Speakers ID
@@ -146,6 +146,16 @@ class WS_Manager_Speakers
 	public function __get( $prop_name )
 	{
 		return $this->_get_property( $prop_name );
+	}
+
+	public function get_format_datetime_speech()
+	{
+		$datetime_speech = strtotime( $this->_get_property( 'datetime_speech' ) );
+
+		if ( empty( $datetime_speech ) )
+			return false;
+
+		return date_i18n( 'd/m/Y H:i', $datetime_speech );
 	}
 
 	/**

@@ -2,6 +2,8 @@ Module('WS.Application', function(Application) {
 	//loader in all area site
 	Application.init = function(container) {
 		Application.setChosen();
+		WS.Datepicker( container );
+		WS.MaskAttribute();
 	};
 
 	Application['ws-course'] = {
