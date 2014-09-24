@@ -224,6 +224,7 @@ class WS_Register_Event_Controller
 		);
 
 		WS_Utils_Helper::add_custom_capabilities( 'administrator', $caps );
+		WS_Utils_Helper::add_custom_capabilities( WS_Register_Moderators_Controller::ROLE, $caps );
 	}
 
 	/**

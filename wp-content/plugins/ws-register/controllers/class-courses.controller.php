@@ -2,7 +2,7 @@
 /**
  * Controller Courses
  *
- * @package WS Plugin Template Register
+ * @package WS Register
  * @subpackage Courses
  * @since 1.0
  */
@@ -20,7 +20,7 @@ class WS_Register_Courses_Controller
 	 * Nonce Actions
 	 *
 	 * @since 1.0
-	 * @var object
+	 * @var string
 	 */
 	const NONCE_SPEAKER_REQUIREMENTS_ACTION = '_ws_courses_speaker_requirements_action';
 	const NONCE_WORKLOAD_ACTION             = '_ws_courses_workload_action';
@@ -29,7 +29,7 @@ class WS_Register_Courses_Controller
 	 * Nonce Names
 	 *
 	 * @since 1.0
-	 * @var object
+	 * @var string
 	 */
 	const NONCE_SPEAKER_REQUIREMENTS_NAME = '_ws_courses_speaker_requirements_name';
 	const NONCE_WORKLOAD_NAME             = '_ws_courses_workload_name';
@@ -83,12 +83,12 @@ class WS_Register_Courses_Controller
 				'not_found'          => 'Nenhum minicurso encontrado',
 				'not_found_in_trash' => 'Nenhum minicurso encontrado na lixeira',
 			),
-			'public'        	=> false,
-			'show_ui'			=> true,
-			'menu_position' 	=> 5,
-			'supports'      	=> $supports,
-			'menu_icon'			=> 'dashicons-welcome-learn-more',
-			'capability_type'   => WS_Register_Course::POST_TYPE,
+			'public'          => false,
+			'show_ui'         => true,
+			'menu_position'   => 5,
+			'supports'        => $supports,
+			'menu_icon'       => 'dashicons-welcome-learn-more',
+			'capability_type' => WS_Register_Course::POST_TYPE,
 		);
 
 		register_post_type( WS_Register_Course::POST_TYPE, $args );
@@ -117,9 +117,9 @@ class WS_Register_Courses_Controller
 					'new_item_name'     => 'Nome do novo laboratório',
 					'menu_name'         => 'Laboratórios',
 				),
-				'public'            => false,
-				'hierarchical'      => true,
-				'show_ui'           => true,
+				'public'       => false,
+				'hierarchical' => true,
+				'show_ui'      => true,
 			)
 		);
 	}
@@ -198,7 +198,7 @@ class WS_Register_Courses_Controller
 	public function define_metaboxes()
 	{
 		
-		if ( current_user_can( 'administrator' ) ):
+		if ( current_user_can( WS_Register_Moderators_Controller::ROLE ) ):
 			add_meta_box(
 				'ws-course-metabox-course-data',
 				'Dados do minicurso',
@@ -346,6 +346,7 @@ class WS_Register_Courses_Controller
 		);
 
 		WS_Utils_Helper::add_custom_capabilities( 'administrator', $caps );
+		WS_Utils_Helper::add_custom_capabilities( WS_Register_Moderators_Controller::ROLE, $caps );
 	}
 
 	/**
@@ -512,7 +513,7 @@ class WS_Register_Courses_Controller
 
 	private function _get_supports_by_current_page()
 	{
-		if (  $this->_get_screen_mode() === 'edit' && current_user_can( 'administrator' ) )
+		if (  $this->_get_screen_mode() === 'edit' && current_user_can( WS_Register_Moderators_Controller::ROLE ) )
 			return array( 'author' );
 
 		return array( 'title', 'editor', 'author' );

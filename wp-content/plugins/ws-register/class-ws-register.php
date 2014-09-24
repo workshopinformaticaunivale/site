@@ -34,7 +34,8 @@ class WS_Register
 		WS_Register_Students_Controller::get_instance();
 		WS_Register_Courses_Controller::get_instance();		
 		WS_Register_Event_Controller::get_instance();
-		WS_Register_Students_Events_Controller::get_instance();		
+		WS_Register_Students_Events_Controller::get_instance();
+		WS_Register_Moderators_Controller::get_instance();		
 	}
 
 	/**
@@ -98,6 +99,7 @@ class WS_Register
 		WS_Register_Courses_Controller::add_post_type_capabilities();
 		WS_Register_Event_Controller::add_post_type_capabilities();
 		WS_Register_Students_Events_Controller::create_table();
+		WS_Register_Moderators_Controller::create_role();
 	}
 
 	/**
