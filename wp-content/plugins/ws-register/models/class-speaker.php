@@ -1,11 +1,11 @@
 <?php
 /**
- * Speakers Model
+ * Speaker Model
  *
  * @package WS Register
- * @subpackage Speakers
+ * @subpackage Speaker
  */
-class WS_Register_Speakers
+class WS_Register_Speaker
 {
 	/**
 	 * Speakers ID
@@ -93,7 +93,7 @@ class WS_Register_Speakers
 	 * @since 1.0
 	 * @var string
 	 */
-	const POST_TYPE = 'ws-speakers';
+	const POST_TYPE = 'ws-speaker';
 
 	/**
 	 * Image size large
@@ -101,7 +101,7 @@ class WS_Register_Speakers
 	 * @since 1.0
 	 * @var string
 	 */
-	const IMAGE_SIZE_SMALL = 'ws-speakers-image-size-small';
+	const IMAGE_SIZE_SMALL = 'ws-speaker-image-size-small';
 
 	/**
 	 * Post Metas
@@ -109,17 +109,17 @@ class WS_Register_Speakers
 	 * @since 1.0
 	 * @var string
 	 */
-	const POST_META_TOPIC = 'ws-speakers-topic';
+	const POST_META_TOPIC = 'ws-speaker-topic';
 
-	const POST_META_FACEBOOK = 'ws-speakers-facebook';
+	const POST_META_FACEBOOK = 'ws-speaker-facebook';
 
-	const POST_META_TWITTER = 'ws-speakers-twitter';
+	const POST_META_TWITTER = 'ws-speaker-twitter';
 
-	const POST_META_LINKEDIN = 'ws-speakers-linkedin';
+	const POST_META_LINKEDIN = 'ws-speaker-linkedin';
 
-	const POST_META_DATETIME_SPEECH = 'ws-speakers-datetime-speech';
+	const POST_META_DATETIME_SPEECH = 'ws-speaker-datetime-speech';
 
-	const POST_META_EVENT_ID = 'ws-speakers-event-id';
+	const POST_META_EVENT_ID = 'ws-speaker-event-id';
 
 	/**
      * Constructor of the class. Instantiate and incializate it.

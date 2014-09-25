@@ -101,11 +101,11 @@ class WS_Register_Event
 	 * @since 1.0
 	 * @var string
 	 */
-	const POST_META_DATE_INITIAL       = 'ws-events-date-initial';
-	const POST_META_DATE_FINAL         = 'ws-events-date-final';
-	const POST_META_EDITION            = 'ws-events-edition';	
-	const POST_META_EMAIL_COURSE       = 'ws-events-email-course';	
-	const POST_META_EMAIL_REQUIREMENTS = 'ws-events-email-requirements';
+	const POST_META_DATE_INITIAL       = 'ws-event-date-initial';
+	const POST_META_DATE_FINAL         = 'ws-event-date-final';
+	const POST_META_EDITION            = 'ws-event-edition';	
+	const POST_META_EMAIL_COURSE       = 'ws-event-email-course';	
+	const POST_META_EMAIL_REQUIREMENTS = 'ws-event-email-requirements';
 
 
 	/**
@@ -133,6 +133,16 @@ class WS_Register_Event
 	public function __get( $prop_name )
 	{
 		return $this->_get_property( $prop_name );
+	}
+
+	public function get_format_date_initial()
+	{
+		return $this->_get_format_date( 'date_initial' );
+	}
+
+	public function get_format_date_final()
+	{
+		return $this->_get_format_date( 'date_final' );
 	}
 
 	/**
@@ -164,7 +174,7 @@ class WS_Register_Event
 				endif;
 				break;
 
-				case 'date_final' :
+			case 'date_final' :
 				if ( ! isset( $this->date_final ) ) :
 					$this->date_final = get_post_meta( $this->ID, self::POST_META_DATE_FINAL, true );
 				endif;
@@ -207,5 +217,15 @@ class WS_Register_Event
 			return false;
 
 		return $attachment[0];
+	}
+
+	private function _get_format_date( $property )
+	{
+		$date = strtotime( $this->_get_property( $property ) );
+
+		if ( empty( $date ) )
+			return false;
+
+		return date_i18n( 'd/m/Y H:i', $date );
 	}
 }

@@ -48,8 +48,8 @@ class WS_Register_Speakers_Controller
 		add_action( 'after_setup_theme', array( &$this, 'define_image_sizes' ) );
 		add_action( 'add_meta_boxes', array( &$this, 'define_metaboxes' ) );
 		add_filter( 'post_updated_messages', array( &$this, 'set_post_updated_messages' ) );
-		add_filter( 'ws_metas_' . WS_Register_Speakers::POST_TYPE . '_is_valid_save_post', array( &$this, 'nonce_valid_save_post' ) );
-		add_filter( 'ws_metas_' . WS_Register_Speakers::POST_TYPE . '_save_value', array( &$this, 'format_save_post' ), 10, 2 );
+		add_filter( 'ws_metas_' . WS_Register_Speaker::POST_TYPE . '_is_valid_save_post', array( &$this, 'nonce_valid_save_post' ) );
+		add_filter( 'ws_metas_' . WS_Register_Speaker::POST_TYPE . '_save_value', array( &$this, 'format_save_post' ), 10, 2 );
 	}
 
 	public function define_metaboxes()
@@ -57,8 +57,8 @@ class WS_Register_Speakers_Controller
 		add_meta_box(
 			'ws-metabox-speakers-topic',
 			'Assunto ou Tema',
-			array( 'WS_Register_Speakers_View', 'render_topic' ),
-			WS_Register_Speakers::POST_TYPE,
+			array( 'WS_Register_Speakers_View', 'render_topic_control' ),
+			WS_Register_Speaker::POST_TYPE,
 			'normal',
 			'high'
 		);
@@ -66,8 +66,8 @@ class WS_Register_Speakers_Controller
 		add_meta_box(
 			'ws-metabox-speakers-social',
 			'Informações Adicionais',
-			array( 'WS_Register_Speakers_View', 'render_social' ),
-			WS_Register_Speakers::POST_TYPE,
+			array( 'WS_Register_Speakers_View', 'render_social_control' ),
+			WS_Register_Speaker::POST_TYPE,
 			'normal',
 			'high'
 		);
@@ -75,8 +75,8 @@ class WS_Register_Speakers_Controller
 		add_meta_box(
 			'ws-metabox-speakers-datetime-speech',
 			'Data da Palestra',
-			array( 'WS_Register_Speakers_View', 'render_datetime_speech' ),
-			WS_Register_Speakers::POST_TYPE,
+			array( 'WS_Register_Speakers_View', 'render_datetime_speech_control' ),
+			WS_Register_Speaker::POST_TYPE,
 			'side',
 			'low'
 		);		
@@ -85,7 +85,7 @@ class WS_Register_Speakers_Controller
 	public function register_post_type()
 	{
 		register_post_type(
-			WS_Register_Speakers::POST_TYPE,
+			WS_Register_Speaker::POST_TYPE,
 			array(
 				'labels' => array(
 					'name'               => 'Palestrantes',
@@ -105,7 +105,7 @@ class WS_Register_Speakers_Controller
 				'menu_position' 	=> 5,
 				'supports'      	=> array( 'title', 'editor', 'thumbnail' ),
 				'menu_icon'			=> 'dashicons-admin-users',
-				'capability_type'   => WS_Register_Speakers::POST_TYPE,
+				'capability_type'   => WS_Register_Speaker::POST_TYPE,
 			)
 		);
 	}
@@ -116,9 +116,9 @@ class WS_Register_Speakers_Controller
 		$controller_image = WS_Images_Library::get_instance();
 
 		$controller_image->define(
-			WS_Register_Speakers::POST_TYPE,
+			WS_Register_Speaker::POST_TYPE,
 			array(
-				WS_Register_Speakers::IMAGE_SIZE_SMALL => array( 100, 100, true ),
+				WS_Register_Speaker::IMAGE_SIZE_SMALL => array( 100, 100, true ),
 			)
 		);
 	}
@@ -143,7 +143,7 @@ class WS_Register_Speakers_Controller
 
 	public function format_save_post( $value, $key )
 	{
-		if ( $key == WS_Register_Speakers::POST_META_DATETIME_SPEECH )
+		if ( $key == WS_Register_Speaker::POST_META_DATETIME_SPEECH )
 			return WS_Utils_Helper::convert_date_for_sql( $value );
 
 		return $value;
@@ -160,7 +160,7 @@ class WS_Register_Speakers_Controller
 	{
 		global $post;
 
-		$messages[ WS_Register_Speakers::POST_TYPE ] = array(
+		$messages[ WS_Register_Speaker::POST_TYPE ] = array(
 			0  => '',
 			1  => 'Palestra atualizada.',
 			2  => 'Campo personalizado atualizado.',
@@ -184,7 +184,7 @@ class WS_Register_Speakers_Controller
 	 */
 	public static function add_post_type_capabilities()
 	{
-		$capability_type = WS_Register_Speakers::POST_TYPE;
+		$capability_type = WS_Register_Speaker::POST_TYPE;
 
 		$caps = array(
 			"edit_{$capability_type}",
