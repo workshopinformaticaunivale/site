@@ -1,12 +1,12 @@
 <?php
 /**
- * Controller Event
+ * Controller Events
  *
  * @package WS Register
- * @subpackage Event
+ * @subpackage Events
  * @since 1.0
  */
-class WS_Register_Event_Controller
+class WS_Register_Events_Controller
 {
 	/**
 	 * Instance of this class.
@@ -22,7 +22,9 @@ class WS_Register_Event_Controller
 	 * @since 1.0
 	 * @var object
 	 */
-	const NONCE_LINK_ACTION = '_ws_event_link_action';
+	const NONCE_DATE_ACTION    				= '_ws_event_date_action';
+	const NONCE_EDITION_ACTION 				= '_ws_event_edition_action';
+	const NONCE_EMAILS_NOTIFICATIONS_ACTION = '_ws_event_emails_notifications_action';
 
 	/**
 	 * Nonce Name
@@ -30,7 +32,9 @@ class WS_Register_Event_Controller
 	 * @since 1.0
 	 * @var object
 	 */
-	const NONCE_LINK_NAME = '_ws_event_link_name';
+	const NONCE_DATE_NAME                 = '_ws_event_date_name';
+	const NONCE_EDITION_NAME              = '_ws_event_edition_name';
+	const NONCE_EMAILS_NOTIFICATIONS_NAME = '_ws_event_emails_notifications_name';
 
 	/**
 	 * Adds needed actions to create submenu and page
@@ -41,97 +45,40 @@ class WS_Register_Event_Controller
 	public function __construct()
 	{
 		add_action( 'init', array( &$this, 'register_post_type' ) );
-		add_action( 'after_setup_theme', array( &$this, 'define_image_sizes' ) );
 		add_action( 'add_meta_boxes', array( &$this, 'define_metaboxes' ) );
 		add_filter( 'ws_metas_' . WS_Register_Event::POST_TYPE . '_is_valid_save_post', array( &$this, 'nonce_valid_save_post' ) );
-		add_filter( 'manage_' . WS_Register_Event::POST_TYPE . '_posts_columns', array( &$this, 'post_columns_head' ) );
-		add_action( 'manage_' . WS_Register_Event::POST_TYPE . '_posts_custom_column', array( &$this, 'post_columns_content' ), 10, 2 );
-	}
-
-	public function post_columns_head( $headers )
-	{
-		$headers['link'] = 'Link';
-
-		return $headers;
-	}
-
-	public function post_columns_content( $column_name, $post_id )
-	{
-		if ( ! in_array( $column_name, array( 'link' ) ) )
-			return;
-
-		//instance $model this if use more columns
-		$model = new WS_Register_Event( $post_id );
-
-		if ( property_exists( $model, $column_name ) ) :
-			echo esc_html( $model->$column_name );
-			return;
-		endif;
-
-		if ( method_exists( $model, $column_name ) ) :
-			echo esc_html( $model->$column_name() );
-			return;
-		endif;
-
-		unset($model);
+		add_filter( 'ws_metas_' . WS_Register_Event::POST_TYPE . '_save_value', array( &$this, 'format_save_post' ), 10, 2 );
 	}
 
 	public function define_metaboxes()
 	{
 
 		add_meta_box(
-			'ws-metabox-date-initial',
-			'Data Inicial do Evento',
-			array( 'WS_Register_Event_View', 'render_date_initial_control' ),
+			'ws-metabox-events-date',
+			'Data',
+			array( 'WS_Register_Events_View', 'render_date_control' ),
 			WS_Register_Event::POST_TYPE,
-			'normal',
-			'low'
-		);
-
-		add_meta_box(
-			'ws-metabox-date-final',
-			'Data Final do Evento',
-			array( 'WS_Register_Event_View', 'render_date_final_control' ),
-			WS_Register_Event::POST_TYPE,
-			'normal',
-			'low'
-		);
-
-		add_meta_box(
-			'ws-metabox-edition',
-			'Edição do Evento',
-			array( 'WS_Register_Event_View', 'render_edition_control' ),
-			WS_Register_Event::POST_TYPE,
-			'normal',
+			'side',
 			'low'
 		);		
 
 		add_meta_box(
-			'ws-metabox-email-courses',
-			'Email de notificação de minicursos',
-			array( 'WS_Register_Event_View', 'render_email_courses_control' ),
+			'ws-metabox-events-edition',
+			'Edição',
+			array( 'WS_Register_Events_View', 'render_edition_control' ),
 			WS_Register_Event::POST_TYPE,
-			'normal',
+			'side',
 			'low'
-		);		
+		);
 
 		add_meta_box(
-			'ws-metabox-email-requeriments',
-			'Email de notificação de requisitos dos minicursos',
-			array( 'WS_Register_Event_View', 'render_email_requeriments_control' ),
+			'ws-metabox-events-emails-notifications',
+			'Emails de Notificações',
+			array( 'WS_Register_Events_View', 'render_emails_notifications' ),
 			WS_Register_Event::POST_TYPE,
 			'normal',
 			'low'
-		);	
-
-		/*add_meta_box(
-			'ws-metabox-featured-link',
-			'Link',
-			array( 'WS_Register_Event_View', 'render_link_control' ),
-			WS_Register_Event::POST_TYPE,
-			'normal',
-			'low'
-		);*/
+		);
 	}
 
 	public function get_list( $args = array() )
@@ -168,7 +115,7 @@ class WS_Register_Event_Controller
 				'public'        	=> false,
 				'show_ui'			=> true,
 				'menu_position' 	=> 5,
-				'supports'      	=> array( 'title', 'excerpt', 'thumbnail', 'page-attributes' ),
+				'supports'      	=> array( 'title', 'excerpt' ),
 				'menu_icon'			=> 'dashicons-images-alt2',
 				'capability_type'   => WS_Register_Event::POST_TYPE,
 			)
@@ -177,25 +124,32 @@ class WS_Register_Event_Controller
 
 	public function nonce_valid_save_post( $is_valid )
 	{
-		$link_nonce = WS_Utils_Helper::post_method_params( self::NONCE_LINK_NAME, false );
+		$date    = WS_Utils_Helper::post_method_params( self::NONCE_DATE_NAME, false );
+		$emails  = WS_Utils_Helper::post_method_params( self::NONCE_EMAILS_NOTIFICATIONS_NAME, false );
+		$edition = WS_Utils_Helper::post_method_params( self::NONCE_EDITION_NAME, false );
+		
 
-		if ( ! $link_nonce || ! wp_verify_nonce( $link_nonce, self::NONCE_LINK_ACTION ) )
+		if ( ! $date || ! wp_verify_nonce( $date, self::NONCE_DATE_ACTION ) )
+			return false;
+
+		if ( ! $emails || ! wp_verify_nonce( $emails, self::NONCE_EMAILS_NOTIFICATIONS_ACTION ) )
+			return false;
+
+		if ( ! $edition || ! wp_verify_nonce( $edition, self::NONCE_EDITION_ACTION ) )
 			return false;
 
 		return true;
 	}
 
-	public function define_image_sizes()
+	public function format_save_post( $value, $key )
 	{
-		//controller image
-		$controller_image = WS_Images_Library::get_instance();
+		if ( $key == WS_Register_Event::POST_META_DATE_INITIAL )
+			return WS_Utils_Helper::convert_date_for_sql( $value );
 
-		$controller_image->define(
-			WS_Register_Event::POST_TYPE,
-			array(
-				WS_Register_Event::IMAGE_SIZE_LARGE => array( 978, 260, true ),
-			)
-		);
+		if ( $key == WS_Register_Event::POST_META_DATE_FINAL )
+			return WS_Utils_Helper::convert_date_for_sql( $value );
+
+		return $value;
 	}
 
 	/**

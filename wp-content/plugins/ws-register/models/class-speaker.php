@@ -1,14 +1,14 @@
 <?php
 /**
- * Featured Model
+ * Speaker Model
  *
  * @package WS Register
- * @subpackage Event
+ * @subpackage Speaker
  */
-class WS_Register_Event
+class WS_Register_Speaker
 {
 	/**
-	 * Featured ID
+	 * Speakers ID
 	 *
 	 * @since 1.0
 	 * @var string
@@ -16,7 +16,7 @@ class WS_Register_Event
 	private $ID;
 
 	/**
-	 * Featured Title
+	 * Speakers Title
 	 *
 	 * @since 1.0
 	 * @var string
@@ -24,7 +24,7 @@ class WS_Register_Event
 	private $title;
 
 	/**
-	 * Featured thumbnail
+	 * Speakers thumbnail
 	 *
 	 * @since 1.0
 	 * @var string
@@ -32,7 +32,7 @@ class WS_Register_Event
 	private $thumbnail_url;
 
 	/**
-	 * Featured excerpt
+	 * Speakers excerpt
 	 *
 	 * @since 1.0
 	 * @var string
@@ -40,44 +40,52 @@ class WS_Register_Event
 	private $excerpt;
 
 	/**
-	 * Event date_initial
+	 * Speakers topic
 	 *
 	 * @since 1.0
 	 * @var string
 	 */
-	private $date_initial;	
+	private $topic;
 
 	/**
-	 * Event date_final
+	 * Speakers facebook
 	 *
 	 * @since 1.0
 	 * @var string
 	 */
-	private $date_final;		
+	private $facebook;
 
 	/**
-	 * Event edition
+	 * Speakers twitter
 	 *
 	 * @since 1.0
 	 * @var string
 	 */
-	private $edition;	
+	private $twitter;
 
 	/**
-	 * Event email_course
+	 * Speakers linkedin
 	 *
 	 * @since 1.0
 	 * @var string
 	 */
-	private $email_course;	
+	private $linkedin;
 
 	/**
-	 * Event email_requirements
+	 * Speakers datetime speech
 	 *
 	 * @since 1.0
-	 * @var string
+	 * @var datetime
 	 */
-	private $email_requirements;	
+	private $datetime_speech;
+
+	/**
+	 * Speakers event
+	 *
+	 * @since 1.0
+	 * @var int
+	 */
+	private $event_id;
 
 	/**
 	 * Post Type name
@@ -85,7 +93,7 @@ class WS_Register_Event
 	 * @since 1.0
 	 * @var string
 	 */
-	const POST_TYPE = 'ws-event';
+	const POST_TYPE = 'ws-speaker';
 
 	/**
 	 * Image size large
@@ -93,7 +101,7 @@ class WS_Register_Event
 	 * @since 1.0
 	 * @var string
 	 */
-	const IMAGE_SIZE_LARGE = 'ws-event-image-size-large';
+	const IMAGE_SIZE_SMALL = 'ws-speaker-image-size-small';
 
 	/**
 	 * Post Metas
@@ -101,12 +109,17 @@ class WS_Register_Event
 	 * @since 1.0
 	 * @var string
 	 */
-	const POST_META_DATE_INITIAL       = 'ws-event-date-initial';
-	const POST_META_DATE_FINAL         = 'ws-event-date-final';
-	const POST_META_EDITION            = 'ws-event-edition';	
-	const POST_META_EMAIL_COURSE       = 'ws-event-email-course';	
-	const POST_META_EMAIL_REQUIREMENTS = 'ws-event-email-requirements';
+	const POST_META_TOPIC = 'ws-speaker-topic';
 
+	const POST_META_FACEBOOK = 'ws-speaker-facebook';
+
+	const POST_META_TWITTER = 'ws-speaker-twitter';
+
+	const POST_META_LINKEDIN = 'ws-speaker-linkedin';
+
+	const POST_META_DATETIME_SPEECH = 'ws-speaker-datetime-speech';
+
+	const POST_META_EVENT_ID = 'ws-speaker-event-id';
 
 	/**
      * Constructor of the class. Instantiate and incializate it.
@@ -135,14 +148,14 @@ class WS_Register_Event
 		return $this->_get_property( $prop_name );
 	}
 
-	public function get_format_date_initial()
+	public function get_format_datetime_speech()
 	{
-		return $this->_get_format_date( 'date_initial' );
-	}
+		$datetime_speech = strtotime( $this->_get_property( 'datetime_speech' ) );
 
-	public function get_format_date_final()
-	{
-		return $this->_get_format_date( 'date_final' );
+		if ( empty( $datetime_speech ) )
+			return false;
+
+		return date_i18n( 'd/m/Y H:i', $datetime_speech );
 	}
 
 	/**
@@ -174,33 +187,45 @@ class WS_Register_Event
 				endif;
 				break;
 
-			case 'date_final' :
-				if ( ! isset( $this->date_final ) ) :
-					$this->date_final = get_post_meta( $this->ID, self::POST_META_DATE_FINAL, true );
+			case 'topic' :
+				if ( ! isset( $this->topic ) ) :
+					$this->topic = get_post_meta( $this->ID, self::POST_META_TOPIC, true );
 				endif;
 				break;
 
-			case 'date_initial' :
-				if ( ! isset( $this->date_initial ) ) :
-					$this->date_initial = get_post_meta( $this->ID, self::POST_META_DATE_INITIAL, true );
-				endif;
-				break;				
-
-			case 'edition' :
-				if ( ! isset( $this->edition ) ) :
-					$this->edition = get_post_meta( $this->ID, self::POST_META_EDITION, true );
+			case 'topic' :
+				if ( ! isset( $this->topic ) ) :
+					$this->topic = get_post_meta( $this->ID, self::POST_META_TOPIC, true );
 				endif;
 				break;
 
-			case 'email_course' :
-				if ( ! isset( $this->email_course ) ) :
-					$this->email_course = get_post_meta( $this->ID, self::POST_META_EMAIL_COURSE, true );
+			case 'facebook' :
+				if ( ! isset( $this->facebook ) ) :
+					$this->facebook = get_post_meta( $this->ID, self::POST_META_FACEBOOK, true );
 				endif;
 				break;
 
-			case 'email_requirements' :
-				if ( ! isset( $this->email_requirements ) ) :
-					$this->email_requirements = get_post_meta( $this->ID, self::POST_META_EMAIL_REQUIREMENTS, true );
+			case 'twitter' :
+				if ( ! isset( $this->twitter ) ) :
+					$this->twitter = get_post_meta( $this->ID, self::POST_META_TWITTER, true );
+				endif;
+				break;
+
+			case 'linkedin' :
+				if ( ! isset( $this->linkedin ) ) :
+					$this->linkedin = get_post_meta( $this->ID, self::POST_META_LINKEDIN, true );
+				endif;
+				break;
+
+			case 'datetime_speech' :
+				if ( ! isset( $this->datetime_speech ) ) :
+					$this->datetime_speech = get_post_meta( $this->ID, self::POST_META_DATETIME_SPEECH, true );
+				endif;
+				break;
+
+			case 'event_id' :
+				if ( ! isset( $this->event_id ) ) :
+					$this->event_id = get_post_meta( $this->ID, self::POST_META_EVENT_ID, true );
 				endif;
 				break;
 		}
@@ -211,21 +236,11 @@ class WS_Register_Event
 	private function _get_thumbnail_url()
 	{
 		$thumbnail_id = get_post_thumbnail_id( $this->ID );
-		$attachment   = wp_get_attachment_image_src( $thumbnail_id, self::IMAGE_SIZE_LARGE );
+		$attachment   = wp_get_attachment_image_src( $thumbnail_id, self::IMAGE_SIZE_SMALL );
 
 		if ( ! $attachment )
 			return false;
 
 		return $attachment[0];
-	}
-
-	private function _get_format_date( $property )
-	{
-		$date = strtotime( $this->_get_property( $property ) );
-
-		if ( empty( $date ) )
-			return false;
-
-		return date_i18n( 'd/m/Y H:i', $date );
 	}
 }
