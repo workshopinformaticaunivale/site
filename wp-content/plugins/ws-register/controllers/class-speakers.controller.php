@@ -50,6 +50,17 @@ class WS_Register_Speakers_Controller
 		add_filter( 'post_updated_messages', array( &$this, 'set_post_updated_messages' ) );
 		add_filter( 'ws_metas_' . WS_Register_Speaker::POST_TYPE . '_is_valid_save_post', array( &$this, 'nonce_valid_save_post' ) );
 		add_filter( 'ws_metas_' . WS_Register_Speaker::POST_TYPE . '_save_value', array( &$this, 'format_save_post' ), 10, 2 );
+		add_action( 'ws_set_default_event_' . WS_Register_Speaker::POST_TYPE, array( &$this, 'set_default_event' ), 10, 2 );
+	}
+
+	public function set_default_event( $post, $event )
+	{
+		$model = new WS_Register_Speaker( $post->ID );
+
+		if ( (bool)$model->event_id )
+			return;
+
+		$model->set_event_id( $event->ID );
 	}
 
 	public function define_metaboxes()

@@ -64,6 +64,14 @@ class WS_Register_Course
 	private $datetime_count;
 
 	/**
+	 * Course Event
+	 *
+	 * @since 1.0
+	 * @var string
+	 */
+	private $event_id;
+
+	/**
 	 * Post Type name
 	 *
 	 * @since 1.0
@@ -82,6 +90,7 @@ class WS_Register_Course
 	const POST_META_DATETIME_START       = 'ws-course-datetime-start';
 	const POST_META_DATETIME_END         = 'ws-course-datetime-end';
 	const POST_META_DATETIME_COUNT       = 'ws-course-datetime-count';
+	const POST_META_EVENT_ID             = 'ws-course-event-id';
 
 	/**
 	 * Taxonomies
@@ -192,6 +201,11 @@ class WS_Register_Course
 		return $dates_array;
 	}
 
+	public function set_event_id( $event_id )
+	{
+		update_post_meta( $this->ID, self::POST_META_EVENT_ID, intval( $event_id ) );
+	}
+
 	/**
 	 * Use in __get() magic method to retrieve the value of the attribute
 	 * on demand. If the attribute is unset get his value before.
@@ -241,7 +255,13 @@ class WS_Register_Course
 				if ( ! isset( $this->datetime_count ) ):
 					$this->datetime_count = intval( get_post_meta( $this->ID, self::POST_META_DATETIME_COUNT, true ) );
 				endif;
-				break;			
+				break;
+
+			case 'event_id' :
+				if ( ! isset( $this->event_id ) ) :
+					$this->event_id = intval( get_post_meta( $this->ID, self::POST_META_EVENT_ID, true ) );
+				endif;
+				break;
 		}
 
 		return $this->$prop_name;

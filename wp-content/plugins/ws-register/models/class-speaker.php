@@ -109,17 +109,12 @@ class WS_Register_Speaker
 	 * @since 1.0
 	 * @var string
 	 */
-	const POST_META_TOPIC = 'ws-speaker-topic';
-
-	const POST_META_FACEBOOK = 'ws-speaker-facebook';
-
-	const POST_META_TWITTER = 'ws-speaker-twitter';
-
-	const POST_META_LINKEDIN = 'ws-speaker-linkedin';
-
+	const POST_META_TOPIC           = 'ws-speaker-topic';
+	const POST_META_FACEBOOK        = 'ws-speaker-facebook';
+	const POST_META_TWITTER         = 'ws-speaker-twitter';
+	const POST_META_LINKEDIN        = 'ws-speaker-linkedin';
 	const POST_META_DATETIME_SPEECH = 'ws-speaker-datetime-speech';
-
-	const POST_META_EVENT_ID = 'ws-speaker-event-id';
+	const POST_META_EVENT_ID        = 'ws-speaker-event-id';
 
 	/**
      * Constructor of the class. Instantiate and incializate it.
@@ -156,6 +151,11 @@ class WS_Register_Speaker
 			return false;
 
 		return date_i18n( 'd/m/Y H:i', $datetime_speech );
+	}
+
+	public function set_event_id( $event_id )
+	{
+		update_post_meta( $this->ID, self::POST_META_EVENT_ID, intval( $event_id ) );
 	}
 
 	/**
@@ -225,7 +225,7 @@ class WS_Register_Speaker
 
 			case 'event_id' :
 				if ( ! isset( $this->event_id ) ) :
-					$this->event_id = get_post_meta( $this->ID, self::POST_META_EVENT_ID, true );
+					$this->event_id = intval( get_post_meta( $this->ID, self::POST_META_EVENT_ID, true ) );
 				endif;
 				break;
 		}

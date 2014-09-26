@@ -50,16 +50,7 @@ class WS_Metas_Library
 
 	private function _proxy_save( $post_id, $post )
 	{
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
-			return;
-
-		if ( defined( 'DOING_AJAX' ) && DOING_AJAX )
-			return;
-
-		if ( in_array( $post->post_status, array( 'auto-draft', 'revision', 'trash' ) ) )
-			return;
-
-		if ( wp_is_post_revision( $post_id ) )
+		if ( ! WS_Utils_Helper::is_valid_save_post( $post ) )
 			return;
 
 		if ( ! apply_filters( 'ws_metas_' . $post->post_type . '_is_valid_save_post', false, $post_id ) )

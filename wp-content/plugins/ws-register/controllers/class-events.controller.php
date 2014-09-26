@@ -20,7 +20,7 @@ class WS_Register_Events_Controller
 	 * Nonce Action
 	 *
 	 * @since 1.0
-	 * @var object
+	 * @var string
 	 */
 	const NONCE_DATE_ACTION    				= '_ws_event_date_action';
 	const NONCE_EDITION_ACTION 				= '_ws_event_edition_action';
@@ -30,11 +30,19 @@ class WS_Register_Events_Controller
 	 * Nonce Name
 	 *
 	 * @since 1.0
-	 * @var object
+	 * @var string
 	 */
 	const NONCE_DATE_NAME                 = '_ws_event_date_name';
 	const NONCE_EDITION_NAME              = '_ws_event_edition_name';
 	const NONCE_EMAILS_NOTIFICATIONS_NAME = '_ws_event_emails_notifications_name';
+
+	/**
+	 * Transient Key
+	 *
+	 * @since 1.0
+	 * @var string
+	 */
+	const TRANSIENT_EVENT_ID = '_ws_current_event_id';
 
 	/**
 	 * Adds needed actions to create submenu and page
@@ -48,11 +56,19 @@ class WS_Register_Events_Controller
 		add_action( 'add_meta_boxes', array( &$this, 'define_metaboxes' ) );
 		add_filter( 'ws_metas_' . WS_Register_Event::POST_TYPE . '_is_valid_save_post', array( &$this, 'nonce_valid_save_post' ) );
 		add_filter( 'ws_metas_' . WS_Register_Event::POST_TYPE . '_save_value', array( &$this, 'format_save_post' ), 10, 2 );
+		add_action( 'save_post', array( &$this, 'set_default_event_in_posts' ), 10, 2 );
+	}
+
+	public function set_default_event_in_posts( $post_id, $post )
+	{
+		if ( ! WS_Utils_Helper::is_valid_save_post( $post ) )
+			return;
+
+		do_action( "ws_set_default_event_{$post->post_type}", $post, self::get_current_event() );
 	}
 
 	public function define_metaboxes()
 	{
-
 		add_meta_box(
 			'ws-metabox-events-date',
 			'Data',
@@ -85,8 +101,6 @@ class WS_Register_Events_Controller
 	{
 		$defaults = array(
 			'post_type' => WS_Register_Event::POST_TYPE,
-			'order'		=> 'ASC',
-			'orderby'	=> 'menu_order',
 		);
 
 		$args = wp_parse_args( $args, $defaults );
@@ -128,7 +142,6 @@ class WS_Register_Events_Controller
 		$emails  = WS_Utils_Helper::post_method_params( self::NONCE_EMAILS_NOTIFICATIONS_NAME, false );
 		$edition = WS_Utils_Helper::post_method_params( self::NONCE_EDITION_NAME, false );
 		
-
 		if ( ! $date || ! wp_verify_nonce( $date, self::NONCE_DATE_ACTION ) )
 			return false;
 
@@ -150,6 +163,36 @@ class WS_Register_Events_Controller
 			return WS_Utils_Helper::convert_date_for_sql( $value );
 
 		return $value;
+	}
+
+	public static function get_current_event()
+	{
+		$event_id = intval( get_transient( self::TRANSIENT_EVENT_ID ) );
+
+		if ( ! $event_id )
+			$event_id = self::get_current_event_id();
+		
+		set_transient( self::TRANSIENT_EVENT_ID, $event_id, 12 * HOUR_IN_SECONDS );
+
+		return new WS_Register_Event( $event_id );
+	}
+
+	public static function get_current_event_id()
+	{
+		$args = array(
+			'post_type'      => WS_Register_Event::POST_TYPE,
+			'meta_key'       => WS_Register_Event::POST_META_EDITION,
+			'order'          => 'DESC',
+			'orderby'        => 'meta_value_num',
+			'posts_per_page' => 1,
+		);
+
+		$query = WS_Utils_Helper::get_query( $args );
+
+		if ( ! $query->have_posts() )
+			return false;
+
+		return $query->post->ID;
 	}
 
 	/**
