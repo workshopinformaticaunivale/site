@@ -29,7 +29,11 @@ class WS_Register
 		add_action( 'admin_enqueue_scripts', array( &$this, 'scripts_admin' ) );
 		add_action( 'admin_enqueue_scripts', array( &$this, 'styles_admin' ) );
 		
+		//remove scheme color
+		remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
+
 		//WS_Register_Widget_Controller::get_instance();
+		WS_Register_Dashboard_Controller::get_instance();
 		WS_Register_Proxy_Controller::get_instance();
 		WS_Register_Students_Controller::get_instance();
 		WS_Register_Courses_Controller::get_instance();		
@@ -52,7 +56,7 @@ class WS_Register
 		wp_enqueue_script(
 			self::PLUGIN_SLUG . '-admin-script',
 			plugins_url( 'assets/javascripts/admin.script.min.js', __FILE__ ),
-			array( 'jquery', 'jquery-ui-datepicker', 'jquery-ui-slider' ),
+			array( 'jquery', 'jquery-ui-datepicker', 'jquery-ui-slider', 'wp-pointer' ),
 			filemtime( plugin_dir_path(  __FILE__  ) . 'assets/javascripts/admin.script.min.js' ),
 			true
 		);
@@ -74,7 +78,9 @@ class WS_Register
 			array(),
 			filemtime( plugin_dir_path(  __FILE__  ) . 'style.css' )
 		);
-	}	
+
+		wp_enqueue_style( 'wp-pointer' );
+	}
 
 	/**
 	 * Return an instance of this class.
@@ -102,6 +108,11 @@ class WS_Register
 		WS_Register_Events_Controller::add_post_type_capabilities();
 		WS_Register_Speakers_Controller::add_post_type_capabilities();
 		WS_Register_Students_Events_Controller::create_table();
+	}
+
+	public static function get_url_assets( $file )
+	{
+		return plugins_url( "assets/{$file}", __FILE__ );
 	}
 
 	/**
