@@ -77,7 +77,7 @@ class WS_Register_Student
 	 * @since 1.0
 	 * @var string
 	 */
-	const ROLE = 'ws-students';
+	const ROLE = 'ws-student';
 
 	/**
 	 * User Metas

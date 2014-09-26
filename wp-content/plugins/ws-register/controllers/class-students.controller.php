@@ -161,7 +161,7 @@ class WS_Register_Students_Controller
 
 	public static function create_role()
 	{
-		add_role( WS_Register_Student::ROLE, 'Alunos' );
+		add_role( WS_Register_Student::ROLE, 'Aluno' );
 
 		//avaliable capabilities
 		self::add_capabilities_course();
