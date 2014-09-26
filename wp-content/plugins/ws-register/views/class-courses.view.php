@@ -13,7 +13,7 @@ class WS_Register_Courses_View
 		$model = new WS_Register_Course( $post->ID );
 
 		?>
-		<textarea class="large-text" name="ws-metas[<?php echo esc_attr( WS_Register_Course::POST_META_SPEAKER_REQUIREMENTS ); ?>]"><?php echo esc_html( $model->speaker_requirements ); ?></textarea>
+		<textarea rows="4" class="large-text" name="ws-metas[<?php echo esc_attr( WS_Register_Course::POST_META_SPEAKER_REQUIREMENTS ); ?>]"><?php echo esc_html( $model->speaker_requirements ); ?></textarea>
 		<p class="description">Insira aqui os requisitos mínimos de software ou hardware para a execução do minicurso.</p>
 		<?php
 
