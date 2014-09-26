@@ -250,4 +250,21 @@ class WS_Utils_Helper
 
 		return implode( ' AND ', $where );
 	}
+
+	public static function is_valid_save_post( $post )
+	{
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+			return false;
+
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX )
+			return false;
+
+		if ( in_array( $post->post_status, array( 'auto-draft', 'revision', 'trash' ) ) )
+			return false;
+
+		if ( wp_is_post_revision( $post->ID ) )
+			return false;
+
+		return true;
+	}
 }
