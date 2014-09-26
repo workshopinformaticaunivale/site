@@ -2,11 +2,11 @@
 /**
  * Controller Dashboard
  *
- * @package WS Manager
+ * @package WS Register
  * @subpackage Dashboard
  * @since 1.0
  */
-class WS_Manager_Dashboard_Controller
+class WS_Register_Dashboard_Controller
 {
 	/**
 	 * Instance of this class.
@@ -25,9 +25,11 @@ class WS_Manager_Dashboard_Controller
 	public function __construct()
 	{
 		//add_action( 'admin_head', array( &$this, 'favicon' ) );
-		add_action( 'welcome_panel',  array( 'WS_Manager_Dashboard_view', 'render_welcome_panel' ) );
+		add_action( 'welcome_panel',  array( 'WS_Register_Dashboard_view', 'render_welcome_panel' ) );
 		add_action( 'wp_dashboard_setup', array( &$this, 'widgets_remove' ) );
-	}
+		add_action( 'wp_dashboard_setup', array( &$this, 'widgets_add' ) );
+		add_action( 'wp_dashboard_setup_students', array( &$this, 'widgets_add_students' ) );		
+	}	
 
 	public function widgets_remove()
 	{
@@ -38,9 +40,45 @@ class WS_Manager_Dashboard_Controller
 		remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
 	}
 
+	public function widgets_add()
+	{
+		if ( is_user_admin() || is_super_admin() )
+			return;
+
+		add_meta_box(
+			'dashboard_branding',
+			'Workshop de Informática',
+			array( 'WS_Register_Dashboard_view', 'render_dashboard_branding' ),
+			'dashboard',
+			'side',
+			'high'
+		);
+	}
+
+	public function widgets_add_students()
+	{
+		add_meta_box(
+			'dashboard_students_information',
+			'Informações',
+			array( 'WS_Register_Dashboard_view', 'render_dashboard_students_information' ),
+			'dashboard',
+			'normal',
+			'high'
+		);
+
+		add_meta_box(
+			'dashboard_students_actions',
+			'Mais Ações',
+			array( 'WS_Register_Dashboard_view', 'render_dashboard_students_actions' ),
+			'dashboard',
+			'normal',
+			'low'
+		);
+	}
+
 	public function favicon()
 	{
-		printf( '<link rel="Shortcut Icon" type="image/x-icon" href="%s" />', WS_Manager::get_url_assets( 'images/favicon.ico' ) );
+		printf( '<link rel="Shortcut Icon" type="image/x-icon" href="%s" />', WS_Register::get_url_assets( 'images/favicon.ico' ) );
 	}
 
 	/**

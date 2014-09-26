@@ -41,6 +41,18 @@ class WS_Register_Proxy_Controller
 	{		
 		add_filter( 'manage_users_custom_column', array( &$this, 'manage_users_columns' ),  10, 3 );
 		add_action( 'admin_head', array( &$this, 'admin_head_per_page' ) );
+		add_action( 'wp_dashboard_setup', array( &$this, 'wp_dashboard_setup_per_role' ) );
+		add_filter( 'admin_body_class', array( &$this, 'body_class_role' ) );
+		add_filter( 'enter_title_here', array( &$this, 'set_placeholder_title' ), 10, 2 );
+	}
+
+	/**
+	 * Set Enter Title
+	 * @since 1.0
+	 * @return void
+	*/
+	public function set_placeholder_title( $title, $post ) {
+		return apply_filters( "placeholder_title_{$post->post_type}", $title );
 	}
 
 	public function manage_users_columns( $empty = '', $column_name, $user_id )
@@ -55,5 +67,24 @@ class WS_Register_Proxy_Controller
 		$pagenow = str_replace( '.php', '', $pagenow );
 
 		do_action( "ws_admin_head_page_{$pagenow}" );
+	}
+
+	public function wp_dashboard_setup_per_role()
+	{
+		if ( current_user_can( WS_Register_Moderators_Controller::ROLE ) ) :
+			do_action( 'wp_dashboard_setup_moderators' );
+			return;
+		endif;
+
+		if ( current_user_can( WS_Register_Student::ROLE ) ) :
+			do_action( 'wp_dashboard_setup_students' );
+			return;
+		endif;
+	}
+
+	public function body_class_role()
+	{
+		if ( current_user_can( WS_Register_Student::ROLE ) )
+			return 'user-student';
 	}
 }

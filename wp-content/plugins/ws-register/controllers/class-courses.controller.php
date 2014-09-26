@@ -51,6 +51,27 @@ class WS_Register_Courses_Controller
 		add_filter( 'post_updated_messages', array( &$this, 'set_post_updated_messages' ) );
 		add_filter( 'manage_' . WS_Register_Course::POST_TYPE . '_posts_columns', array( &$this, 'set_admin_column_date_head' ) );
 		add_action( 'ws_set_default_event_' . WS_Register_Course::POST_TYPE, array( &$this, 'set_default_event' ), 10, 2 );
+		add_action( 'pre_get_posts', array( &$this, 'customize_admin_query' ) );
+		add_filter( 'placeholder_title_' . WS_Register_Course::POST_TYPE, array( &$this, 'set_placeholder_title' ) );
+	}
+
+	public function set_placeholder_title( $title )
+	{
+		return 'Insira o título aqui e abaixo informe sua descrição';
+	}
+
+	public function customize_admin_query( $query )
+	{
+		if ( ! is_admin() )
+			return;
+
+		//set author user logged
+		if ( current_user_can( WS_Register_Student::ROLE ) && $query->query_vars[ 'post_type' ] == 'attachment' )
+			$query->set( 'author', get_current_user_id() );
+
+		//set author user logged
+		if ( current_user_can( WS_Register_Student::ROLE ) && $query->is_main_query() )
+			$query->set( 'author', get_current_user_id() );
 	}
 
 	public function set_default_event( $post, $event )

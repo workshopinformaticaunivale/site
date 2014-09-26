@@ -13,7 +13,7 @@ class WS_Register_Courses_View
 		$model = new WS_Register_Course( $post->ID );
 
 		?>
-		<textarea rows="4" class="large-text" name="ws-metas[<?php echo esc_attr( WS_Register_Course::POST_META_SPEAKER_REQUIREMENTS ); ?>]"><?php echo esc_html( $model->speaker_requirements ); ?></textarea>
+		<textarea rows="4" id="ws-field-requirements" class="large-text" name="ws-metas[<?php echo esc_attr( WS_Register_Course::POST_META_SPEAKER_REQUIREMENTS ); ?>]"><?php echo esc_html( $model->speaker_requirements ); ?></textarea>
 		<p class="description">Insira aqui os requisitos mínimos de software ou hardware para a execução do minicurso.</p>
 		<?php
 
@@ -28,7 +28,7 @@ class WS_Register_Courses_View
 		$model = new WS_Register_Course( $post->ID );
 
 		?>
-		<input type="number" class="large-text" min="0" name="ws-metas[<?php echo esc_attr( WS_Register_Course::POST_META_WORKLOAD ); ?>]" value="<?php echo esc_html( $model->workload ); ?>">
+		<input type="number" id="ws-field-workload" class="large-text" min="0" name="ws-metas[<?php echo esc_attr( WS_Register_Course::POST_META_WORKLOAD ); ?>]" value="<?php echo esc_html( $model->workload ); ?>">
 		<p class="description">Insira aqui a carga horária em minutos.</p>
 		<?php
 

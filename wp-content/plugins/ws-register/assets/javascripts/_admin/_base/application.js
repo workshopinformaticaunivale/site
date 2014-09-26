@@ -13,6 +13,26 @@ Module('WS.Application', function(Application) {
 				, WS.Datepicker( container )
 				, WS.MaskAttribute()
 			);
+
+			WS.ValidationForms(
+				[
+					{
+						selector : '#title'
+					},
+					{
+						selector : '#content',
+						pointer  : '#postdivrich .wp-editor-tabs'
+					},
+					{
+						selector : '#ws-field-workload'
+					},
+					{
+						selector : '#ws-field-requirements',
+						position : 'bottom'
+					}
+				],
+				container.find( '#post' )
+			);
 		}
 	};
 

@@ -34,6 +34,6 @@ Module('WS.ControlTabsUsers', function(ControlTabsUsers) {
 	};
 
 	ControlTabsUsers.fn.getHashIndex = function() {
-		return ( window.location.hash.replace('#', '') || 1 );
+		return ( window.location.hash.replace('#', '') || 4 );
 	};
 });

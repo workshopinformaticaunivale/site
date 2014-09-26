@@ -3,12 +3,34 @@
 	display: none;
 }
 
-.custom-welcome-panel-content {
+.ws-dashboard {
 	display: block;
+	margin-bottom: 22px;
 
-	.branding-large {
-		display: block;
-		margin: 0 auto;
-		height: 310px;
+	.welcome-icon:before {
+		color: #888;
+		font: 400 22px/1 dashicons;
+		speak: none;
+		display: inline-block;
+		padding: 0 10px 0 0;
+		top: -1px;
+		position: relative;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		vertical-align: top;
+	}
+}
+
+.ws-branding-large {
+	display: block;
+	margin: 0 auto;
+	height: 310px;
+}
+
+.dashboard-students-information {
+	
+	.dashicons-welcome-write-blog {
+		margin-top: 10px;
+		margin-right: 2px;
 	}
 }
