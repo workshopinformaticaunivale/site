@@ -50,6 +50,17 @@ class WS_Register_Courses_Controller
 		add_filter( 'ws_metas_' . WS_Register_Course::POST_TYPE . '_is_valid_save_post', array( &$this, 'nonce_valid_save_post' ) );
 		add_filter( 'post_updated_messages', array( &$this, 'set_post_updated_messages' ) );
 		add_filter( 'manage_' . WS_Register_Course::POST_TYPE . '_posts_columns', array( &$this, 'set_admin_column_date_head' ) );
+		add_action( 'ws_set_default_event_' . WS_Register_Course::POST_TYPE, array( &$this, 'set_default_event' ), 10, 2 );
+	}
+
+	public function set_default_event( $post, $event )
+	{
+		$model = new WS_Register_Course( $post->ID );
+
+		if ( (bool)$model->event_id )
+			return;
+
+		$model->set_event_id( $event->ID );
 	}
 
 	public function get_courses( $args = array() )
@@ -478,19 +489,10 @@ class WS_Register_Courses_Controller
 	 */
 	private function _is_valid_save( $post )
 	{
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
-			return false;
-
-		if ( defined( 'DOING_AJAX' ) && DOING_AJAX )
-			return false;
-
-		if ( in_array( $post->post_status, array( 'auto-draft', 'revision', 'trash' ) ) )
+		if ( ! WS_Utils_Helper::is_valid_save_post( $post ) )
 			return false;
 
 		if ( WS_Register_Course::POST_TYPE != $post->post_type )
-			return false;
-
-		if ( wp_is_post_revision( $post->ID ) )
 			return false;
 
 		if ( $post->post_status == 'publish' && ! current_user_can( 'publish_ws-courses' ) )
