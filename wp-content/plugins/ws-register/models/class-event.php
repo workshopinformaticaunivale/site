@@ -145,6 +145,23 @@ class WS_Register_Event
 		return $this->_get_format_date( 'date_final' );
 	}
 
+	public function get_extensive_full_date()
+	{		
+		$month_initial = $this->_get_format_date( 'date_initial', 'F' );
+		$month_final   = $this->_get_format_date( 'date_final', 'F' );
+		$day_initial   = $this->_get_format_date( 'date_initial', 'd' );
+		$day_final     = $this->_get_format_date( 'date_final', 'd' );
+
+		//extensive
+		$text_initial = "{$day_initial} de {$month_initial}";
+		$text_final   = "{$day_final} de {$month_final}";
+
+		if ( $month_initial == $month_final )
+			$text_initial = $day_initial;
+
+		return "de {$text_initial} a {$text_final}";
+	}
+
 	/**
 	 * Use in __get() magic method to retrieve the value of the attribute
 	 * on demand. If the attribute is unset get his value before.
@@ -219,13 +236,13 @@ class WS_Register_Event
 		return $attachment[0];
 	}
 
-	private function _get_format_date( $property )
+	private function _get_format_date( $property, $format = 'd/m/Y H:i' )
 	{
 		$date = strtotime( $this->_get_property( $property ) );
 
 		if ( empty( $date ) )
 			return false;
 
-		return date_i18n( 'd/m/Y H:i', $date );
+		return date_i18n( $format, $date );
 	}
 }
