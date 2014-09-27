@@ -32,12 +32,12 @@ class WS_Register_Speaker
 	private $thumbnail_url;
 
 	/**
-	 * Speakers excerpt
+	 * Speakers content
 	 *
 	 * @since 1.0
 	 * @var string
 	 */
-	private $excerpt;
+	private $content;
 
 	/**
 	 * Speakers topic
@@ -143,14 +143,14 @@ class WS_Register_Speaker
 		return $this->_get_property( $prop_name );
 	}
 
-	public function get_format_datetime_speech()
+	public function get_format_datetime_speech( $format = 'd/m/Y H:i' )
 	{
 		$datetime_speech = strtotime( $this->_get_property( 'datetime_speech' ) );
 
 		if ( empty( $datetime_speech ) )
 			return false;
 
-		return date_i18n( 'd/m/Y H:i', $datetime_speech );
+		return date_i18n( $format, $datetime_speech );
 	}
 
 	public function set_event_id( $event_id )
@@ -181,15 +181,9 @@ class WS_Register_Speaker
 				endif;
 				break;
 
-			case 'excerpt' :
-				if ( ! isset( $this->excerpt ) ) :
-					$this->excerpt = get_post_field( 'post_excerpt', $this->ID );
-				endif;
-				break;
-
-			case 'topic' :
-				if ( ! isset( $this->topic ) ) :
-					$this->topic = get_post_meta( $this->ID, self::POST_META_TOPIC, true );
+			case 'content' :
+				if ( ! isset( $this->content ) ) :
+					$this->content = apply_filters( 'get_the_content', get_post_field( 'post_content', $this->ID ) );
 				endif;
 				break;
 
