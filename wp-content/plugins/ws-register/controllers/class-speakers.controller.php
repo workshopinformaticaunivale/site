@@ -93,6 +93,37 @@ class WS_Register_Speakers_Controller
 		);		
 	}
 
+	public function get_list( $args = array() )
+	{
+		$defaults = array(
+			'post_type' => WS_Register_Speaker::POST_TYPE,
+		);
+
+		$args = wp_parse_args( $args, $defaults );
+
+		return $this->_parse_list( WS_Utils_Helper::get_query( $args ) );
+	}
+
+	public function get_list_current_event()
+	{
+		$current_event = WS_Register_Events_Controller::get_current_event();
+
+		$args = array(
+			'meta_key'       => WS_Register_Speaker::POST_META_DATETIME_SPEECH,
+			'order'          => 'ASC',
+			'orderby'        => 'meta_value',
+			'meta_query' => array(
+				array(
+					'key' 	=> WS_Register_Speaker::POST_META_EVENT_ID,
+					'value' => $current_event->ID,
+					'type'  => 'NUMERIC',
+				)
+			)
+		);
+
+		return $this->get_list( $args );
+	}
+
 	public function register_post_type()
 	{
 		register_post_type(
@@ -232,4 +263,16 @@ class WS_Register_Speakers_Controller
 		return self::$instance;
 	}
 
+	private function _parse_list( $wp_query )
+	{
+		if ( ! $wp_query->have_posts() )
+			return false;
+
+		$list = array();
+
+		foreach ( $wp_query->posts as $featured )
+			$list[] = new WS_Register_Speaker( $featured->ID );
+
+		return $list;
+	}
 }
