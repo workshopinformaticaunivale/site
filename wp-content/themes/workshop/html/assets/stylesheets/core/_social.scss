@@ -1,0 +1,17 @@
+.social {
+	list-style: none;
+
+	a {
+		text-decoration: none;
+	}
+
+	a:before {
+		@extend %font_icons;
+		color: red;
+		cursor: pointer;
+		font-size: 40px;
+	}
+
+	.facebook a:before 	{ content: '\e600'; }	
+	.twitter a:before 	{ content: '\e601'; }	
+}

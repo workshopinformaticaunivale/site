@@ -1,0 +1,44 @@
+/*!
+  Theme Name: Workshop de Informática
+  Theme URI: http://resuta.com.br
+  Author: Alunos & Resuta
+  Author URI: http://resuta.com.br
+  Description: Tema desenvolvido em parceria com Resuta
+  Version: 0.0.1
+*/
+@import 'compass';
+
+
+// base
+@import 'base/variables'; 
+@import 'base/functions'; 
+@import 'base/reset'; 
+@import 'base/mixins'; 
+@import 'base/helpers'; 
+@import 'base/fonts'; 
+
+
+// core
+@import 'core/form';
+@import 'core/contentPosted';
+@import 'core/social';
+@import 'core/tipography';
+@import 'core/cardSpeaker';
+@import 'core/itemTimeLine';
+@import 'core/buttons';
+@import 'core/contributor';
+
+
+// layout
+@import 'layout/main';
+@import 'layout/navigation';
+@import 'layout/header';
+@import 'layout/footer';
+
+
+// modules
+@import 'modules/navTop';
+@import 'modules/listSpeakers';
+@import 'modules/listTimeLine';
+@import 'modules/contact';
+@import 'modules/partner';

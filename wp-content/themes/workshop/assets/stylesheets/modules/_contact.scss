@@ -1,0 +1,43 @@
+.contact {
+	background: $colorPri image-url('bg-univale.png') center bottom no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	color: $colorDefault;
+	margin-top: 50px;
+	padding: 30px 0;
+	text-align: center;
+
+	.info {
+		margin: 30px auto 0;
+		width: perc(600px,$container);
+	}
+
+	.title-section {
+		color: $colorDefault;
+	}
+}
+
+.contact .box-contact {
+	$boxContact : 400px;
+	margin: 30px auto 0;
+	text-align: left;
+	width: perc($boxContact,$container);
+
+	label { display: none; }
+	
+	li { 
+		margin-bottom: 5px;
+
+		&:last-child { text-align: right; }
+	}
+
+	.small 	{ width: perc(100px,$boxContact); }
+	.medium { width: perc(290px,$boxContact); }
+	.left 	{ margin-right: perc(10px,$boxContact); }
+	.clear 	{ clear: both; }
+
+	.small,
+	.medium {
+		float: left;
+	}
+}

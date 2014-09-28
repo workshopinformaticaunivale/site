@@ -1,0 +1,39 @@
+.speakers {
+	@extend %section_home;
+	position: relative;
+}
+
+.list-speakers 	{ @extend %clearfix; }
+
+.list-speakers .card-speaker {
+	cursor: pointer;
+	float: left;
+	margin-left: perc(20px,$container);
+	width: perc(224px,$container);
+
+	&:first-child {
+		margin-left: 0;
+	}
+}
+
+.info-name {
+	background: $colorDefault;
+	border-radius: 5px;
+	color: $colorText;
+	display: none;
+	padding: 20px;
+	position: absolute;
+	left: 0;
+	line-height: 1.2;
+	margin-top: 20px;
+	text-align: left;
+	top: 100%;
+	width: 100%;
+	z-index: 21;
+
+	.active-info & {
+		display: block;
+	}
+}
+
+.menu-fixed .speakers { margin-top: 91px; }

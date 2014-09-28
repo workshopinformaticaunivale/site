@@ -1,0 +1,1021 @@
+/* line 9, assets/stylesheets/base/_reset.scss */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* line 30, assets/stylesheets/base/_reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 34, assets/stylesheets/base/_reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 39, assets/stylesheets/base/_reset.scss */
+nav ul {
+  list-style: none;
+}
+
+/* line 43, assets/stylesheets/base/_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 47, assets/stylesheets/base/_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 53, assets/stylesheets/base/_reset.scss */
+a {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* change colours to suit your needs */
+/* line 63, assets/stylesheets/base/_reset.scss */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+/* line 70, assets/stylesheets/base/_reset.scss */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* line 77, assets/stylesheets/base/_reset.scss */
+del {
+  text-decoration: line-through;
+}
+
+/* line 81, assets/stylesheets/base/_reset.scss */
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+/* line 86, assets/stylesheets/base/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+/* line 92, assets/stylesheets/base/_reset.scss */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/* line 101, assets/stylesheets/base/_reset.scss */
+input, select {
+  vertical-align: middle;
+}
+
+/* line 2, assets/stylesheets/base/_helpers.scss */
+.item-time-line:after, .container:after, .navigation:after, .footer:after, .list-speakers:after, .list-time-line:after {
+  clear: both;
+  content: '';
+  display: block;
+  font-size: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+/* line 24, assets/stylesheets/base/_helpers.scss */
+.social a:before {
+  cursor: default;
+  font-family: "icomoon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 37, assets/stylesheets/base/_helpers.scss */
+.speakers, .time-line {
+  margin-top: 30px;
+}
+/* line 40, assets/stylesheets/base/_helpers.scss */
+.speakers .title-section, .time-line .title-section {
+  margin-bottom: 30px;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src: url('assets/fonts/icomoon.eot?-bfuh3h&1410002676');
+  src: url('assets/fonts/icomoon.eot?&1410002676#iefix-bfuh3h') format("embedded-opentype"), url('assets/fonts/icomoon.woff?-bfuh3h&1410002676') format("woff"), url('assets/fonts/icomoon.ttf?-bfuh3h&1410002676') format("truetype"), url('assets/fonts/icomoon.svg?-bfuh3h&1410002676#icomoon') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ebrimaregular';
+  src: url('assets/fonts/ebrima-webfont.eot?1099976477');
+  src: url('assets/fonts/ebrima-webfont.eot?&1099976477#iefix') format("embedded-opentype"), url('assets/fonts/ebrima-webfont.woff2?1099976477') format("woff2"), url('assets/fonts/ebrima-webfont.woff?1099976477') format("woff"), url('assets/fonts/ebrima-webfont.ttf?1099976477') format("truetype"), url('assets/fonts/ebrima-webfont.svg?1099976477#ebrimaregular') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 13, assets/stylesheets/core/_form.scss */
+form ul {
+  list-style: none;
+}
+
+/* line 17, assets/stylesheets/core/_form.scss */
+input,
+textarea {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font: 1em/1 "ebrimaregular";
+  height: 35px;
+  margin-bottom: 5px;
+  padding: 5px;
+  width: 100%;
+}
+/* line 27, assets/stylesheets/core/_form.scss */
+input:focus,
+textarea:focus {
+  outline: none;
+}
+/* line 2, assets/stylesheets/base/_mixins.scss */
+input ::-webkit-input-placeholder,
+textarea ::-webkit-input-placeholder {
+  color: #4d4d4d;
+}
+/* line 3, assets/stylesheets/base/_mixins.scss */
+input :-moz-placeholder,
+textarea :-moz-placeholder {
+  color: #4d4d4d;
+}
+/* line 4, assets/stylesheets/base/_mixins.scss */
+input ::-moz-placeholder,
+textarea ::-moz-placeholder {
+  color: #4d4d4d;
+}
+/* line 5, assets/stylesheets/base/_mixins.scss */
+input :-ms-input-placeholder,
+textarea :-ms-input-placeholder {
+  color: #4d4d4d;
+}
+
+/* line 36, assets/stylesheets/core/_form.scss */
+textarea {
+  height: auto;
+  min-height: 100px;
+  resize: none;
+}
+
+/* line 42, assets/stylesheets/core/_form.scss */
+input[type='submit'],
+input[type='radio'],
+input[type='checkbox'] {
+  height: auto;
+  width: auto;
+}
+
+/* line 49, assets/stylesheets/core/_form.scss */
+input[type='submit'] {
+  cursor: pointer;
+}
+
+/* line 53, assets/stylesheets/core/_form.scss */
+label {
+  font: 1em/1 "ebrimaregular";
+}
+
+/* line 8, assets/stylesheets/core/_contentPosted.scss */
+.content-posted {
+  font-size: 1em;
+}
+/* line 11, assets/stylesheets/core/_contentPosted.scss */
+.content-posted h1,
+.content-posted h2,
+.content-posted h3,
+.content-posted h4,
+.content-posted h5,
+.content-posted h6 {
+  font-weight: normal;
+  font-family: "ebrimaregular";
+  line-height: 1;
+  margin-bottom: 20px;
+}
+/* line 23, assets/stylesheets/core/_contentPosted.scss */
+.content-posted h1 {
+  font-size: 2em;
+}
+/* line 24, assets/stylesheets/core/_contentPosted.scss */
+.content-posted h2 {
+  font-size: 1.85714em;
+}
+/* line 25, assets/stylesheets/core/_contentPosted.scss */
+.content-posted h3 {
+  font-size: 1.71429em;
+}
+/* line 26, assets/stylesheets/core/_contentPosted.scss */
+.content-posted h4 {
+  font-size: 1.57143em;
+}
+/* line 27, assets/stylesheets/core/_contentPosted.scss */
+.content-posted h5 {
+  font-size: 1.42857em;
+}
+/* line 28, assets/stylesheets/core/_contentPosted.scss */
+.content-posted h6 {
+  font-size: 1.28571em;
+}
+/* line 30, assets/stylesheets/core/_contentPosted.scss */
+.content-posted p {
+  margin-bottom: 20px;
+}
+/* line 34, assets/stylesheets/core/_contentPosted.scss */
+.content-posted a {
+  color: blue;
+}
+/* line 38, assets/stylesheets/core/_contentPosted.scss */
+.content-posted ul,
+.content-posted ol {
+  list-style-position: inside;
+}
+/* line 43, assets/stylesheets/core/_contentPosted.scss */
+.content-posted ul ul,
+.content-posted ol ol {
+  margin-left: 20px;
+}
+/* line 48, assets/stylesheets/core/_contentPosted.scss */
+.content-posted blockquote {
+  font-style: italic;
+  padding-left: 20px;
+}
+
+/* line 1, assets/stylesheets/core/_social.scss */
+.social {
+  list-style: none;
+}
+/* line 4, assets/stylesheets/core/_social.scss */
+.social a {
+  text-decoration: none;
+}
+/* line 8, assets/stylesheets/core/_social.scss */
+.social a:before {
+  color: red;
+  cursor: pointer;
+  font-size: 40px;
+}
+/* line 15, assets/stylesheets/core/_social.scss */
+.social .facebook a:before {
+  content: '\e600';
+}
+/* line 16, assets/stylesheets/core/_social.scss */
+.social .twitter a:before {
+  content: '\e601';
+}
+
+/* line 1, assets/stylesheets/core/_tipography.scss */
+.title-section {
+  color: #073b4f;
+  font: normal 2.14286em/1 "ebrimaregular";
+}
+
+/* line 6, assets/stylesheets/core/_tipography.scss */
+.title-content {
+  color: #073b4f;
+  font: 1.28571em/1 arial;
+}
+
+/* line 11, assets/stylesheets/core/_tipography.scss */
+.title-content a,
+.title-section a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* line 1, assets/stylesheets/core/_cardSpeaker.scss */
+.card-speaker {
+  -moz-transition: -moz-transform 0.3s;
+  -o-transition: -o-transform 0.3s;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  -moz-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  background: #fff;
+  border: 1px solid #cecece;
+  border-radius: 5px;
+  color: #4d4d4d;
+  min-height: 265px;
+  padding-bottom: 30px;
+  position: relative;
+  text-align: center;
+}
+/* line 13, assets/stylesheets/core/_cardSpeaker.scss */
+.card-speaker:hover {
+  -moz-transform: translateY(-5px);
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+/* line 17, assets/stylesheets/core/_cardSpeaker.scss */
+.card-speaker .avatar {
+  border-radius: 100%;
+  margin-top: 20px;
+}
+/* line 22, assets/stylesheets/core/_cardSpeaker.scss */
+.card-speaker .name,
+.card-speaker .lecture {
+  margin-top: 15px;
+}
+/* line 27, assets/stylesheets/core/_cardSpeaker.scss */
+.card-speaker .lecture {
+  color: #073b4f;
+  margin-bottom: 20px;
+}
+/* line 32, assets/stylesheets/core/_cardSpeaker.scss */
+.card-speaker .date {
+  background: rgba(206, 206, 206, 0.3);
+  bottom: 0;
+  left: 0;
+  line-height: 30px;
+  height: 30px;
+  position: absolute;
+  width: 100%;
+}
+
+/* line 43, assets/stylesheets/core/_cardSpeaker.scss */
+.card-speaker.active {
+  box-shadow: 0 3px 10px 0 rgba(206, 206, 206, 0.4);
+  -moz-transform: translateY(-5px);
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+  z-index: 21;
+}
+/* line 48, assets/stylesheets/core/_cardSpeaker.scss */
+.card-speaker.active:before {
+  content: '';
+  border-color: transparent transparent #fff transparent;
+  border-style: solid;
+  border-width: 10px;
+  left: 50%;
+  margin: 8px 0 0 -10px;
+  position: absolute;
+  top: 100%;
+}
+
+/* line 5, assets/stylesheets/core/_itemTimeLine.scss */
+.item-time-line:nth-child(2) .date:before {
+  display: none;
+}
+/* line 9, assets/stylesheets/core/_itemTimeLine.scss */
+.item-time-line .date {
+  background: #073b4f;
+  border-radius: 100%;
+  color: #fff;
+  display: block;
+  font-weight: bold;
+  float: left;
+  height: 60px;
+  line-height: 60px;
+  margin-right: 4.16667%;
+  position: relative;
+  text-align: center;
+  width: 60px;
+}
+/* line 23, assets/stylesheets/core/_itemTimeLine.scss */
+.item-time-line .date:before {
+  border-left: 1px dotted #cecece;
+  bottom: 100%;
+  content: '';
+  height: 20px;
+  left: 49%;
+  position: absolute;
+  width: 1px;
+}
+/* line 34, assets/stylesheets/core/_itemTimeLine.scss */
+.item-time-line .course {
+  border-right: 1px solid #cecece;
+  color: #073b4f;
+  margin-right: 2.5641%;
+  width: 36.53846%;
+}
+/* line 41, assets/stylesheets/core/_itemTimeLine.scss */
+.item-time-line p {
+  padding-left: 2.5641%;
+  width: 60.25641%;
+}
+/* line 46, assets/stylesheets/core/_itemTimeLine.scss */
+.item-time-line .info {
+  height: 60px;
+  float: left;
+  width: 65%;
+}
+/* line 53, assets/stylesheets/core/_itemTimeLine.scss */
+.item-time-line .course,
+.item-time-line p {
+  display: table-cell;
+  vertical-align: middle;
+  height: 60px;
+}
+/* line 60, assets/stylesheets/core/_itemTimeLine.scss */
+.item-time-line .btn-sec {
+  float: right;
+  margin-top: 15px;
+}
+
+/* line 1, assets/stylesheets/core/_buttons.scss */
+.btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.5);
+  height: 35px;
+  line-height: 30px;
+}
+/* line 8, assets/stylesheets/core/_buttons.scss */
+.btn:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+/* line 14, assets/stylesheets/core/_buttons.scss */
+.btn-sec {
+  -moz-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+  background: #fbc900;
+  border: none;
+  color: #fff;
+  font-size: 0.85714em;
+  font-weight: bold;
+  height: 25px;
+  line-height: 25px;
+  text-shadow: 0 1px 0 #d2a900;
+}
+/* line 25, assets/stylesheets/core/_buttons.scss */
+.btn-sec:hover {
+  opacity: .8;
+}
+
+/* line 31, assets/stylesheets/core/_buttons.scss */
+.btn,
+.btn-sec {
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 0 20px;
+  text-transform: uppercase;
+}
+/* line 39, assets/stylesheets/core/_buttons.scss */
+.btn:active,
+.btn-sec:active {
+  -moz-transform: scale(0.98, 0.98);
+  -ms-transform: scale(0.98, 0.98);
+  -webkit-transform: scale(0.98, 0.98);
+  transform: scale(0.98, 0.98);
+}
+
+/* line 44, assets/stylesheets/core/_buttons.scss */
+button {
+  outline: none;
+}
+
+/* line 1, assets/stylesheets/core/_contributor.scss */
+.contributor {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85714em;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+/* line 8, assets/stylesheets/core/_contributor.scss */
+.contributor .avatar {
+  border-radius: 100%;
+  margin-bottom: 5px;
+}
+
+/* line 15, assets/stylesheets/core/_contributor.scss */
+.contributors {
+  background: #073b4f url('assets/images/bg-contributors.png?1411471207') no-repeat center bottom;
+  background-attachment: fixed;
+  background-size: cover;
+  padding: 30px 0;
+  text-align: center;
+}
+/* line 22, assets/stylesheets/core/_contributor.scss */
+.contributors .title-section {
+  color: #fff;
+  margin-bottom: 30px;
+}
+/* line 27, assets/stylesheets/core/_contributor.scss */
+.contributors .info {
+  color: #fff;
+  font-size: 1.07143em;
+  margin-bottom: 30px;
+}
+/* line 33, assets/stylesheets/core/_contributor.scss */
+.contributors .contributor {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+/* line 1, assets/stylesheets/layout/_main.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 5, assets/stylesheets/layout/_main.scss */
+body {
+  background: #fff;
+  font-size: 14px;
+  font-family: "ebrimaregular";
+}
+
+/* line 11, assets/stylesheets/layout/_main.scss */
+.container {
+  margin: 0 auto;
+  width: 1200px;
+}
+@media (max-width: 1200px) {
+  /* line 11, assets/stylesheets/layout/_main.scss */
+  .container {
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+}
+
+/* line 23, assets/stylesheets/layout/_main.scss */
+.content {
+  float: left;
+  width: 58.33333%;
+}
+
+/* line 28, assets/stylesheets/layout/_main.scss */
+.sidebar {
+  float: right;
+  margin-left: 8.33333%;
+  width: 16.66667%;
+}
+
+/* line 34, assets/stylesheets/layout/_main.scss */
+iframe {
+  display: block;
+}
+
+/* line 38, assets/stylesheets/layout/_main.scss */
+.overlay {
+  background: #000;
+  bottom: 0;
+  display: none;
+  left: 0;
+  opacity: .5;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 20;
+}
+/* line 49, assets/stylesheets/layout/_main.scss */
+.active-overlay .overlay {
+  display: block;
+}
+
+/* line 4, assets/stylesheets/layout/_navigation.scss */
+.navigation li {
+  position: relative;
+}
+/* line 8, assets/stylesheets/layout/_navigation.scss */
+.navigation li:hover > ul {
+  display: block;
+}
+/* line 12, assets/stylesheets/layout/_navigation.scss */
+.navigation a {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+}
+
+/* line 20, assets/stylesheets/layout/_navigation.scss */
+.navigation .menu > li {
+  float: left;
+}
+
+/* line 25, assets/stylesheets/layout/_navigation.scss */
+.navigation .menu ul {
+  display: none;
+  left: 0;
+  position: absolute;
+  top: 100%;
+}
+/* line 31, assets/stylesheets/layout/_navigation.scss */
+.navigation .menu ul ul {
+  left: 100%;
+  top: 0;
+}
+
+/* line 1, assets/stylesheets/layout/_header.scss */
+.header {
+  background: #28445d;
+  min-height: 180px;
+  padding: 40px 0;
+}
+/* line 6, assets/stylesheets/layout/_header.scss */
+.header .container {
+  position: relative;
+}
+/* line 10, assets/stylesheets/layout/_header.scss */
+.header .branding,
+.header .branding img {
+  float: left;
+}
+/* line 15, assets/stylesheets/layout/_header.scss */
+.header .branding img {
+  position: relative;
+  top: 12px;
+}
+/* line 20, assets/stylesheets/layout/_header.scss */
+.header .info {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  display: inline-block;
+  margin-left: 30px;
+  min-height: 100px;
+  padding: 20px 0 0 30px;
+  overflow: hidden;
+}
+/* line 29, assets/stylesheets/layout/_header.scss */
+.header .info strong {
+  font-size: 1.42857em;
+  opacity: .5;
+}
+/* line 34, assets/stylesheets/layout/_header.scss */
+.header .info .date {
+  margin-top: 10px;
+  font-size: 2.14286em;
+}
+
+/* line 41, assets/stylesheets/layout/_header.scss */
+.header .box-login {
+  position: absolute;
+  right: 0;
+  margin-top: -15px;
+  top: 50%;
+}
+/* line 47, assets/stylesheets/layout/_header.scss */
+.header .box-login .login {
+  -moz-transition: color 0.2s;
+  -o-transition: color 0.2s;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  margin-right: 20px;
+  text-transform: uppercase;
+}
+/* line 56, assets/stylesheets/layout/_header.scss */
+.header .box-login .login:hover {
+  color: #fff;
+}
+
+/* line 62, assets/stylesheets/layout/_header.scss */
+.form-login {
+  background: #fff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  display: none;
+  right: 0;
+  margin-top: 20px;
+  padding: 20px;
+  position: absolute;
+  top: 100%;
+  z-index: 10;
+}
+/* line 74, assets/stylesheets/layout/_header.scss */
+.form-login:before {
+  content: '';
+  border-color: transparent transparent #fff transparent;
+  border-style: solid;
+  border-width: 10px;
+  bottom: 100%;
+  left: 28px;
+  position: absolute;
+}
+/* line 84, assets/stylesheets/layout/_header.scss */
+.form-login ul {
+  list-style: none;
+}
+/* line 88, assets/stylesheets/layout/_header.scss */
+.form-login li {
+  margin-bottom: 8px;
+}
+/* line 91, assets/stylesheets/layout/_header.scss */
+.form-login li:last-child {
+  margin-bottom: 0;
+  text-align: right;
+}
+/* line 97, assets/stylesheets/layout/_header.scss */
+.form-login label {
+  display: inline-block;
+  margin-bottom: 3px;
+}
+/* line 102, assets/stylesheets/layout/_header.scss */
+.form-login input {
+  border: 1px solid #cecece;
+  height: 25px;
+}
+/* line 107, assets/stylesheets/layout/_header.scss */
+.form-login .btn-sec {
+  border: none;
+}
+/* line 111, assets/stylesheets/layout/_header.scss */
+.active-form .form-login {
+  display: block;
+}
+
+/* line 1, assets/stylesheets/layout/_footer.scss */
+.footer {
+  color: #4d4d4d;
+  padding: 15px 0;
+}
+/* line 6, assets/stylesheets/layout/_footer.scss */
+.footer .work-shop,
+.footer .support span {
+  display: inline-block;
+  font-size: 0.85714em;
+  font-weight: normal;
+  line-height: 40px;
+  text-transform: uppercase;
+}
+/* line 15, assets/stylesheets/layout/_footer.scss */
+.footer .work-shop {
+  margin-left: 10px;
+}
+/* line 19, assets/stylesheets/layout/_footer.scss */
+.footer .support span {
+  margin-right: 10px;
+  padding-right: 10px;
+  border-right: 1px solid #cecece;
+}
+/* line 25, assets/stylesheets/layout/_footer.scss */
+.footer .support,
+.footer .support img {
+  float: right;
+}
+/* line 30, assets/stylesheets/layout/_footer.scss */
+.footer .branding-footer,
+.footer .branding-footer img {
+  float: left;
+}
+
+/* line 1, assets/stylesheets/modules/_navTop.scss */
+.menu-fixed .navigation-fixed {
+  background: rgba(255, 255, 255, 0.95);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 5;
+  width: 100%;
+}
+/* line 9, assets/stylesheets/modules/_navTop.scss */
+.menu-fixed .navigation-fixed .nav-top {
+  margin: 0 auto;
+  width: 1200px;
+}
+
+/* line 15, assets/stylesheets/modules/_navTop.scss */
+.nav-top {
+  border-bottom: 1px solid #cecece;
+  color: #4d4d4d;
+  text-transform: uppercase;
+}
+
+/* line 21, assets/stylesheets/modules/_navTop.scss */
+.nav-top .menu > li > a {
+  -moz-transition: color 0.2s;
+  -o-transition: color 0.2s;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+  padding-top: 22px;
+  min-height: 60px;
+}
+/* line 26, assets/stylesheets/modules/_navTop.scss */
+.nav-top .menu > li > a:hover {
+  color: #ffce06;
+}
+
+/* line 31, assets/stylesheets/modules/_navTop.scss */
+.nav-top li {
+  margin-left: 3.33333%;
+}
+/* line 34, assets/stylesheets/modules/_navTop.scss */
+.nav-top li:first-child {
+  margin-left: 0;
+}
+
+/* line 41, assets/stylesheets/modules/_navTop.scss */
+.nav-top .menu .active-menu a {
+  cursor: default;
+}
+/* line 45, assets/stylesheets/modules/_navTop.scss */
+.nav-top .menu .active-menu a:hover {
+  color: #4d4d4d;
+}
+/* line 49, assets/stylesheets/modules/_navTop.scss */
+.nav-top .menu .active-menu:before {
+  background: #ffce06;
+  content: '';
+  height: 5px;
+  left: 0;
+  margin-top: -2px;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}
+
+/* line 1, assets/stylesheets/modules/_listSpeakers.scss */
+.speakers {
+  position: relative;
+}
+
+/* line 8, assets/stylesheets/modules/_listSpeakers.scss */
+.list-speakers .card-speaker {
+  cursor: pointer;
+  float: left;
+  margin-left: 1.66667%;
+  width: 18.66667%;
+}
+/* line 14, assets/stylesheets/modules/_listSpeakers.scss */
+.list-speakers .card-speaker:first-child {
+  margin-left: 0;
+}
+
+/* line 19, assets/stylesheets/modules/_listSpeakers.scss */
+.info-name {
+  background: #fff;
+  border-radius: 5px;
+  color: #4d4d4d;
+  display: none;
+  padding: 20px;
+  position: absolute;
+  left: 0;
+  line-height: 1.2;
+  margin-top: 20px;
+  text-align: left;
+  top: 100%;
+  width: 100%;
+  z-index: 21;
+}
+/* line 34, assets/stylesheets/modules/_listSpeakers.scss */
+.active-info .info-name {
+  display: block;
+}
+
+/* line 39, assets/stylesheets/modules/_listSpeakers.scss */
+.menu-fixed .speakers {
+  margin-top: 91px;
+}
+
+/* line 5, assets/stylesheets/modules/_listTimeLine.scss */
+.time-line .box-day {
+  border-top: 1px solid #cecece;
+  padding-top: 10px;
+  margin-top: 30px;
+}
+/* line 10, assets/stylesheets/modules/_listTimeLine.scss */
+.time-line .box-day:first-child {
+  margin-top: 0;
+}
+/* line 12, assets/stylesheets/modules/_listTimeLine.scss */
+.time-line .box-day .day {
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+/* line 20, assets/stylesheets/modules/_listTimeLine.scss */
+.list-time-line .item-time-line {
+  margin-top: 20px;
+}
+/* line 23, assets/stylesheets/modules/_listTimeLine.scss */
+.list-time-line .item-time-line:first-child {
+  margin-top: 0;
+}
+
+/* line 1, assets/stylesheets/modules/_contact.scss */
+.contact {
+  background: #073b4f url('assets/images/bg-univale.png?1411376873') center bottom no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+  margin-top: 50px;
+  padding: 30px 0;
+  text-align: center;
+}
+/* line 10, assets/stylesheets/modules/_contact.scss */
+.contact .info {
+  margin: 30px auto 0;
+  width: 50%;
+}
+/* line 15, assets/stylesheets/modules/_contact.scss */
+.contact .title-section {
+  color: #fff;
+}
+
+/* line 20, assets/stylesheets/modules/_contact.scss */
+.contact .box-contact {
+  margin: 30px auto 0;
+  text-align: left;
+  width: 33.33333%;
+}
+/* line 26, assets/stylesheets/modules/_contact.scss */
+.contact .box-contact label {
+  display: none;
+}
+/* line 28, assets/stylesheets/modules/_contact.scss */
+.contact .box-contact li {
+  margin-bottom: 5px;
+}
+/* line 31, assets/stylesheets/modules/_contact.scss */
+.contact .box-contact li:last-child {
+  text-align: right;
+}
+/* line 34, assets/stylesheets/modules/_contact.scss */
+.contact .box-contact .small {
+  width: 25%;
+}
+/* line 35, assets/stylesheets/modules/_contact.scss */
+.contact .box-contact .medium {
+  width: 72.5%;
+}
+/* line 36, assets/stylesheets/modules/_contact.scss */
+.contact .box-contact .left {
+  margin-right: 2.5%;
+}
+/* line 37, assets/stylesheets/modules/_contact.scss */
+.contact .box-contact .clear {
+  clear: both;
+}
+/* line 39, assets/stylesheets/modules/_contact.scss */
+.contact .box-contact .small,
+.contact .box-contact .medium {
+  float: left;
+}
+
+/* line 1, assets/stylesheets/modules/_partner.scss */
+.partners {
+  text-align: center;
+  padding: 30px 0 40px;
+}
+
+/* line 6, assets/stylesheets/modules/_partner.scss */
+.partners .list-partners {
+  margin-top: 30px;
+}
+/* line 9, assets/stylesheets/modules/_partner.scss */
+.partners .list-partners li {
+  display: inline-block;
+  margin: 10px;
+}

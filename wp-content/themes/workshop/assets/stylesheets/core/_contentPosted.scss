@@ -1,0 +1,52 @@
+$hSize 		: 28px;
+$hWeight 	: normal;
+$hFont 		: $fontPri;
+
+$postSize 	: $fontDefault;
+
+
+.content-posted {
+	font-size: em($postSize);
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-weight: $hWeight;
+		font-family: $hFont;
+		line-height: 1;
+		margin-bottom: 20px;
+	}
+
+	h1 { font-size: em($hSize, $postSize); }
+	h2 { font-size: em($hSize - 2, $postSize); }
+	h3 { font-size: em($hSize - 4, $postSize); }
+	h4 { font-size: em($hSize - 6, $postSize); }
+	h5 { font-size: em($hSize - 8, $postSize); }
+	h6 { font-size: em($hSize - 10, $postSize); }
+
+	p {
+		margin-bottom: 20px;
+	}
+
+	a {
+		color: blue;
+	}
+
+	ul,
+	ol {
+		list-style-position: inside;
+	}
+
+	ul ul,
+	ol ol {
+		margin-left: 20px;
+	}
+
+	blockquote {
+		font-style: italic;
+		padding-left: 20px;
+	}
+}

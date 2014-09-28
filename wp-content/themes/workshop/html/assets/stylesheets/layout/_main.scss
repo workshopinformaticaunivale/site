@@ -1,0 +1,52 @@
+* {
+	@include box-sizing( border-box );
+}
+
+body {
+	background: $bg;
+	font-size: $fontDefault;
+	font-family: $fontPri;
+}
+
+.container {
+	@extend %clearfix;
+	margin: 0 auto;
+	width: $container;
+
+	@media( max-width: 1200px ) {
+		width: 96%;
+		margin-left: 2%;
+		margin-right: 2%;
+	}
+}
+
+.content {
+	float: left;
+	width: perc( $content, $container );
+}
+
+.sidebar {
+	float: right;
+	margin-left: perc( $gutter, $container );
+	width: perc( $sidebar, $container );
+}
+
+iframe {
+	display: block;
+}
+
+.overlay {
+	background: #000;
+	bottom: 0;
+	display: none;
+	left: 0;
+	opacity: .5;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 20;
+
+	.active-overlay & {
+		display: block;
+	}
+}
