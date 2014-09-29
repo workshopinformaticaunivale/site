@@ -17,7 +17,10 @@ Module('WS.Application', function(Application) {
 
 			WS.MenuRetract( container );
 
-			menu.find( 'a' ).scrollToPage();
+			menu.find( 'a' )
+				.add( '[data-action=register]' )
+				.scrollToPage()
+			;
 		},
 		action : function(container) {
 			container.find( '.login' ).on( 'click', function() {
@@ -27,6 +30,7 @@ Module('WS.Application', function(Application) {
 			WS.FactoryComponent
 			  .create( container, 'GoogleMaps', '[data-component-map]' )
 			  .create( container, 'Speakers', '[data-component-speakers]' )
+			  .create( container, 'Register', '[data-component-register]' )
 			;
 		}
 	};

@@ -1,34 +1,54 @@
 <?php if ( ! function_exists( 'add_action' ) ) exit; ?>
+<?php
+/**
+ * The template part register
+ *
+ * @package WordPress
+ * @subpackage Theme
+ */
+if ( ! class_exists( 'WS_Register_Student' ) || ! class_exists( 'WS_Register_Students_Controller' ) )
+	return;
+?>
 
-<section class="contact" id="cadastre-se">
+<section class="contact" id="cadastre-se" data-component-register>
 	<div class="container">
 		<h2 class="title-section">Cadastre-se</h2>
-		<p class="info">Inscrições abertas a partir 29/09 (segunda-feira) até 03/10 (sexta-feira)</p>
+		<p class="info">Informe todos os dados abaixo para concluir o seu cadastro.</p>
 
-		<!-- <form action="">
+		<form action="" data-attr-form>
 			<ul class="box-contact">
 				<li>
-					<label for="">Nome</label>
-					<input placeholder="Nome" type="text">
+					<label for="form-display-name">Nome*</label>
+					<input id="form-display-name" name="display_name" placeholder="Nome*" type="text" required>
 				</li>
 				<li>
-					<label for="">Email</label>
-					<input placeholder="Email" type="email">
+					<label for="form-email">Email*</label>
+					<input id="form-email" name="email" placeholder="Email*" type="email" required>
 				</li>
 				<li class="medium left">
-					<label for="">Número da matrícula</label>
-					<input placeholder="Número da matrícula" type="text">
+					<label for="form-code-enrollment">Número da matrícula*</label>
+					<input id="form-code-enrollment" placeholder="Número da matrícula*" type="number"
+					       name="<?php echo esc_attr( WS_Register_Student::USER_META_CODE_ENROLLMENT ); ?>" required>
 				</li>
 				<li class="small">
-					<label for="">Período</label>
-					<input placeholder="Período" type="text">
+					<label for="form-period">Período*</label>
+					<input id="form-period" placeholder="Período*" type="number"
+					       name="<?php echo esc_attr( WS_Register_Student::USER_META_PERIOD ); ?>" required>
 				</li>
 				<li class="clear">
-					<label for="">Curso</label>
-					<input placeholder="Curso" type="text">
+					<label for="form-course">Curso*</label>
+					<input id="form-course" placeholder="Curso*" type="text"
+					       name="<?php echo esc_attr( WS_Register_Student::USER_META_COURSE ); ?>" required>
 				</li>
-				<li><input class="btn" type="submit" value="enviar"></li>
+				<li>
+					<input type="hidden" name="action" value="set_new_user">
+					<?php wp_nonce_field( WS_Register_Students_Controller::NONCE_STUDENT_REGISTER ); ?>
+					<input class="btn" type="submit" value="enviar">
+				</li>
 			</ul>
-		</form> -->
+		</form>
+
+		<p class="response-error" data-attr-error></p>
+		<p class="response-success">Seu cadastro foi realizado com sucesso, em breve você receberá um e-mail com seus dados de acesso.</p>
 	</div>
 </section>
