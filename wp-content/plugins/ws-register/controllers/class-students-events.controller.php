@@ -24,27 +24,18 @@ class WS_Register_Students_Events_Controller
 	 */
 	public function __construct()
 	{
-		// $inserted = WS_Utils_Helper::get_method_params( 'inserted_se', false );
-
-		// if ( $inserted ) {
-		// 	$model = new WS_Register_Student_Event();
-
-		// 	$model->student_id = 2;
-		// 	$model->event_id   = 11;
-
-		// 	$model->insert();
-		// }
-
-		// $this->get_list(
-		// 	array(
-		// 		'where' => array(
-		// 			'student_id' => 2					
-		// 		)
-		// 	)
-		// );
-		// exit;
-
+		add_action( 'ws_create_new_user_student', array( &$this, 'set_default_event_in_student' ), 10, 2 );
 		add_action( 'wp_ajax_get_events_by_user', array( &$this, 'get_events_by_user_json' ) );
+	}
+
+	public function set_default_event_in_student( $user_id, $args )
+	{
+		$event = WS_Register_Events_Controller::get_current_event();
+		
+		$model             = new WS_Register_Student_Event();		
+		$model->student_id = $user_id;
+		$model->event_id   = $event->ID;
+		$model->insert();
 	}
 
 	public function get_events_by_user_json()
