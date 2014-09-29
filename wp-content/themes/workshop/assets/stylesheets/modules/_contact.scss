@@ -15,6 +15,68 @@
 	.title-section {
 		color: $colorDefault;
 	}
+
+	.response-error {
+		position: absolute;
+		left: -9999em;
+		padding: 20px;
+		background: rgba(232, 61, 61, 0.72);
+		border-radius: 5px;
+		width: 55%;
+		margin: 0 auto;
+		display: block;
+	}
+
+	.response-success {
+		position: absolute;
+		left: -9999em;
+		display: inline-block;
+		text-align: center;
+		width: 55%;
+		font: normal em(22px)/1 $fontPri;
+
+		&:before {
+			background: image-url('success.png') no-repeat;
+			height: 115px;
+			content: '';
+			display: block;
+			position: relative;
+			left: 44%;
+		}
+	}
+
+	&.success {
+		background-color: #074F13;
+		padding: 40px;
+
+		.title-section, .info,
+		.response-error, form {
+			display: none;
+		}
+		
+		.response-success {
+			@include animation( effect .8s );
+			position: relative;
+			left: 0;
+		}
+	}
+
+	&.error {
+
+		.response-error {
+			@include animation( effect .8s );
+			position: relative;
+			left: 0;
+		}
+	}
+
+	.parsley-error {
+		border-bottom: 3px solid rgba(232, 61, 61, 0.72);
+	}
+
+	.parsley-errors-list {
+		display: none;
+	}
 }
 
 .contact .box-contact {
