@@ -45,10 +45,10 @@ class WS_Register_Emails_View
 			</head>
 			<body style="font-family: Arial, Helvetica, Sans-serif; color: #524747;">			
 				<table align="center">
-					<thead style="background: #ddd;">
+					<thead style="background: #0074a2;">
 						<tr>
-							<td>
-								<img src="<?php echo esc_url( WS_Register::get_url_assets( 'images/branding.png' ) ); ?>" alt="Workshop de Informática" style="margin: 0 auto; display: block; text-align: center;">
+							<td align="center">
+								<img src="<?php echo esc_url( WS_Register::get_url_assets( 'images/branding.png' ) ); ?>" alt="Workshop de Informática" style="display: block;">
 							</td>
 						</tr>
 					</thead>

@@ -27,12 +27,12 @@ if ( ! class_exists( 'WS_Register_Student' ) || ! class_exists( 'WS_Register_Stu
 				</li>
 				<li class="medium left">
 					<label for="form-code-enrollment">Número da matrícula*</label>
-					<input id="form-code-enrollment" placeholder="Número da matrícula*" type="number"
+					<input id="form-code-enrollment" placeholder="Número da matrícula*" type="number" min="1"
 					       name="<?php echo esc_attr( WS_Register_Student::USER_META_CODE_ENROLLMENT ); ?>" required>
 				</li>
 				<li class="small">
 					<label for="form-period">Período*</label>
-					<input id="form-period" placeholder="Período*" type="number"
+					<input id="form-period" placeholder="Período*" type="number" min="1"
 					       name="<?php echo esc_attr( WS_Register_Student::USER_META_PERIOD ); ?>" required>
 				</li>
 				<li class="clear">
