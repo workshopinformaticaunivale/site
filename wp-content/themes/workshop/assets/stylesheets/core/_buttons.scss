@@ -8,7 +8,13 @@
 	&:hover {
 		border-color: $colorDefault;
 		color: $colorDefault;
-	}
+	}	
+}
+
+a.btn {
+	text-decoration: none;
+	padding: 7px 25px;
+	outline: none;
 }
 
 .btn-sec {
