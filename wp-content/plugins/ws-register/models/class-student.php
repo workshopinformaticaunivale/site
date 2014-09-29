@@ -89,9 +89,9 @@ class WS_Register_Student
 
 	const USER_META_COURSE = 'ws-students-course';
 
-	const USER_META_PERIOD = 'ws-students-period';	
+	const USER_META_PERIOD = 'ws-students-period';
 	
-	const USER_META_AVATAR = 'ws-students-avatar';	
+	const USER_META_AVATAR = 'ws-students-avatar';
 
 	/**
 	 * Image Size Avatar
@@ -128,6 +128,19 @@ class WS_Register_Student
 		return $this->_get_property( $prop_name );
 	}
 
+	/**
+	 * Magic function to set the value of the attribute more easily.
+	 *
+	 * @since 1.0
+	 * @param string $prop_name The attribute name
+	 * @param string $value Value in attribute
+	 * @return mixed The attribute value
+	 */
+	public function __set( $prop_name, $value )
+	{
+		$this->$prop_name = $value;
+	}
+
 	public function get_avatar_url_small()
 	{
 		return $this->get_image( self::IMAGE_SIZE_AVATAR_SMALL );
@@ -142,6 +155,26 @@ class WS_Register_Student
 			return $attachment[0];
 
 		return $default;
+	}
+
+	public function insert()
+	{
+		$args = array(
+			'user_login' => sanitize_title( $this->display_name ) . '_' . time(),
+			'user_email' => $this->email,
+			'first_name' => $this->display_name,
+			'user_pass'  => wp_generate_password( 6 ),
+			'role'		 => self::ROLE,
+		);
+
+		$inserted = wp_insert_user( $args );
+
+		if ( ! is_wp_error( $inserted ) ) :
+			$this->_save_metas( $inserted );
+			do_action( 'ws_create_new_user_student', $inserted, $args );
+		endif;
+
+		return $inserted;
 	}
 
 	/**
@@ -206,5 +239,12 @@ class WS_Register_Student
 		}
 
 		return $this->$prop_name;
+	}
+
+	private function _save_metas( $inserted )
+	{
+		update_user_meta( $inserted, self::USER_META_PERIOD, $this->period );
+		update_user_meta( $inserted, self::USER_META_COURSE, $this->course );
+		update_user_meta( $inserted, self::USER_META_CODE_ENROLLMENT, $this->code_enrollment );
 	}
 }

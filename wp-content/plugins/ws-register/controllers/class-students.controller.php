@@ -13,7 +13,15 @@ class WS_Register_Students_Controller
 	 * @since 1.0
 	 * @var object
 	 */
-	protected static $instance = null;	
+	protected static $instance = null;
+
+	/**
+	 * Nonce Actions
+	 *
+	 * @since 1.0
+	 * @var object
+	 */
+	const NONCE_STUDENT_REGISTER = '_ws_students_register';
 
 	/**
 	 * Adds needed actions to create submenu and page
@@ -36,6 +44,55 @@ class WS_Register_Students_Controller
 		add_action( 'ws_admin_head_page_users', array( &$this, 'addicional_page_css' ) );
 		add_action( 'pre_get_users', array( &$this, 'custom_query_code_enrollment' ) );
 		add_filter( 'user_row_actions', array( &$this, 'custom_user_row_actions' ), 10 ,2 );
+		add_action( 'wp_ajax_set_new_user', array( &$this, 'set_new_user_json' ) );
+		add_action( 'wp_ajax_nopriv_set_new_user', array( &$this, 'set_new_user_json' ) );
+	}
+
+	public function set_new_user_json()
+	{
+		if ( ! WS_Utils_Helper::is_request_ajax() )
+			return;
+
+		$display_name    = WS_Utils_Helper::post_method_params( 'display_name', false );
+		$email           = WS_Utils_Helper::post_method_params( 'email', false, 'sanitize_email' );
+		$nonce           = WS_Utils_Helper::post_method_params( '_wpnonce', false );
+		$code_enrollment = WS_Utils_Helper::post_method_params( WS_Register_Student::USER_META_CODE_ENROLLMENT, false, 'intval' );
+		$period          = WS_Utils_Helper::post_method_params( WS_Register_Student::USER_META_PERIOD, false, 'intval' );
+		$course          = WS_Utils_Helper::post_method_params( WS_Register_Student::USER_META_COURSE, false );
+
+		if ( ! $nonce || ! wp_verify_nonce( $nonce, self::NONCE_STUDENT_REGISTER ) ) :
+			http_response_code( 500 );
+			WS_Utils_Helper::error_server_json( 'not_permission_nonce', 'Sem permissões criar seu usuário no momento.' );
+			exit(0);
+		endif;
+
+		if ( ! $display_name || ! $email || ! $code_enrollment || ! $period || ! $course ) :
+			http_response_code( 500 );
+			WS_Utils_Helper::error_server_json( 'empty_any_fields', 'Todos os campos são necessários.' );
+			exit(0);
+		endif;		
+
+		$this->create_user_json( $display_name, $email, $code_enrollment, $period, $course );
+	}
+
+	public function create_user_json( $display_name, $email, $code_enrollment, $period, $course )
+	{
+		$user 				   = new WS_Register_Student();
+		$user->display_name    = $display_name;
+		$user->email           = $email;
+		$user->code_enrollment = $code_enrollment;
+		$user->period          = $period;
+		$user->course          = $course;
+		$inserted              = $user->insert();
+
+		if ( is_wp_error( $inserted ) ) :
+			http_response_code( 500 );
+			WS_Utils_Helper::error_server_json( 'error_inserted', $inserted->get_error_message() );
+			exit(0);	
+		endif;
+
+		WS_Utils_Helper::success_server_json( 'success_inserted', 'Usuário inserido com sucesso' );
+		exit(1);
 	}
 	
 	public function save_page_profile( $user_id )
@@ -43,7 +100,7 @@ class WS_Register_Students_Controller
 		$code_enrollment = WS_Utils_Helper::post_method_params( WS_Register_Student::USER_META_CODE_ENROLLMENT, false, 'intval' );
 		$period          = WS_Utils_Helper::post_method_params( WS_Register_Student::USER_META_PERIOD, false, 'intval' );
 		$course          = WS_Utils_Helper::post_method_params( WS_Register_Student::USER_META_COURSE, false );
-		$avatar          = WS_Utils_Helper::post_method_params( WS_Register_Student::USER_META_AVATAR, false );		
+		$avatar          = WS_Utils_Helper::post_method_params( WS_Register_Student::USER_META_AVATAR, false );
 		
 		update_user_meta( $user_id, WS_Register_Student::USER_META_CODE_ENROLLMENT, $code_enrollment );
 		update_user_meta( $user_id, WS_Register_Student::USER_META_PERIOD, $period );
