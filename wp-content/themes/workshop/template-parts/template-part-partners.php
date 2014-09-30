@@ -6,17 +6,25 @@
  * @package WordPress
  * @subpackage Theme
  */
-global $wp_theme;
+if ( ! class_exists( 'WS_Register_Partners_Controller' ) )
+	return;
+
+$controller = WS_Register_Partners_Controller::get_instance();
+$list       = $controller->get_list();
+
+if ( ! $list )
+	return;
 ?>
 
 <section class="partners container" id="parceiros">
 	<h2 class="title-section">Parceiros</h2>
 	<ul class="list-partners">
-		<li><img src="<?php echo esc_url( $wp_theme->template_url ); ?>/assets/images/how_partners.png" alt=""></li>
-		<li><img src="<?php echo esc_url( $wp_theme->template_url ); ?>/assets/images/how_partners.png" alt=""></li>
-		<li><img src="<?php echo esc_url( $wp_theme->template_url ); ?>/assets/images/how_partners.png" alt=""></li>
-		<li><img src="<?php echo esc_url( $wp_theme->template_url ); ?>/assets/images/how_partners.png" alt=""></li>
-		<li><img src="<?php echo esc_url( $wp_theme->template_url ); ?>/assets/images/how_partners.png" alt=""></li>
-		<li><img src="<?php echo esc_url( $wp_theme->template_url ); ?>/assets/images/how_partners.png" alt=""></li>
+		<?php foreach ( $list as $model ) : ?>
+		<li>
+			<a href="<?php echo esc_url( $model->site ); ?>" title="<?php echo esc_attr( $model->title ); ?>" target="_blank">
+				<img src="<?php echo esc_url( $model->thumbnail_url ); ?>" alt="Imagem do Parceiro">
+			</a>
+		</li>
+		<?php endforeach; ?>
 	</ul>
 </section>
