@@ -213,7 +213,7 @@ class WS_Register_Speakers_Controller
 			7  => 'Palestra salva.',
 			8  => 'Palestra submetida.',
 			9  => sprintf( 'Palestra agendada para: <strong>%1$s</strong>.', date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ) ),
-			10 => 'Rascunho do minicurso atualizada.',
+			10 => 'Rascunho do palestra atualizada.',
 		);
 
 		return $messages;
