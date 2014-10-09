@@ -41,11 +41,13 @@ class WS_Register_Students_Controller
 		add_filter( 'manage_users_columns', array( &$this, 'add_custom_columns' ) );
 		add_filter( 'ws_manage_users_column_' . WS_Register_Student::USER_META_CODE_ENROLLMENT, array( &$this, 'users_column_code_enrollment' ) );
 		add_action( 'restrict_manage_users', array( &$this, 'add_filter_code_enrollment' ) );
+		add_action( 'restrict_manage_users', array( &$this, 'add_export_excel_button' ) );
 		add_action( 'ws_admin_head_page_users', array( &$this, 'addicional_page_css' ) );
 		add_action( 'pre_get_users', array( &$this, 'custom_query_code_enrollment' ) );
 		add_filter( 'user_row_actions', array( &$this, 'custom_user_row_actions' ), 10 ,2 );
 		add_action( 'wp_ajax_set_new_user', array( &$this, 'set_new_user_json' ) );
 		add_action( 'wp_ajax_nopriv_set_new_user', array( &$this, 'set_new_user_json' ) );
+		add_action( 'admin_init', array( &$this, 'export_to_excel' ) );
 	}
 
 	public function set_new_user_json()
@@ -198,6 +200,31 @@ class WS_Register_Students_Controller
 				WS_Register_Student::IMAGE_SIZE_AVATAR_SMALL => array( 150, 150, true ),
 			)
 		);
+	}
+
+	public function export_to_excel()
+	{
+		if ( ! isset( $_GET['ws-export'] ) || $_GET['ws-export'] != true )
+			return;
+
+		$html = WS_Register_Students_View::render_excel_table();
+
+		if ( empty( $html ) )
+			return;
+
+		header("Content-type: application/vnd.ms-excel;");
+	    header("Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, charset=utf-8;");
+	    header("Content-Disposition: attachment; filename=export-". date_i18n( 'Y-m-d' ) . '.xls' );
+
+    	print $html;
+
+	    exit();
+	}
+
+	public function add_export_excel_button()
+	{
+		if ( $this->_is_filter_role_valid() )
+			printf( '<a href="%s" style="margin-top:2px; margin-left:5px" class="button-primary">Exportar para .xls</a>', add_query_arg( array( 'ws-export' => 'true' ) ) );
 	}
 
 	public static function add_capabilities_course()
