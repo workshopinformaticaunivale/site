@@ -17,7 +17,7 @@ if ( ! $list )
 ?>
 
 <section class="speakers" id="palestrantes" data-component-speakers>
-	<h2 class="title-section">Palestrantes</h2>
+	<h2 class="title-section">Palestrantes - Evento Gratuito</h2>
 	
 	<div class="list-speakers">
 		<?php foreach ( $list as $model ) : ?>

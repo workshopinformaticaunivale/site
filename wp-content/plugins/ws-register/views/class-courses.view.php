@@ -135,6 +135,10 @@ class WS_Register_Courses_View
 					<th scope="col">Proposta</th>
 					<td><?php echo $model->content; ?></td>
 				</tr>
+				<tr valign="top">
+					<th scope="col">Resumo</th>
+					<td><?php echo $model->excerpt; ?></td>
+				</tr>
 			</tbody>
 		</table>
 		<?php

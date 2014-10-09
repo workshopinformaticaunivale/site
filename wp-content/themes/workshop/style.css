@@ -507,8 +507,41 @@ a.btn {
 .btn-sec:hover {
   opacity: .8;
 }
+/* line 35, assets/stylesheets/core/_buttons.scss */
+.btn-sec:before {
+  content: attr(data-tooltip);
+  position: absolute;
+  text-shadow: none;
+  background: #073b4f;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  color: #fff;
+  font: normal 1em/1 "ebrimaregular";
+  top: -29px;
+  right: 126px;
+  padding: 15px;
+  text-align: left;
+  width: 180px;
+  line-height: 1.2;
+  opacity: 0;
+  cursor: text;
+  -moz-transform: translateX(-5px);
+  -webkit-transform: translateX(-5px);
+  transform: translateX(-5px);
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+/* line 56, assets/stylesheets/core/_buttons.scss */
+.btn-sec:hover:before {
+  opacity: 1;
+  -moz-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
 
-/* line 37, assets/stylesheets/core/_buttons.scss */
+/* line 63, assets/stylesheets/core/_buttons.scss */
 .btn,
 .btn-sec {
   -moz-transition: 0.2s;
@@ -520,7 +553,7 @@ a.btn {
   padding: 0 20px;
   text-transform: uppercase;
 }
-/* line 45, assets/stylesheets/core/_buttons.scss */
+/* line 71, assets/stylesheets/core/_buttons.scss */
 .btn:active,
 .btn-sec:active {
   -moz-transform: scale(0.98, 0.98);
@@ -529,7 +562,7 @@ a.btn {
   transform: scale(0.98, 0.98);
 }
 
-/* line 50, assets/stylesheets/core/_buttons.scss */
+/* line 76, assets/stylesheets/core/_buttons.scss */
 button {
   outline: none;
 }
@@ -1033,7 +1066,7 @@ iframe {
 }
 /* line 38, assets/stylesheets/modules/_contact.scss */
 .contact .response-success:before {
-  background: url('assets/images/success.png?1411949432') no-repeat;
+  background: url('assets/images/success.png?1411999690') no-repeat;
   height: 115px;
   content: '';
   display: block;

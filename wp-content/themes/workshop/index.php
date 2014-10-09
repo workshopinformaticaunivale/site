@@ -14,6 +14,8 @@ get_header();
 		<?php get_template_part( 'template-parts/template-part', 'navigation-fixed' ); ?>
 		
 		<?php get_template_part( 'template-parts/template-part', 'speakers' ); ?>
+
+		<?php get_template_part( 'template-parts/template-part', 'courses' ); ?>
 	</div>
 
 	<?php get_template_part( 'template-parts/template-part', 'register' ); ?>

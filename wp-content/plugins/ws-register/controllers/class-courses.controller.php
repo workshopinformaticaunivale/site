@@ -84,17 +84,50 @@ class WS_Register_Courses_Controller
 		$model->set_event_id( $event->ID );
 	}
 
-	public function get_courses( $args = array() )
+	public function get_list( $args = array() )
 	{
 		$defaults = array(
 			'post_type' => WS_Register_Course::POST_TYPE,
-			'order'		=> 'ASC',
-			'orderby'	=> 'menu_order',
 		);
 
 		$args = wp_parse_args( $args, $defaults );
 
 		return $this->_parse_list( WS_Utils_Helper::get_query( $args ) );
+	}
+
+	public function get_list_current_event()
+	{
+		$current_event = WS_Register_Events_Controller::get_current_event();
+
+		$args = array(
+			'meta_key' => WS_Register_Course::POST_META_DATETIME_START . '_1',
+			'order'    => 'ASC',
+			'orderby'  => 'meta_value',
+			'meta_query' => array(
+				array(
+					'key' 	=> WS_Register_Course::POST_META_EVENT_ID,
+					'value' => $current_event->ID,
+					'type'  => 'NUMERIC',
+				)
+			)
+		);
+
+		return $this->get_list( $args );
+	}
+
+	public function get_list_group_datetime_start()
+	{
+		$group = array();
+		$list  = $this->get_list_current_event();
+		
+		if ( ! $list )
+			return false;		
+
+		foreach ( $list as $item ) :			
+			$group[ $item->get_datetime_start( 1, 'Y-m-d' ) ][] = $item;
+		endforeach;		
+
+		return $group;
 	}
 
 	public function register_post_type()
@@ -537,9 +570,9 @@ class WS_Register_Courses_Controller
 	private function _get_supports_by_current_page()
 	{
 		if (  $this->_get_screen_mode() === 'edit' && current_user_can( WS_Register_Moderators_Controller::ROLE ) )
-			return array( 'author' );
+			return array( 'author' );		
 
-		return array( 'title', 'editor', 'author' );
+		return array( 'title', 'editor', 'author', 'excerpt' );
 	}
 
 	private function _get_screen_mode()
@@ -549,5 +582,18 @@ class WS_Register_Courses_Controller
 		}
 		
 		return false;
+	}
+
+	private function _parse_list( $wp_query )
+	{
+		if ( ! $wp_query->have_posts() )
+			return false;
+
+		$list = array();
+
+		foreach ( $wp_query->posts as $featured )
+			$list[] = new WS_Register_Course( $featured->ID );
+
+		return $list;
 	}
 }
