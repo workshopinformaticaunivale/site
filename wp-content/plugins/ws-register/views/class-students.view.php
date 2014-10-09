@@ -110,7 +110,7 @@ class WS_Register_Students_View
 
 	public static function render_excel_table()
 	{
-		$query = new WP_User_Query( array( 'role' => 'ws-students' ) );
+		$query = new WP_User_Query( array( 'role' => WS_Register_Student::ROLE ) );
 
 		if ( empty( $query->results ) )
 			return;
@@ -130,8 +130,8 @@ class WS_Register_Students_View
 
 				foreach ( $query->results as $user ) :
 					$model = new WS_Register_Student( $user->ID );
-					$html .= sprintf('
-						<tr>
+					$html .= sprintf(
+						'<tr>
 							<td>%s</td>
 							<td>%s</td>
 							<td>%d</td> 
