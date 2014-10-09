@@ -107,4 +107,48 @@ class WS_Register_Students_View
 		</div>
 		<?php
 	}
+
+	public static function render_excel_table()
+	{
+		$query = new WP_User_Query( array( 'role' => 'ws-students' ) );
+
+		if ( empty( $query->results ) )
+			return;
+
+		$html =
+			'<table>
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Email</th>
+						<th>Matricula</th>
+						<th>Curso</th>
+						<th>Periodo</th>
+					</tr>
+				</thead>
+				<tbody>';
+
+				foreach ( $query->results as $user ) :
+					$model = new WS_Register_Student( $user->ID );
+					$html .= sprintf('
+						<tr>
+							<td>%s</td>
+							<td>%s</td>
+							<td>%d</td> 
+							<td>%s</td>
+							<td>%s</td>  
+						</tr>', 
+						$model->display_name, 
+						$model->email, 
+						$model->code_enrollment,
+						$model->course,
+						$model->period 
+					);	
+				endforeach;
+				
+		$html .= '</tbody>
+			</table>';
+
+		return $html;
+	}
 }
