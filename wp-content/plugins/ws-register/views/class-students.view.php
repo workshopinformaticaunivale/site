@@ -138,10 +138,10 @@ class WS_Register_Students_View
 							<td>%s</td>
 							<td>%s</td>  
 						</tr>', 
-						$model->display_name, 
+						utf8_encode( $model->display_name ), 
 						$model->email, 
 						$model->code_enrollment,
-						$model->course,
+						utf8_encode( $model->course ),
 						$model->period 
 					);	
 				endforeach;

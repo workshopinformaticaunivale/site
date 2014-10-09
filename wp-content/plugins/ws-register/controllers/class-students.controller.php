@@ -212,13 +212,13 @@ class WS_Register_Students_Controller
 		if ( empty( $html ) )
 			return;
 
-		header("Content-type: application/vnd.ms-excel;");
-	    header("Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, charset=utf-8;");
-	    header("Content-Disposition: attachment; filename=export-". date_i18n( 'Y-m-d' ) . '.xls' );
+		header( 'Content-type: application/vnd.ms-excel;' );
+		header( 'Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, charset=utf-8;' );
+		header( 'Content-Disposition: attachment; filename=export-'. date_i18n( 'Y-m-d' ) . '.xls' );
 
-    	print $html;
+		print $html;
 
-	    exit();
+		exit();
 	}
 
 	public function add_export_excel_button()
