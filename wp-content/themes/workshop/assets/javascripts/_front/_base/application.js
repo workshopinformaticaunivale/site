@@ -10,6 +10,7 @@ Module('WS.Application', function(Application) {
 
 			WS.CurrentPage([
 				'#palestrantes',
+				'#minicursos',
 				'#cadastre-se',
 				'#parceiros',
 				'#local'				

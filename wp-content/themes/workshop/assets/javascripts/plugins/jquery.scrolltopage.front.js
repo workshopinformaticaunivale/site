@@ -44,7 +44,7 @@
 			}
 
 			$( 'body, html' ).stop().animate( { scrollTop : top + 'px' }, {
-				duration : 700,
+				duration : 800,
 				easing   : options.easing,
 				complete : function() {
 					$( 'body' ).trigger( 'scrolltopage-animated', [ this, href ] );

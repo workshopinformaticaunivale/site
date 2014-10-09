@@ -22,8 +22,8 @@ if ( is_user_logged_in() )
 	$tooltip = 'É necessário realizar o pagamento, para informações entre contato marcos.univale@gmail.com';
 ?>
 
-<section class="time-line">
-	<h2 class="title-section">Mini Cursos</h2>
+<section class="time-line" id="minicursos">
+	<h2 class="title-section" style="-webkit-transform: translateY(10px); transform: translateY(10px);">Minicursos</h2>
 	<p class="info">Para a realização de minicursos é necessário ter um cadastro e realizar o pagamento do setor da tesouraria da UNIVALE.</p>
 		
 	<div class="list-time-line" style="margin-top: 30px;">
