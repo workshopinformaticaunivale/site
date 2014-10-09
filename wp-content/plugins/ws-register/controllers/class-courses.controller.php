@@ -123,9 +123,14 @@ class WS_Register_Courses_Controller
 		if ( ! $list )
 			return false;		
 
-		foreach ( $list as $item ) :			
-			$group[ $item->get_datetime_start( 1, 'Y-m-d' ) ][] = $item;
-		endforeach;		
+		foreach ( $list as $item ) :
+			$days = $item->datetime_count;
+
+			for ( $index = 0; $index < $days; $index++ ) :
+				$group[ $item->get_datetime_start( ( $index + 1 ), 'Y-m-d' ) ][] = $item;
+			endfor;
+
+		endforeach;
 
 		return $group;
 	}
