@@ -58,6 +58,7 @@ class WS_Register_Students_Controller
 		$display_name    = WS_Utils_Helper::post_method_params( 'display_name', false );
 		$email           = WS_Utils_Helper::post_method_params( 'email', false, 'sanitize_email' );
 		$nonce           = WS_Utils_Helper::post_method_params( '_wpnonce', false );
+		$is_student      = WS_Utils_Helper::post_method_params( 'is_student', 0, 'intval' );
 		$code_enrollment = WS_Utils_Helper::post_method_params( WS_Register_Student::USER_META_CODE_ENROLLMENT, false, 'intval' );
 		$period          = WS_Utils_Helper::post_method_params( WS_Register_Student::USER_META_PERIOD, false, 'intval' );
 		$course          = WS_Utils_Helper::post_method_params( WS_Register_Student::USER_META_COURSE, false );
@@ -68,16 +69,29 @@ class WS_Register_Students_Controller
 			exit(0);
 		endif;
 
-		if ( ! $display_name || ! $email || ! $code_enrollment || ! $period || ! $course ) :
+		if ( $is_student && ( ! $display_name || ! $email || ! $code_enrollment || ! $period || ! $course ) ) :
 			http_response_code( 500 );
 			WS_Utils_Helper::error_server_json( 'empty_any_fields', 'Todos os campos são necessários.' );
 			exit(0);
-		endif;		
+		endif;
 
-		$this->create_user_json( $display_name, $email, $code_enrollment, $period, $course );
+		if ( ! $is_student && ( ! $display_name || ! $email ) ) :
+			http_response_code( 500 );
+			WS_Utils_Helper::error_server_json( 'empty_any_fields', 'Todos os campos são necessários.' );
+			exit(0);
+		endif;
+
+		$this->create_user_json( 
+			$display_name,
+			$email,
+			$code_enrollment,
+			$period,
+			$course,
+			$is_student
+		);
 	}
 
-	public function create_user_json( $display_name, $email, $code_enrollment, $period, $course )
+	public function create_user_json( $display_name, $email, $code_enrollment, $period, $course, $is_student )
 	{
 		$user 				   = new WS_Register_Student();
 		$user->display_name    = $display_name;
@@ -85,6 +99,7 @@ class WS_Register_Students_Controller
 		$user->code_enrollment = $code_enrollment;
 		$user->period          = $period;
 		$user->course          = $course;
+		$user->is_student      = $is_student;
 		$inserted              = $user->insert();
 
 		if ( is_wp_error( $inserted ) ) :

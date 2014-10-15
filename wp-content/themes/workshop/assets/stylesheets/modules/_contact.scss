@@ -98,6 +98,18 @@
 	.left 	{ margin-right: perc(10px,$boxContact); }
 	.clear 	{ clear: both; }
 
+	.change-control {
+		margin-bottom: 10px;
+		overflow: hidden;
+
+		label {
+			display: block;
+			float: left;
+			margin-right: 25px;
+			margin-top: 3px; 
+		}
+	}
+
 	.small,
 	.medium {
 		float: left;

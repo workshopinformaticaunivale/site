@@ -1,7 +1,10 @@
 Module('WS.Application', function(Application) {
 	
 	Application.init = function(container) {
-		
+		container.find( '.custom-check' ).iCheck({
+			labelHover : false,
+			cursor     : true
+		});
 	};
 
 	Application.home = {

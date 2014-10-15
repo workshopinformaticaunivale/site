@@ -13,21 +13,15 @@ if ( ! class_exists( 'WS_Register_Courses_Controller' ) )
 
 $controller = WS_Register_Courses_Controller::get_instance();
 $list       = $controller->get_list_group_datetime_start();
-$tooltip    = 'É necessário que você esteja logado!';
 
 if ( ! $list )
 	return;
-
-if ( is_user_logged_in() )
-	$tooltip = 'É necessário realizar o pagamento, para informações entre contato marcos.univale@gmail.com';
 ?>
 
 <section class="time-line" id="minicursos">
-	<h2 class="title-section" style="-webkit-transform: translateY(10px); transform: translateY(10px);">Minicursos</h2>
-	<p class="info">Para a realização de minicursos é necessário ter um cadastro e realizar o pagamento do setor da tesouraria da UNIVALE.</p>
-		
-	<div class="list-time-line" style="margin-top: 30px;">
-		
+	<h2 class="title-section" style="-webkit-transform: translateY(10px); transform: translateY(10px);">Minicursos</h2>			
+	
+	<div class="list-time-line">	
 		<?php foreach ( $list as $key => $items ) : ?>
 		<div class="box-day">
 			<time class="day"><?php echo date_i18n( 'd/m \- l' ,strtotime( $key ) ); ?></time>
@@ -42,7 +36,7 @@ if ( is_user_logged_in() )
 					<?php echo apply_filters( 'the_content', $model->excerpt ); ?>
 				</div>
 				
-				<button data-tooltip="<?php echo esc_attr( $tooltip ); ?>" class="btn-sec">Inscreva-se</button>
+				<button class="btn-sec">Inscreva-se</button>
 			</div>
 			<?php endforeach; ?>
 		</div>
