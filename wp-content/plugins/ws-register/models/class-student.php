@@ -72,6 +72,14 @@ class WS_Register_Student
 	private $period;
 
 	/**
+	 * Student Is Student
+	 *
+	 * @since 1.0
+	 * @var bool
+	 */
+	private $is_student;
+
+	/**
 	 * Role Enterprises
 	 *
 	 * @since 1.0
@@ -92,6 +100,8 @@ class WS_Register_Student
 	const USER_META_PERIOD = 'ws-students-period';
 	
 	const USER_META_AVATAR = 'ws-students-avatar';
+
+	const USER_META_IS_STUDENT = 'ws-students-is-student';
 
 	/**
 	 * Image Size Avatar
@@ -233,6 +243,12 @@ class WS_Register_Student
 				endif;
 				break;
 
+			case 'is_student' :
+				if ( ! isset( $this->is_student ) ) :
+					$this->is_student = get_the_author_meta( self::USER_META_IS_STUDENT, $this->ID );
+				endif;
+				break;
+
 			default :
 				return false;
 				break;
@@ -246,5 +262,6 @@ class WS_Register_Student
 		update_user_meta( $inserted, self::USER_META_PERIOD, $this->period );
 		update_user_meta( $inserted, self::USER_META_COURSE, $this->course );
 		update_user_meta( $inserted, self::USER_META_CODE_ENROLLMENT, $this->code_enrollment );
+		update_user_meta( $inserted, self::USER_META_IS_STUDENT, $this->is_student );
 	}
 }

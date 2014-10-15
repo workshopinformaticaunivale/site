@@ -1,0 +1,21 @@
+.iradio {
+	width: 20px;
+	height: 20px;
+	background: $colorDefault;
+	float: left;
+	margin-right: 5px;
+	border-radius: 100%;
+	position: relative;
+
+
+	&.checked:before {
+		content: "";
+		top: 2px;
+		left: 2px;
+		background: $colorPri;
+		width: 16px;
+		height: 16px;
+		position: absolute;
+		border-radius: 100%;
+	}
+}

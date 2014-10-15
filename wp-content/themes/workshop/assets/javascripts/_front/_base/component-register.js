@@ -4,6 +4,10 @@ Module('WS.Components.Register', function(Register) {
 		this.container    = container;
 		this.form         = this.container.byData( 'attr-form' );
 		this.errorMessage = this.container.byData( 'attr-error' );
+		this.enrollment   = this.container.byData( 'attr-enrollment' );
+		this.period       = this.container.byData( 'attr-period' );
+		this.course       = this.container.byData( 'attr-course' );
+
 		this.init();
 	};
 
@@ -24,6 +28,47 @@ Module('WS.Components.Register', function(Register) {
 		this.form
 			.on( 'submit', this._onSubmitForm.bind( this ) )
 		;
+
+		this.container
+			.on( 'ifChecked', '[data-action=student]', this._onChangeStudent.bind( this ) )
+		;
+	};
+
+	Register.fn.getListEspecialFields = function() {
+		return [
+			this.enrollment,
+			this.period,
+			this.course
+		];
+	};
+
+	Register.fn.disableEspecialFields = function() {
+		this.getListEspecialFields().forEach(function(field) {
+			field.removeAttr( 'required' )
+			     .hide()
+			     .parsley()
+			     .destroy()
+			;
+		});
+	};
+
+	Register.fn.enableEspecialFields = function() {
+		this.getListEspecialFields().forEach(function(field) {
+			field.attr( 'required', '' )
+			     .show()
+			     .parsley()
+			     .reset()
+			;
+		});
+	};
+
+	Register.fn._onChangeStudent = function(event) {	
+		if ( parseInt( event.target.value ) ) {
+			this.enableEspecialFields();
+			return;
+		}
+
+		this.disableEspecialFields();
 	};
 
 	Register.fn._onSubmitForm = function(event) {
