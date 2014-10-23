@@ -1,4 +1,4 @@
-Module('WS.Components.EventsManagerUser', function(EventsManagerUser) {
+Module( 'WS.Components.EventsManagerUser', function(EventsManagerUser) {
 
 	EventsManagerUser.fn.initialize = function(container) {
 		this.container = container;

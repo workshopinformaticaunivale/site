@@ -95,11 +95,11 @@ class WS_Register_Courses_Controller
 		return $this->_parse_list( WS_Utils_Helper::get_query( $args ) );
 	}
 
-	public function get_list_current_event()
+	public function get_list_current_event( $args = array() )
 	{
 		$current_event = WS_Register_Events_Controller::get_current_event();
 
-		$args = array(
+		$defaults = array(
 			'meta_key' => WS_Register_Course::POST_META_DATETIME_START . '_1',
 			'order'    => 'ASC',
 			'orderby'  => 'meta_value',
@@ -112,7 +112,30 @@ class WS_Register_Courses_Controller
 			)
 		);
 
+		$args = wp_parse_args( $args, $defaults );
+
 		return $this->get_list( $args );
+	}
+
+	public function get_list_by_user()
+	{
+		$current_event = WS_Register_Events_Controller::get_current_event();
+
+		$args = array(
+			'meta_query' => array(
+				array(
+					'key' 	=> WS_Register_Course::POST_META_EVENT_ID,
+					'value' => $current_event->ID,
+					'type'  => 'NUMERIC',
+				),
+				array(
+					'key' 	=> WS_Register_Course::POST_META_USERS_PARTICIPANTS,
+					'value' => get_current_user_id(),					
+				)
+			)
+		);
+
+		return $this->get_list( $args );	
 	}
 
 	public function get_list_group_datetime_start()
@@ -174,7 +197,7 @@ class WS_Register_Courses_Controller
 		register_taxonomy(
 			WS_Register_Course::TAXONOMY_LABORATORY,
 			WS_Register_Course::POST_TYPE,
-			$args = array(
+			array(
 				'labels' => array(
 					'name'              => 'Laboratórios',
 					'singular_name'     => 'Laboratório',
@@ -187,9 +210,14 @@ class WS_Register_Courses_Controller
 					'new_item_name'     => 'Nome do novo laboratório',
 					'menu_name'         => 'Laboratórios',
 				),
-				'public'       => false,
-				'hierarchical' => true,
-				'show_ui'      => true,
+				'public'            => false,
+				'hierarchical'      => true,
+				'show_ui'           => true,
+				'show_admin_column' => true,
+				'capabilities' 		=> array(
+					'assign_terms' => 'assign_terms_' . WS_Register_Course::TAXONOMY_LABORATORY,
+					'manage_terms' => 'manage_terms_' . WS_Register_Course::TAXONOMY_LABORATORY,
+				)
 			)
 		);
 	}
@@ -413,6 +441,19 @@ class WS_Register_Courses_Controller
 			"delete_others_{$capability_type}s",
 			"edit_private_{$capability_type}s",
 			"edit_published_{$capability_type}s",
+		);
+
+		WS_Utils_Helper::add_custom_capabilities( 'administrator', $caps );
+		WS_Utils_Helper::add_custom_capabilities( WS_Register_Moderators_Controller::ROLE, $caps );
+	}
+
+	public static function add_taxonomy_capabilities()
+	{
+		$capability_taxonomy = WS_Register_Course::TAXONOMY_LABORATORY;
+
+		$caps = array(
+			"assign_terms_{$capability_taxonomy}",
+			"manage_terms_{$capability_taxonomy}",
 		);
 
 		WS_Utils_Helper::add_custom_capabilities( 'administrator', $caps );

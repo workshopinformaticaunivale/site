@@ -67,9 +67,33 @@ class WS_Register_Course
 	 * Course Event
 	 *
 	 * @since 1.0
-	 * @var string
+	 * @var int
 	 */
 	private $event_id;
+
+	/**
+	 * Users Participants
+	 *
+	 * @since 1.0
+	 * @var array int
+	 */
+	private $users_participants;
+
+	/**
+	 * User Author
+	 *
+	 * @since 1.0
+	 * @var WS_Register_Student
+	 */
+	private $author;
+
+	/**
+	 * Status
+	 *
+	 * @since 1.0
+	 * @var string
+	 */
+	private $status;
 
 	/**
 	 * Post Type name
@@ -91,6 +115,7 @@ class WS_Register_Course
 	const POST_META_DATETIME_END         = 'ws-course-datetime-end';
 	const POST_META_DATETIME_COUNT       = 'ws-course-datetime-count';
 	const POST_META_EVENT_ID             = 'ws-course-event-id';
+	const POST_META_USERS_PARTICIPANTS   = 'ws-course-users-participants';
 
 	/**
 	 * Taxonomies
@@ -201,9 +226,47 @@ class WS_Register_Course
 		return $dates_array;
 	}
 
+	public function get_dates_days()
+	{
+		$dates = $this->get_dates();
+		$list  = array();
+
+		foreach ( $dates as $date ) :
+			$list[] = substr( $date, 0, 2 );
+		endforeach;
+		
+		return $list;
+	}
+
 	public function set_event_id( $event_id )
 	{
 		update_post_meta( $this->ID, self::POST_META_EVENT_ID, intval( $event_id ) );
+	}
+
+	public function get_laboratory_name()
+	{
+		return WS_Utils_Helper::get_term_field(
+			$this->ID,
+			self::TAXONOMY_LABORATORY,
+			'name'
+		);
+	}
+
+	public function is_publish()
+	{
+		$status = $this->_get_property( 'status' );
+
+		return ( $status == 'publish' );
+	}
+
+	public function set_user_participant( $user_id )
+	{
+		$users_participants = $this->_get_property( 'users_participants' );
+
+		if ( in_array( $user_id, $users_participants ) )
+			return;
+
+		update_post_meta( $this->ID, self::POST_META_USERS_PARTICIPANTS, $user_id );
 	}
 
 	/**
@@ -260,6 +323,24 @@ class WS_Register_Course
 			case 'event_id' :
 				if ( ! isset( $this->event_id ) ) :
 					$this->event_id = intval( get_post_meta( $this->ID, self::POST_META_EVENT_ID, true ) );
+				endif;
+				break;
+
+			case 'users_participants' :
+				if ( ! isset( $this->users_participants ) ) :
+					$this->users_participants = get_post_meta( $this->ID, self::POST_META_USERS_PARTICIPANTS, false );
+				endif;
+				break;
+
+			case 'status' :
+				if ( ! isset( $this->status ) ) :
+					$this->status = get_post_field( 'post_status', $this->ID );
+				endif;
+				break;
+
+			case 'author' :
+				if ( ! isset( $this->author ) ) :
+					$this->author = new WS_Register_Student( get_post_field( 'post_author', $this->ID ) );
 				endif;
 				break;
 		}

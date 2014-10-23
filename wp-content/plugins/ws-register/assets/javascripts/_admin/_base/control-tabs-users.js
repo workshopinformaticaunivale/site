@@ -1,4 +1,5 @@
-Module('WS.ControlTabsUsers', function(ControlTabsUsers) {
+Module( 'WS.ControlTabsUsers', function(ControlTabsUsers) {
+	
 	ControlTabsUsers.fn.initialize = function(container) {
 		this.form = container.find( '#your-profile' );
 		this.init();

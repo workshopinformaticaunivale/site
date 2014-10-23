@@ -1,6 +1,6 @@
 <?php if ( ! function_exists( 'add_action' ) ) exit; ?>
 
-<div class="box-login">
+<div class="box-login" id="login">
 	<button class="login" data-action="open">Entrar</button>	
 	<a class="btn" data-action="register" href="#cadastre-se">Cadastre-se</a>
 

@@ -8,7 +8,7 @@
 	&:hover {
 		border-color: $colorDefault;
 		color: $colorDefault;
-	}	
+	}
 }
 
 a.btn {
@@ -27,38 +27,12 @@ a.btn {
 	height: 25px;
 	line-height: 25px;
 	text-shadow: 0 1px 0 darken($colorSec,10%);
+	text-decoration: none;
 
 	&:hover {
 		opacity: .8;
 	}
-
-	&:before {
-		content: attr(data-tooltip);
-		position: absolute;
-		text-shadow: none;
-		background: #073b4f;
-		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-		border-radius: 5px;
-		color: #fff;
-		font: normal em($fontDefault)/1 $fontPri;
-		top: -29px;
-		right: 126px;
-		padding: 15px;
-		text-align: left;
-		width: 180px;
-		line-height: 1.2;
-		opacity: 0;
-		cursor: text;
-		@include transform3d( translateX(-5px) );
-		@include transition( .3s );
-	}
-
-	&:hover:before {
-		opacity: 1;
-		@include transform3d( translateX(0) );
-	}
 }
-
 
 .btn,
 .btn-sec {

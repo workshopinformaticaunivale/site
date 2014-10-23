@@ -40,6 +40,11 @@
   margin-right: 2px;
 }
 
+/* line 40, assets/stylesheets/sass/_welcome_panel.scss */
+.post-type-ws-course .welcome-panel {
+  padding: 20px;
+}
+
 /* line 1, assets/stylesheets/sass/_wp_scheme.scss */
 html {
   background: #f1f1f1;

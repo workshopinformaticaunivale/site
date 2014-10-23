@@ -143,4 +143,139 @@ class WS_Register_Courses_View
 		</table>
 		<?php
 	}
+
+	public static function render_register_students( $post )
+	{
+		?>
+		<style>
+			.ws-container {
+				position: relative;
+				overflow: auto;
+				margin: 16px 0;
+				padding: 10px 10px 10px;
+				border: 1px solid #e5e5e5;
+				-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.04);
+				box-shadow: 0 1px 1px rgba(0,0,0,.04);
+				background: #fff;
+				font-size: 13px;
+				line-height: 2.1em;
+			}
+			.ws-container .form-table {
+				margin-top: 0;
+			}
+			.ws-message {				
+				padding: 1px 12px;
+				background-color: #fff;
+				margin: 0;				
+			}
+			.ws-message.ws-updated {
+				border-left: 4px solid #7ad03a;
+			}
+			.ws-message.ws-warning {
+				border-left: 4px solid #fd9a16;
+			}
+			.ws-message.ws-error {
+				border-left: 4px solid #FD1616;
+			}
+			.ws-wrap-register {
+				margin-top: 10px;
+			}
+			.ws-wrap-register .ws-form-select {
+				width: 40%;
+			}
+			.ws-form-actions {
+				position: relative;
+			}
+			.ws-wrap-register .load ~.spinner {
+				display: block;
+			}
+			.ws-wrap-register .spinner {				
+				position: absolute;
+				left: 138px;
+				top: 17px;
+			}
+		</style>
+
+		<div class="wrap">
+			<h2>Meus Minicursos</h2>
+			
+			<div class="ws-wrap-register" data-component-register-courses>
+				<?php self::render_select_courses(); ?>
+				
+				<p class="description">
+					<span class="dashicons dashicons-lightbulb"></span>
+					Fique atento aos horarios de cada minicurso
+				</p>
+
+				<div class="ws-container" data-attr-excerpt>
+					<div class="ws-message ws-warning"><p>Selecione um minicurso para ver sua descrição.</p></div>				
+				</div>
+			</div>			
+		</div>
+
+		<script id="template-preview-course" type="text/x-handlebars-template">
+			<table class="form-table">
+				<tbody>
+					<tr valign="top">
+						<th scope="col">Minicurso</th>
+						<td>{{text}}</td>
+					</tr>
+					<tr valign="top">
+						<th scope="col">Descrição</th>
+						<td>{{excerpt}}</td>
+					</tr>
+					<tr valign="top">
+						<th scope="col">Ministrante</th>
+						<td>{{author}}</td>
+					</tr>
+					<tr valign="top">
+						<th scope="col">Carga Horário</th>
+						<td>{{workload}}</td>
+					</tr>
+					<tr valign="top">
+						<th scope="col">Laboratório</th>
+						<td>{{laboratory}}</td>
+					</tr>
+					<tr valign="top">
+						<th scope="col">Data(s)</th>
+						<td>
+							{{#each dates}}
+								{{this}}<br>
+							{{/each}}
+						</td>
+					</tr>
+					<tr valign="top">
+						<th scope="col">Acões</th>
+						<td class="ws-form-actions">
+							<button type="button" data-action="register" data-attr-course="{{value}}" class="button button-primary">Quero participar</button>
+							<span class="spinner"></span>
+						</td>
+					</tr>
+				</tbody>
+			</table>	
+		</script>
+		<?php
+	}
+
+	public static function render_select_courses()
+	{
+		$controller = WS_Register_Students_Courses_Controller::get_instance();
+		$list       = $controller->get_list();
+
+		?>
+		<select class="ws-form-select" data-attr-select data-placeholder="Escolha o seu minicurso">
+			<option value></option>
+			<?php
+				foreach ( $list as $option ) :
+					printf(
+						'<option value="%1$s" data-attr-item=\'%3$s\'>%2$s</option>',
+						$option->value,
+						$option->text,
+						json_encode( $option )
+					);
+				endforeach;	
+			?>
+		</select>
+		<?php
+	}
 }

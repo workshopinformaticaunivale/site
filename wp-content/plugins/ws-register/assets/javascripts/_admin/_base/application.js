@@ -1,4 +1,4 @@
-Module('WS.Application', function(Application) {
+Module( 'WS.Application', function(Application) {
 	//loader in all area site
 	Application.init = function(container) {
 		Application.setChosen();
@@ -49,9 +49,9 @@ Module('WS.Application', function(Application) {
 
 	Application['users'] = {
 		action : function(container) {
-			WS.FactoryComponent
-				.create( container, 'EventsManagerUser', '[data-component-events-manager-user]' )
-			;
+			// WS.FactoryComponent
+			// 	.create( container, 'EventsManagerUser', '[data-component-events-manager-user]' )
+			// ;
 		}
 	};
 
@@ -64,7 +64,15 @@ Module('WS.Application', function(Application) {
 		}
 	};
 
+	Application['ws-course_page_students-courses'] = {
+		action : function(container) {
+			WS.FactoryComponent
+				.create( container, 'RegisterCourses', '[data-component-register-courses]' )
+			;
+		}
+	};
+
 	Application.setChosen = function() {
 		jQuery('.chosen-select').chosen({width: '100%'});
 	}
-});
+}, {} );

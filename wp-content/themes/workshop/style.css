@@ -152,15 +152,15 @@ input, select {
 
 @font-face {
   font-family: 'icomoon';
-  src: url('assets/fonts/icomoon.eot?-bfuh3h&1411909253');
-  src: url('assets/fonts/icomoon.eot?&1411909253#iefix-bfuh3h') format("embedded-opentype"), url('assets/fonts/icomoon.woff?-bfuh3h&1411909253') format("woff"), url('assets/fonts/icomoon.ttf?-bfuh3h&1411909253') format("truetype"), url('assets/fonts/icomoon.svg?-bfuh3h&1411909253#icomoon') format("svg");
+  src: url('assets/fonts/icomoon.eot?-bfuh3h&1411909252');
+  src: url('assets/fonts/icomoon.eot?&1411909252#iefix-bfuh3h') format("embedded-opentype"), url('assets/fonts/icomoon.woff?-bfuh3h&1411909252') format("woff"), url('assets/fonts/icomoon.ttf?-bfuh3h&1411909252') format("truetype"), url('assets/fonts/icomoon.svg?-bfuh3h&1411909252#icomoon') format("svg");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'ebrimaregular';
-  src: url('assets/fonts/ebrima-webfont.eot?1411909253');
-  src: url('assets/fonts/ebrima-webfont.eot?&1411909253#iefix') format("embedded-opentype"), url('assets/fonts/ebrima-webfont.woff2?1411909253') format("woff2"), url('assets/fonts/ebrima-webfont.woff?1411909253') format("woff"), url('assets/fonts/ebrima-webfont.ttf?1411909253') format("truetype"), url('assets/fonts/ebrima-webfont.svg?1411909253#ebrimaregular') format("svg");
+  src: url('assets/fonts/ebrima-webfont.eot?1411909252');
+  src: url('assets/fonts/ebrima-webfont.eot?&1411909252#iefix') format("embedded-opentype"), url('assets/fonts/ebrima-webfont.woff2?1411909252') format("woff2"), url('assets/fonts/ebrima-webfont.woff?1411909252') format("woff"), url('assets/fonts/ebrima-webfont.ttf?1411909252') format("truetype"), url('assets/fonts/ebrima-webfont.svg?1411909252#ebrimaregular') format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -421,7 +421,7 @@ label {
   float: left;
   height: 60px;
   line-height: 60px;
-  margin-right: 4.16667%;
+  margin-right: 2.33333%;
   position: relative;
   text-align: center;
   width: 60px;
@@ -440,28 +440,36 @@ label {
 .item-time-line .course {
   border-right: 1px solid #cecece;
   color: #073b4f;
-  margin-right: 2.5641%;
-  width: 36.53846%;
+  margin-right: 2.13675%;
+  width: 27.24359%;
 }
 /* line 41, assets/stylesheets/core/_itemTimeLine.scss */
 .item-time-line p {
-  padding-left: 2.5641%;
-  width: 60.25641%;
+  padding-left: 2.13675%;
+  width: 45.40598%;
+  padding-right: 2.13675%;
 }
-/* line 46, assets/stylesheets/core/_itemTimeLine.scss */
+/* line 47, assets/stylesheets/core/_itemTimeLine.scss */
+.item-time-line .laboratory {
+  padding-left: 2.13675%;
+  width: 16.02564%;
+  border-left: 1px solid #cecece;
+}
+/* line 53, assets/stylesheets/core/_itemTimeLine.scss */
 .item-time-line .info {
   height: 60px;
   float: left;
-  width: 65%;
+  width: 78%;
 }
-/* line 53, assets/stylesheets/core/_itemTimeLine.scss */
+/* line 60, assets/stylesheets/core/_itemTimeLine.scss */
 .item-time-line .course,
+.item-time-line .laboratory,
 .item-time-line p {
   display: table-cell;
   vertical-align: middle;
   height: 60px;
 }
-/* line 60, assets/stylesheets/core/_itemTimeLine.scss */
+/* line 68, assets/stylesheets/core/_itemTimeLine.scss */
 .item-time-line .btn-sec {
   float: right;
   margin-top: 15px;
@@ -502,46 +510,14 @@ a.btn {
   height: 25px;
   line-height: 25px;
   text-shadow: 0 1px 0 #d2a900;
+  text-decoration: none;
 }
-/* line 31, assets/stylesheets/core/_buttons.scss */
+/* line 32, assets/stylesheets/core/_buttons.scss */
 .btn-sec:hover {
   opacity: .8;
 }
-/* line 35, assets/stylesheets/core/_buttons.scss */
-.btn-sec:before {
-  content: attr(data-tooltip);
-  position: absolute;
-  text-shadow: none;
-  background: #073b4f;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  color: #fff;
-  font: normal 1em/1 "ebrimaregular";
-  top: -29px;
-  right: 126px;
-  padding: 15px;
-  text-align: left;
-  width: 180px;
-  line-height: 1.2;
-  opacity: 0;
-  cursor: text;
-  -moz-transform: translateX(-5px);
-  -webkit-transform: translateX(-5px);
-  transform: translateX(-5px);
-  -moz-transition: 0.3s;
-  -o-transition: 0.3s;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-/* line 56, assets/stylesheets/core/_buttons.scss */
-.btn-sec:hover:before {
-  opacity: 1;
-  -moz-transform: translateX(0);
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-}
 
-/* line 63, assets/stylesheets/core/_buttons.scss */
+/* line 37, assets/stylesheets/core/_buttons.scss */
 .btn,
 .btn-sec {
   -moz-transition: 0.2s;
@@ -553,7 +529,7 @@ a.btn {
   padding: 0 20px;
   text-transform: uppercase;
 }
-/* line 71, assets/stylesheets/core/_buttons.scss */
+/* line 45, assets/stylesheets/core/_buttons.scss */
 .btn:active,
 .btn-sec:active {
   -moz-transform: scale(0.98, 0.98);
@@ -562,7 +538,7 @@ a.btn {
   transform: scale(0.98, 0.98);
 }
 
-/* line 76, assets/stylesheets/core/_buttons.scss */
+/* line 50, assets/stylesheets/core/_buttons.scss */
 button {
   outline: none;
 }
@@ -583,7 +559,7 @@ button {
 
 /* line 15, assets/stylesheets/core/_contributor.scss */
 .contributors {
-  background: #073b4f url('assets/images/bg-contributors.png?1411909253') no-repeat center bottom;
+  background: #073b4f url('assets/images/bg-contributors.png?1411909252') no-repeat center bottom;
   background-attachment: fixed;
   background-size: cover;
   padding: 30px 0;
@@ -1049,7 +1025,7 @@ iframe {
 
 /* line 1, assets/stylesheets/modules/_contact.scss */
 .contact {
-  background: #073b4f url('assets/images/bg-univale.png?1411909253') center bottom no-repeat;
+  background: #073b4f url('assets/images/bg-univale.png?1411909252') center bottom no-repeat;
   background-size: cover;
   background-attachment: fixed;
   color: #fff;

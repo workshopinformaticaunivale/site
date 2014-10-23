@@ -1,5 +1,4 @@
-Module("WS.ControlDays", function(ControlDays) {
-	"use strict";
+Module( 'WS.ControlDays', function(ControlDays) {
 
 	var _datepicker, _maskAttribute;
 

@@ -1,4 +1,5 @@
-Module("WS.Datepicker", function(Datepicker){
+Module( 'WS.Datepicker', function(Datepicker){
+	
 	Datepicker.fn.initialize = function(container) {
 		this.container = container;
 		//set translate pt-BR

@@ -1,6 +1,6 @@
 .item-time-line {
 	@extend %clearfix;
-	$info: 780px;
+	$info: 936px;
 
 	&:nth-child(2) .date:before {
 		display: none;		
@@ -15,7 +15,7 @@
 		float: left;
 		height: 60px;
 		line-height: 60px;
-		margin-right: perc(50px,$container);
+		margin-right: perc(28px,$container);
 		position: relative;
 		text-align: center;
 		width: 60px;
@@ -35,12 +35,19 @@
 		border-right: 1px solid $colorDet;
 		color: $colorPri;
 		margin-right: perc(20px,$info);
-		width: perc(285px,$info);
+		width: perc(255px,$info);
 	}
 
 	p {
 		padding-left: perc(20px,$info);
-		width: perc(470px,$info);
+		width: perc(425px,$info);
+		padding-right: perc(20px,$info);
+	}
+
+	.laboratory {
+		padding-left: perc(20px,$info);
+		width: perc(150px,$info);
+		border-left: 1px solid $colorDet;	
 	}
 
 	.info {
@@ -51,6 +58,7 @@
 
 
 	.course,
+	.laboratory,
 	p {
 		display: table-cell;
 		vertical-align: middle;

@@ -1,4 +1,4 @@
-Module('WS.Components.UploadFile', function(UploadFile) {
+Module( 'WS.Components.UploadFile', function(UploadFile) {
 	/*Image*/
 	var FieldImage = function(container) {
 		this.container = container;
