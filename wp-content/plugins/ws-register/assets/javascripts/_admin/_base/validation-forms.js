@@ -1,4 +1,4 @@
-Module('WS.ValidationForms', function(ValidationForms) {
+Module( 'WS.ValidationForms', function(ValidationForms) {
 
 	ValidationForms.fn.initialize = function(fields, form) {
 		this.fields = ( fields || [] );

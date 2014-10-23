@@ -22,13 +22,17 @@ Module('WS.Application', function(Application) {
 			WS.MenuRetract( container );
 
 			menu.find( 'a' )
-				.add( '[data-action=register]' )
+				.add( '[data-action=register], [data-action=login]' )				
 				.scrollToPage()
 			;
 		},
 		action : function(container) {
 			container.find( '.login' ).on( 'click', function() {
 				jQuery( '.box-login' ).toggleClass( 'active-form' );
+			});
+
+			container.find( '[data-action=login]' ).on( 'click', function() {
+				jQuery( '.box-login' ).addClass( 'active-form' );
 			});
 
 			WS.FactoryComponent

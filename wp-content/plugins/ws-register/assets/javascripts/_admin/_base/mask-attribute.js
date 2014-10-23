@@ -1,4 +1,4 @@
-Module("WS.MaskAttribute", function(MaskAttribute) {
+Module( 'WS.MaskAttribute', function(MaskAttribute) {
 	MaskAttribute.fn.initialize = function() {
 		this.init();
 	};

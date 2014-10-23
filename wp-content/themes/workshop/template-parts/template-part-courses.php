@@ -11,8 +11,14 @@ global $wp_theme;
 if ( ! class_exists( 'WS_Register_Courses_Controller' ) )
 	return;
 
-$controller = WS_Register_Courses_Controller::get_instance();
-$list       = $controller->get_list_group_datetime_start();
+$controller    = WS_Register_Courses_Controller::get_instance();
+$list          = $controller->get_list_group_datetime_start();
+$link_register = '<a class="btn-sec" data-action="login" href="#login">Inscreva-se</a>';
+
+if ( is_user_logged_in() ) :
+	$link_admin    = admin_url( 'edit.php?post_type=' . WS_Register_Course::POST_TYPE . '&page=students-courses' );
+	$link_register = "<a class=\"btn-sec\" href=\"{$link_admin}\">Inscreva-se</a>";
+endif;
 
 if ( ! $list )
 	return;
@@ -32,11 +38,11 @@ if ( ! $list )
 					<?php echo esc_attr( $model->get_datetime_start( 1, 'H\hi' ) ); ?>
 				</time>
 				<div class="info">
-					<h3 class="course"><?php echo esc_html( $model->title ); ?></h3>
+					<h3 class="course"><?php echo esc_html( $model->title ); ?></h3>					
 					<?php echo apply_filters( 'the_content', $model->excerpt ); ?>
+					<span class="laboratory"><?php echo esc_html( $model->get_laboratory_name() ); ?></span>
 				</div>
-				
-				<button class="btn-sec">Inscreva-se</button>
+				<?php echo $link_register; ?>					
 			</div>
 			<?php endforeach; ?>
 		</div>

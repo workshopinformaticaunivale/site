@@ -1,4 +1,4 @@
-Module('WS.Components.Modal', function(Modal) {
+Module( 'WS.Components.Modal', function(Modal) {
 	
 	Modal.fn.initialize = function(target, isControlClose) {
 		this.target         = target;

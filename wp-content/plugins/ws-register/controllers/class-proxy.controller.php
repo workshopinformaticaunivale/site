@@ -44,14 +44,32 @@ class WS_Register_Proxy_Controller
 		add_action( 'wp_dashboard_setup', array( &$this, 'wp_dashboard_setup_per_role' ) );
 		add_filter( 'admin_body_class', array( &$this, 'body_class_role' ) );
 		add_filter( 'enter_title_here', array( &$this, 'set_placeholder_title' ), 10, 2 );
+		add_action( 'wp_ajax_set-courses-by-user', array( &$this, 'ajax_verify' ) );
+	}
+
+	public function ajax_verify()
+	{
+		if ( ! WS_Utils_Helper::is_request_ajax() )
+			return;
+
+		$action = WS_Utils_Helper::request_method_params( 'action', false );
+
+		if ( ! $action )
+			return;
+
+		$action = str_replace( '-', '_', $action );
+		$method = $_SERVER['REQUEST_METHOD'];
+
+		do_action( "proxy_ajax_{$action}/{$method}" );
 	}
 
 	/**
 	 * Set Enter Title
 	 * @since 1.0
 	 * @return void
-	*/
-	public function set_placeholder_title( $title, $post ) {
+	 */
+	public function set_placeholder_title( $title, $post )
+	{
 		return apply_filters( "placeholder_title_{$post->post_type}", $title );
 	}
 

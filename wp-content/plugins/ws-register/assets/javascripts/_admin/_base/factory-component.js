@@ -1,7 +1,7 @@
-Module('WS.FactoryComponent', function(FactoryComponent) {
+Module( 'WS.FactoryComponent', function(FactoryComponent) {
 
 	FactoryComponent.create = function(container, name, selector) {
-		container.isExist(selector, jQuery.proxy( this, '_start', name ));
+		container.isExist( selector, jQuery.proxy( this, '_start', name ) );
 		return this;
 	};
 
@@ -14,13 +14,13 @@ Module('WS.FactoryComponent', function(FactoryComponent) {
 			return jQuery.noop;
 		}
 
-		this._iterator(elements, WS.Components[name]);
+		this._iterator( elements, WS.Components[name] );
 	};
 
 	FactoryComponent._iterator = function(elements, constructor) {
 		elements.each(function(index, element){
-			constructor.call(null, jQuery(element));
+			constructor.call( null, jQuery( element ) );
 		});
 	};
 
-}, {});
+}, {} );
