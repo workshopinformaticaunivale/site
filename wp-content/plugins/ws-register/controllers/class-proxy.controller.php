@@ -45,6 +45,8 @@ class WS_Register_Proxy_Controller
 		add_filter( 'admin_body_class', array( &$this, 'body_class_role' ) );
 		add_filter( 'enter_title_here', array( &$this, 'set_placeholder_title' ), 10, 2 );
 		add_action( 'wp_ajax_set-courses-by-user', array( &$this, 'ajax_verify' ) );
+		add_action( 'wp_ajax_get-courses-by-user', array( &$this, 'ajax_verify' ) );
+		add_action( 'wp_ajax_unset-courses-by-user', array( &$this, 'ajax_verify' ) );
 	}
 
 	public function ajax_verify()
@@ -52,7 +54,7 @@ class WS_Register_Proxy_Controller
 		if ( ! WS_Utils_Helper::is_request_ajax() )
 			return;
 
-		$action = WS_Utils_Helper::request_method_params( 'action', false );
+		$action = WS_Utils_Helper::request_method_params( 'action', false );		
 
 		if ( ! $action )
 			return;

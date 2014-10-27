@@ -2,18 +2,18 @@
  * Button mixin- creates 3d-ish button effect with correct
  * highlights/shadows, based on a base color.
  */
-/* line 1, assets/stylesheets/sass/_welcome_panel.scss */
+/* line 1, assets/stylesheets/sass/_welcomePanel.scss */
 .welcome-panel-content,
 .welcome-panel-close {
   display: none;
 }
 
-/* line 6, assets/stylesheets/sass/_welcome_panel.scss */
+/* line 6, assets/stylesheets/sass/_welcomePanel.scss */
 .ws-dashboard {
   display: block;
   margin-bottom: 22px;
 }
-/* line 10, assets/stylesheets/sass/_welcome_panel.scss */
+/* line 10, assets/stylesheets/sass/_welcomePanel.scss */
 .ws-dashboard .welcome-icon:before {
   color: #888;
   font: 400 22px/1 dashicons;
@@ -27,40 +27,40 @@
   vertical-align: top;
 }
 
-/* line 24, assets/stylesheets/sass/_welcome_panel.scss */
+/* line 24, assets/stylesheets/sass/_welcomePanel.scss */
 .ws-branding-large {
   display: block;
   margin: 0 auto;
   height: 310px;
 }
 
-/* line 32, assets/stylesheets/sass/_welcome_panel.scss */
+/* line 32, assets/stylesheets/sass/_welcomePanel.scss */
 .dashboard-students-information .dashicons-welcome-write-blog {
   margin-top: 10px;
   margin-right: 2px;
 }
 
-/* line 40, assets/stylesheets/sass/_welcome_panel.scss */
+/* line 40, assets/stylesheets/sass/_welcomePanel.scss */
 .post-type-ws-course .welcome-panel {
   padding: 20px;
 }
 
-/* line 1, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 1, assets/stylesheets/sass/_wpScheme.scss */
 html {
   background: #f1f1f1;
 }
 
 /* Links */
-/* line 8, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 8, assets/stylesheets/sass/_wpScheme.scss */
 a {
   color: #0074a2;
 }
-/* line 11, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 11, assets/stylesheets/sass/_wpScheme.scss */
 a:hover, a:active, a:focus {
   color: #0099d5;
 }
 
-/* line 18, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 18, assets/stylesheets/sass/_wpScheme.scss */
 #media-upload a.del-link:hover,
 div.dashboard-widget-submit input:hover,
 .subsubsub a:hover,
@@ -69,29 +69,29 @@ div.dashboard-widget-submit input:hover,
 }
 
 /* Forms */
-/* line 28, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 28, assets/stylesheets/sass/_wpScheme.scss */
 input[type=checkbox]:checked:before {
   color: #fcce0b;
 }
 
-/* line 32, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 32, assets/stylesheets/sass/_wpScheme.scss */
 input[type=radio]:checked:before {
   background: #fcce0b;
 }
 
-/* line 36, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 36, assets/stylesheets/sass/_wpScheme.scss */
 .wp-core-ui input[type="reset"]:hover,
 .wp-core-ui input[type="reset"]:active {
   color: #0099d5;
 }
 
-/* line 41, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 41, assets/stylesheets/sass/_wpScheme.scss */
 #poststuff div.inside {
   margin: 6px 0 0;
 }
 
 /* Core UI */
-/* line 49, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 49, assets/stylesheets/sass/_wpScheme.scss */
 .wp-core-ui .button-primary {
   background: #426fb7;
   border-color: #345892;
@@ -119,40 +119,40 @@ input[type=radio]:checked:before {
   border-color: #2e4d7f !important;
   text-shadow: none !important;
 }
-/* line 53, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 53, assets/stylesheets/sass/_wpScheme.scss */
 .wp-core-ui .wp-ui-primary {
   color: #fff;
   background-color: #426fb7;
 }
-/* line 57, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 57, assets/stylesheets/sass/_wpScheme.scss */
 .wp-core-ui .wp-ui-text-primary {
   color: #426fb7;
 }
-/* line 61, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 61, assets/stylesheets/sass/_wpScheme.scss */
 .wp-core-ui .wp-ui-highlight {
   color: #fff;
   background-color: #fcce0b;
 }
-/* line 65, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 65, assets/stylesheets/sass/_wpScheme.scss */
 .wp-core-ui .wp-ui-text-highlight {
   color: #fcce0b;
 }
-/* line 69, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 69, assets/stylesheets/sass/_wpScheme.scss */
 .wp-core-ui .wp-ui-notification {
   color: #fff;
   background-color: #dd3333;
 }
-/* line 73, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 73, assets/stylesheets/sass/_wpScheme.scss */
 .wp-core-ui .wp-ui-text-notification {
   color: #dd3333;
 }
-/* line 77, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 77, assets/stylesheets/sass/_wpScheme.scss */
 .wp-core-ui .wp-ui-text-icon {
   color: #fff;
 }
 
 /* List tables */
-/* line 85, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 85, assets/stylesheets/sass/_wpScheme.scss */
 .wrap .add-new-h2:hover,
 #add-new-comment a:hover,
 .tablenav .tablenav-pages a:hover,
@@ -161,56 +161,56 @@ input[type=radio]:checked:before {
   background-color: #426fb7;
 }
 
-/* line 93, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 93, assets/stylesheets/sass/_wpScheme.scss */
 .view-switch a.current:before {
   color: #426fb7;
 }
 
-/* line 97, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 97, assets/stylesheets/sass/_wpScheme.scss */
 .view-switch a:hover:before {
   color: #dd3333;
 }
 
-/* line 101, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 101, assets/stylesheets/sass/_wpScheme.scss */
 .post-com-count:hover:after {
   border-top-color: #426fb7;
 }
 
-/* line 104, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 104, assets/stylesheets/sass/_wpScheme.scss */
 .post-com-count:hover span {
   color: #fff;
   background-color: #426fb7;
 }
 
-/* line 109, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 109, assets/stylesheets/sass/_wpScheme.scss */
 strong .post-com-count:after {
   border-top-color: #dd3333;
 }
 
-/* line 112, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 112, assets/stylesheets/sass/_wpScheme.scss */
 strong .post-com-count span {
   background-color: #dd3333;
 }
 
 /* Admin Menu */
-/* line 119, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 119, assets/stylesheets/sass/_wpScheme.scss */
 #adminmenuback,
 #adminmenuwrap,
 #adminmenu {
   background: #426fb7;
 }
 
-/* line 125, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 125, assets/stylesheets/sass/_wpScheme.scss */
 #adminmenu a {
   color: #fff;
 }
 
-/* line 129, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 129, assets/stylesheets/sass/_wpScheme.scss */
 #adminmenu div.wp-menu-image:before {
   color: #fff;
 }
 
-/* line 133, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 133, assets/stylesheets/sass/_wpScheme.scss */
 #adminmenu a:hover,
 #adminmenu li.menu-top:hover,
 #adminmenu li.opensub > a.menu-top,
@@ -219,14 +219,14 @@ strong .post-com-count span {
   background-color: #fcce0b;
 }
 
-/* line 141, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 141, assets/stylesheets/sass/_wpScheme.scss */
 #adminmenu li.menu-top:hover div.wp-menu-image:before,
 #adminmenu li.opensub > a.menu-top div.wp-menu-image:before {
   color: #fff;
 }
 
 /* Active tabs use a bottom border color that matches the page background color. */
-/* line 149, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 149, assets/stylesheets/sass/_wpScheme.scss */
 .about-wrap h2 .nav-tab-active,
 .nav-tab-active,
 .nav-tab-active:hover {
@@ -235,7 +235,7 @@ strong .post-com-count span {
 }
 
 /* Admin Menu: submenu */
-/* line 159, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 159, assets/stylesheets/sass/_wpScheme.scss */
 #adminmenu .wp-submenu,
 #adminmenu .wp-has-current-submenu .wp-submenu,
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu,
@@ -244,17 +244,17 @@ strong .post-com-count span {
   background: #395f9d;
 }
 
-/* line 167, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 167, assets/stylesheets/sass/_wpScheme.scss */
 #adminmenu li.wp-has-submenu.wp-not-current-submenu.opensub:hover:after {
   border-right-color: #395f9d;
 }
 
-/* line 171, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 171, assets/stylesheets/sass/_wpScheme.scss */
 #adminmenu .wp-submenu .wp-submenu-head {
   color: #c6d3e9;
 }
 
-/* line 175, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 175, assets/stylesheets/sass/_wpScheme.scss */
 #adminmenu .wp-submenu a,
 #adminmenu .wp-has-current-submenu .wp-submenu a,
 .folded #adminmenu .wp-has-current-submenu .wp-submenu a,
@@ -262,7 +262,7 @@ strong .post-com-count span {
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu a {
   color: #c6d3e9;
 }
-/* line 182, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 182, assets/stylesheets/sass/_wpScheme.scss */
 #adminmenu .wp-submenu a:focus, #adminmenu .wp-submenu a:hover,
 #adminmenu .wp-has-current-submenu .wp-submenu a:focus,
 #adminmenu .wp-has-current-submenu .wp-submenu a:hover,
@@ -276,13 +276,13 @@ strong .post-com-count span {
 }
 
 /* Admin Menu: current */
-/* line 190, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 190, assets/stylesheets/sass/_wpScheme.scss */
 #adminmenu .wp-submenu li.current a,
 #adminmenu a.wp-has-current-submenu:focus + .wp-submenu li.current a,
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu li.current a {
   color: #fff;
 }
-/* line 195, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 195, assets/stylesheets/sass/_wpScheme.scss */
 #adminmenu .wp-submenu li.current a:hover, #adminmenu .wp-submenu li.current a:focus,
 #adminmenu a.wp-has-current-submenu:focus + .wp-submenu li.current a:hover,
 #adminmenu a.wp-has-current-submenu:focus + .wp-submenu li.current a:focus,
@@ -291,13 +291,13 @@ strong .post-com-count span {
   color: #fcce0b;
 }
 
-/* line 200, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 200, assets/stylesheets/sass/_wpScheme.scss */
 ul#adminmenu a.wp-has-current-submenu:after,
 ul#adminmenu > li.current > a.current:after {
   border-right-color: #f1f1f1;
 }
 
-/* line 205, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 205, assets/stylesheets/sass/_wpScheme.scss */
 #adminmenu li.current a.menu-top,
 #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
 #adminmenu li.wp-has-current-submenu .wp-submenu .wp-submenu-head,
@@ -306,20 +306,20 @@ ul#adminmenu > li.current > a.current:after {
   background: #fcce0b;
 }
 
-/* line 213, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 213, assets/stylesheets/sass/_wpScheme.scss */
 #adminmenu li.wp-has-current-submenu div.wp-menu-image:before {
   color: #fff;
 }
 
 /* Admin Menu: bubble */
-/* line 220, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 220, assets/stylesheets/sass/_wpScheme.scss */
 #adminmenu .awaiting-mod,
 #adminmenu .update-plugins {
   color: #fff;
   background: #dd3333;
 }
 
-/* line 226, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 226, assets/stylesheets/sass/_wpScheme.scss */
 #adminmenu li.current a .awaiting-mod,
 #adminmenu li a.wp-has-current-submenu .update-plugins,
 #adminmenu li:hover a .awaiting-mod,
@@ -329,34 +329,34 @@ ul#adminmenu > li.current > a.current:after {
 }
 
 /* Admin Menu: collapse button */
-/* line 237, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 237, assets/stylesheets/sass/_wpScheme.scss */
 #collapse-menu {
   color: #fff;
 }
 
-/* line 241, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 241, assets/stylesheets/sass/_wpScheme.scss */
 #collapse-menu:hover {
   color: #fff;
 }
 
-/* line 245, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 245, assets/stylesheets/sass/_wpScheme.scss */
 #collapse-button div:after {
   color: #fff;
 }
 
-/* line 249, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 249, assets/stylesheets/sass/_wpScheme.scss */
 #collapse-menu:hover #collapse-button div:after {
   color: #fff;
 }
 
 /* Admin Bar */
-/* line 256, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 256, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar {
   color: #fff;
   background: #426fb7;
 }
 
-/* line 261, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 261, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar .ab-item,
 #wpadminbar a.ab-item,
 #wpadminbar > #wp-toolbar span.ab-label,
@@ -364,7 +364,7 @@ ul#adminmenu > li.current > a.current:after {
   color: #fff;
 }
 
-/* line 268, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 268, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar .ab-icon,
 #wpadminbar .ab-icon:before,
 #wpadminbar .ab-item:before,
@@ -372,7 +372,7 @@ ul#adminmenu > li.current > a.current:after {
   color: #fff;
 }
 
-/* line 275, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 275, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar .ab-top-menu > li:hover > .ab-item,
 #wpadminbar .ab-top-menu > li.hover > .ab-item,
 #wpadminbar .ab-top-menu > li > .ab-item:focus,
@@ -383,14 +383,14 @@ ul#adminmenu > li.current > a.current:after {
   background: #395f9d;
 }
 
-/* line 285, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 285, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar > #wp-toolbar li:hover span.ab-label,
 #wpadminbar > #wp-toolbar li.hover span.ab-label,
 #wpadminbar > #wp-toolbar a:focus span.ab-label {
   color: #fcce0b;
 }
 
-/* line 291, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 291, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar li:hover .ab-icon:before,
 #wpadminbar li:hover .ab-item:before,
 #wpadminbar li:hover .ab-item:after,
@@ -399,18 +399,18 @@ ul#adminmenu > li.current > a.current:after {
 }
 
 /* Admin Bar: submenu */
-/* line 301, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 301, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar .menupop .ab-sub-wrapper {
   background: #395f9d;
 }
 
-/* line 305, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 305, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar .quicklinks .menupop ul.ab-sub-secondary,
 #wpadminbar .quicklinks .menupop ul.ab-sub-secondary .ab-submenu {
   background: #6184bb;
 }
 
-/* line 310, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 310, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar .ab-submenu .ab-item,
 #wpadminbar .quicklinks .menupop ul li a,
 #wpadminbar .quicklinks .menupop.hover ul li a,
@@ -418,13 +418,13 @@ ul#adminmenu > li.current > a.current:after {
   color: #c6d3e9;
 }
 
-/* line 317, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 317, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar .quicklinks li .blavatar,
 #wpadminbar .menupop .menupop > .ab-item:before {
   color: #fff;
 }
 
-/* line 322, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 322, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar .quicklinks .menupop ul li a:hover,
 #wpadminbar .quicklinks .menupop ul li a:focus,
 #wpadminbar .quicklinks .menupop ul li a:hover strong,
@@ -445,83 +445,83 @@ ul#adminmenu > li.current > a.current:after {
   color: #fcce0b;
 }
 
-/* line 342, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 342, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar .quicklinks li a:hover .blavatar,
 #wpadminbar .menupop .menupop > .ab-item:hover:before {
   color: #fcce0b;
 }
 
 /* Admin Bar: search */
-/* line 350, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 350, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar #adminbarsearch:before {
   color: #fff;
 }
 
-/* line 354, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 354, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar > #wp-toolbar > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input:focus {
   color: #fff;
   background: #5982c3;
 }
 
-/* line 359, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 359, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar #adminbarsearch .adminbar-input::-webkit-input-placeholder {
   color: #fff;
   opacity: .7;
 }
 
-/* line 360, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 360, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar #adminbarsearch .adminbar-input:-moz-placeholder {
   color: #fff;
   opacity: .7;
 }
 
-/* line 361, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 361, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar #adminbarsearch .adminbar-input::-moz-placeholder {
   color: #fff;
   opacity: .7;
 }
 
-/* line 362, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 362, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar #adminbarsearch .adminbar-input:-ms-input-placeholder {
   color: #fff;
   opacity: .7;
 }
 
 /* Admin Bar: my account */
-/* line 367, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 367, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar .quicklinks li#wp-admin-bar-my-account.with-avatar > a img {
   border-color: #5982c3;
   background-color: #5982c3;
 }
 
-/* line 372, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 372, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar #wp-admin-bar-user-info .display-name {
   color: #fff;
 }
 
-/* line 376, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 376, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar #wp-admin-bar-user-info a:hover .display-name {
   color: #fcce0b;
 }
 
-/* line 380, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 380, assets/stylesheets/sass/_wpScheme.scss */
 #wpadminbar #wp-admin-bar-user-info .username {
   color: #c6d3e9;
 }
 
 /* Pointers */
-/* line 387, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 387, assets/stylesheets/sass/_wpScheme.scss */
 .wp-pointer .wp-pointer-content h3 {
   background-color: #fcce0b;
   border-color: #ebbe03;
 }
 
-/* line 392, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 392, assets/stylesheets/sass/_wpScheme.scss */
 .wp-pointer .wp-pointer-content h3:before {
   color: #fcce0b;
 }
 
-/* line 396, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 396, assets/stylesheets/sass/_wpScheme.scss */
 .wp-pointer.wp-pointer-top .wp-pointer-arrow,
 .wp-pointer.wp-pointer-top .wp-pointer-arrow-inner,
 .wp-pointer.wp-pointer-undefined .wp-pointer-arrow {
@@ -529,56 +529,56 @@ ul#adminmenu > li.current > a.current:after {
 }
 
 /* Media Uploader */
-/* line 404, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 404, assets/stylesheets/sass/_wpScheme.scss */
 .media-item .bar,
 .media-progress-bar div {
   background-color: #fcce0b;
 }
 
-/* line 409, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 409, assets/stylesheets/sass/_wpScheme.scss */
 .details.attachment {
   box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 7px #fcce0b;
 }
 
-/* line 413, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 413, assets/stylesheets/sass/_wpScheme.scss */
 .attachment.details .check {
   background-color: #fcce0b;
   box-shadow: 0 0 0 1px #fff, 0 0 0 2px #fcce0b;
 }
 
 /* Themes */
-/* line 421, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 421, assets/stylesheets/sass/_wpScheme.scss */
 .theme-browser .theme.active .theme-name,
 .theme-browser .theme.add-new-theme:hover:after {
   background: #fcce0b;
 }
 
-/* line 426, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 426, assets/stylesheets/sass/_wpScheme.scss */
 .theme-browser .theme.add-new-theme:hover span:after {
   color: #fcce0b;
 }
 
-/* line 430, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 430, assets/stylesheets/sass/_wpScheme.scss */
 .theme-overlay .theme-header .close:hover,
 .theme-overlay .theme-header .right:hover,
 .theme-overlay .theme-header .left:hover {
   background: #fcce0b;
 }
 
-/* line 436, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 436, assets/stylesheets/sass/_wpScheme.scss */
 .theme-section.current,
 .theme-filter.current {
   border-bottom-color: #426fb7;
 }
 
-/* line 441, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 441, assets/stylesheets/sass/_wpScheme.scss */
 body.more-filters-opened .more-filters,
 body.more-filters-opened .more-filters:before {
   color: #fff;
   background-color: #426fb7;
 }
 
-/* line 447, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 447, assets/stylesheets/sass/_wpScheme.scss */
 body.more-filters-opened .more-filters:hover,
 body.more-filters-opened .more-filters:focus,
 body.more-filters-opened .more-filters:hover:before,
@@ -588,27 +588,27 @@ body.more-filters-opened .more-filters:focus:before {
 }
 
 /* Widgets */
-/* line 457, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 457, assets/stylesheets/sass/_wpScheme.scss */
 .widgets-chooser li.widgets-chooser-selected {
   background-color: #fcce0b;
   color: #fff;
 }
 
-/* line 462, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 462, assets/stylesheets/sass/_wpScheme.scss */
 .widgets-chooser li.widgets-chooser-selected:before,
 .widgets-chooser li.widgets-chooser-selected:focus:before {
   color: #fff;
 }
 
 /* Customize */
-/* line 469, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 469, assets/stylesheets/sass/_wpScheme.scss */
 #customize-theme-controls .widget-area-select .selected {
   background-color: #fcce0b;
   color: #fff;
 }
 
 /* jQuery UI Slider */
-/* line 477, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 477, assets/stylesheets/sass/_wpScheme.scss */
 .wp-slider .ui-slider-handle,
 .wp-slider .ui-slider-handle.ui-state-hover,
 .wp-slider .ui-slider-handle.focus {
@@ -618,41 +618,41 @@ body.more-filters-opened .more-filters:focus:before {
 }
 
 /* Thickbox: Plugin information */
-/* line 487, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 487, assets/stylesheets/sass/_wpScheme.scss */
 #sidemenu a.current {
   background: #f1f1f1;
   border-bottom-color: #f1f1f1;
 }
 
-/* line 492, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 492, assets/stylesheets/sass/_wpScheme.scss */
 #plugin-information .action-button {
   background: #426fb7;
 }
 
 /* Responsive Component */
-/* line 498, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 498, assets/stylesheets/sass/_wpScheme.scss */
 div#wp-responsive-toggle a:before {
   color: #fff;
 }
 
-/* line 502, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 502, assets/stylesheets/sass/_wpScheme.scss */
 .wp-responsive-open div#wp-responsive-toggle a {
   border-color: transparent;
   background: #fcce0b;
 }
 
-/* line 508, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 508, assets/stylesheets/sass/_wpScheme.scss */
 .star-rating .star {
   color: #fcce0b;
 }
 
-/* line 512, assets/stylesheets/sass/_wp_scheme.scss */
+/* line 512, assets/stylesheets/sass/_wpScheme.scss */
 .wp-responsive-open #wpadminbar #wp-admin-bar-menu-toggle a {
   background: #395f9d;
 }
 
 /***  Datepicker  ***/
-/* line 2, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 2, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker {
   width: 20em;
   display: none;
@@ -661,7 +661,7 @@ div#wp-responsive-toggle a:before {
 }
 
 /* DATEPICKER HEADER */
-/* line 10, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 10, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker .ui-datepicker-header {
   position: relative;
   background: #2F2E2C;
@@ -670,7 +670,7 @@ div#wp-responsive-toggle a:before {
   line-height: 40px;
 }
 
-/* line 17, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 17, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker .ui-datepicker-prev,
 .ui-datepicker .ui-datepicker-next {
   position: absolute;
@@ -682,7 +682,7 @@ div#wp-responsive-toggle a:before {
   cursor: pointer;
 }
 
-/* line 27, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 27, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker .ui-datepicker-prev {
   left: 10px;
   border-right: 8px solid #94908F;
@@ -690,7 +690,7 @@ div#wp-responsive-toggle a:before {
   border-bottom: 8px solid transparent;
 }
 
-/* line 33, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 33, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker .ui-datepicker-next {
   right: 10px;
   border-left: 8px solid #94908F;
@@ -698,7 +698,7 @@ div#wp-responsive-toggle a:before {
   border-bottom: 8px solid transparent;
 }
 
-/* line 39, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 39, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker .ui-datepicker-title {
   margin: 0 0 16px 0;
   text-align: center;
@@ -711,20 +711,20 @@ div#wp-responsive-toggle a:before {
   border-radius: 5px 5px 0 0;
 }
 
-/* line 50, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 50, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker .ui-datepicker-title select {
   font-size: 1em;
   margin: 1px 0;
 }
 
-/* line 54, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 54, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker select.ui-datepicker-month,
 .ui-datepicker select.ui-datepicker-year {
   width: 49%;
 }
 
 /* DATEPICKER TABLE */
-/* line 60, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 60, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker table {
   width: 100%;
   font-size: .9em;
@@ -733,13 +733,13 @@ div#wp-responsive-toggle a:before {
   background: #fff;
 }
 
-/* line 67, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 67, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker thead {
   background: #3E3C3D;
   position: relative;
 }
 
-/* line 71, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 71, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker th {
   color: #9d9d9d;
   font-size: 12px;
@@ -749,7 +749,7 @@ div#wp-responsive-toggle a:before {
   padding: 6px 4px;
 }
 
-/* line 79, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 79, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker td {
   border: 0;
   width: 26px;
@@ -758,34 +758,34 @@ div#wp-responsive-toggle a:before {
 }
 
 /* current day */
-/* line 87, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 87, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker .ui-state-highlight {
   background: #ddd;
 }
 
-/* line 88, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 88, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker .ui-state-highlight:hover {
   background: #ddd !important;
 }
 
 /* current click */
-/* line 91, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 91, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker .ui-state-active {
   background: #2EA2CC;
   color: #fff;
 }
 
-/* line 95, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 95, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker .ui-state-active:hover {
   background: #2EA2CC !important;
 }
 
-/* line 97, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 97, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker .ui-state-disabled {
   background: #EBEBEB;
 }
 
-/* line 99, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 99, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker td a {
   color: #333;
   padding: 5px 0;
@@ -794,13 +794,13 @@ div#wp-responsive-toggle a:before {
   text-decoration: none;
 }
 
-/* line 106, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 106, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker td a:hover {
   background: #f9f9f9;
 }
 
 /*  Range  */
-/* line 110, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 110, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-timepicker-div {
   background: #fff;
   padding: 10px 10px 0 10px;
@@ -809,24 +809,24 @@ div#wp-responsive-toggle a:before {
   color: #6d6d6d;
 }
 
-/* line 117, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 117, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-timepicker-div dl {
   margin: 0;
 }
 
-/* line 118, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 118, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-timepicker-div dd {
   margin: 0;
 }
 
-/* line 119, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 119, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-timepicker-div .ui_tpicker_time_label {
   width: 30%;
   float: left;
   margin-bottom: 10px;
 }
 
-/* line 124, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 124, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-timepicker-div .ui_tpicker_time {
   margin: 0;
   width: 65%;
@@ -835,7 +835,7 @@ div#wp-responsive-toggle a:before {
   line-height: 105%;
 }
 
-/* line 132, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 132, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui_tpicker_hour_label, .ui_tpicker_minute_label,
 .ui_tpicker_second_label, .ui_tpicker_millisec_label,
 .ui_tpicker_timezone_label, .ui_tpicker_timezone_label {
@@ -846,7 +846,7 @@ div#wp-responsive-toggle a:before {
   margin-bottom: 15px;
 }
 
-/* line 142, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 142, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui_tpicker_hour, .ui_tpicker_minute, .ui_tpicker_second,
 .ui_tpicker_millisec, .ui_tpicker_timezone {
   float: right;
@@ -854,24 +854,24 @@ div#wp-responsive-toggle a:before {
   margin-bottom: 15px;
 }
 
-/* line 148, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 148, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui_tpicker_timezone select {
   width: 98%;
 }
 
-/* line 150, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 150, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui_tpicker_millisec {
   width: 54%;
 }
 
-/* line 151, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 151, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-timepicker-div .ui-slider {
   height: 15px;
   border-radius: 5px;
   border: 1px solid #E1E1E1;
 }
 
-/* line 156, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 156, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-timepicker-div .ui-slider a {
   background: #BCB7B7;
   top: 0;
@@ -884,7 +884,7 @@ div#wp-responsive-toggle a:before {
 }
 
 /* Button picker */
-/* line 169, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 169, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker .ui-datepicker-buttonpane {
   background: #fff;
   margin: 0 0 0 0;
@@ -895,7 +895,7 @@ div#wp-responsive-toggle a:before {
   overflow: hidden;
 }
 
-/* line 178, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 178, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker .ui-datepicker-buttonpane button {
   float: right;
   overflow: visible;
@@ -909,67 +909,67 @@ div#wp-responsive-toggle a:before {
   cursor: pointer;
 }
 
-/* line 190, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 190, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker .ui-datepicker-buttonpane button:hover {
   background: #2C96BA;
 }
 
-/* line 191, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 191, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
   float: left;
   background: #ddd;
   color: #9a9a9a;
 }
 
-/* line 196, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 196, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current:hover {
   background: #d5d5d5;
 }
 
 /* with multiple calendars */
-/* line 199, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 199, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker.ui-datepicker-multi {
   width: auto;
 }
 
-/* line 202, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 202, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker-multi .ui-datepicker-group {
   float: left;
 }
 
-/* line 205, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 205, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker-multi .ui-datepicker-group table {
   width: 95%;
   margin: 0 auto .4em;
 }
 
-/* line 209, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 209, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker-multi-2 .ui-datepicker-group {
   width: 50%;
 }
 
-/* line 212, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 212, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker-multi-3 .ui-datepicker-group {
   width: 33.3%;
 }
 
-/* line 215, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 215, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker-multi-4 .ui-datepicker-group {
   width: 25%;
 }
 
-/* line 218, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 218, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header,
 .ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
   border-left-width: 0;
 }
 
-/* line 222, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 222, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker-multi .ui-datepicker-buttonpane {
   clear: left;
 }
 
-/* line 225, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 225, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker-row-break {
   clear: both;
   width: 100%;
@@ -977,52 +977,52 @@ div#wp-responsive-toggle a:before {
 }
 
 /* RTL support */
-/* line 232, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 232, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker-rtl {
   direction: rtl;
 }
 
-/* line 235, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 235, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker-rtl .ui-datepicker-prev {
   right: 2px;
   left: auto;
 }
 
-/* line 239, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 239, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker-rtl .ui-datepicker-next {
   left: 2px;
   right: auto;
 }
 
-/* line 243, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 243, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker-rtl .ui-datepicker-prev:hover {
   right: 1px;
   left: auto;
 }
 
-/* line 247, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 247, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker-rtl .ui-datepicker-next:hover {
   left: 1px;
   right: auto;
 }
 
-/* line 251, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 251, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker-rtl .ui-datepicker-buttonpane {
   clear: right;
 }
 
-/* line 254, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 254, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker-rtl .ui-datepicker-buttonpane button {
   float: left;
 }
 
-/* line 257, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 257, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current,
 .ui-datepicker-rtl .ui-datepicker-group {
   float: right;
 }
 
-/* line 261, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 261, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header,
 .ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
   border-right-width: 0;
@@ -1039,13 +1039,13 @@ div#wp-responsive-toggle a:before {
  *
  * http://api.jqueryui.com/slider/#theming
  */
-/* line 277, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 277, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-slider {
   position: relative;
   text-align: left;
 }
 
-/* line 281, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 281, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-slider .ui-slider-handle {
   position: absolute;
   z-index: 2;
@@ -1056,7 +1056,7 @@ div#wp-responsive-toggle a:before {
   touch-action: none;
 }
 
-/* line 290, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 290, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-slider .ui-slider-range {
   position: absolute;
   z-index: 1;
@@ -1067,64 +1067,64 @@ div#wp-responsive-toggle a:before {
 }
 
 /* For IE8 - See #6727 */
-/* line 300, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 300, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-slider.ui-state-disabled .ui-slider-handle,
 .ui-slider.ui-state-disabled .ui-slider-range {
   filter: inherit;
 }
 
-/* line 305, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 305, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-slider-horizontal {
   height: .8em;
 }
 
-/* line 308, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 308, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-slider-horizontal .ui-slider-handle {
   top: -.3em;
   margin-left: -.6em;
 }
 
-/* line 312, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 312, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-slider-horizontal .ui-slider-range {
   top: 0;
   height: 100%;
 }
 
-/* line 316, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 316, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-slider-horizontal .ui-slider-range-min {
   left: 0;
 }
 
-/* line 319, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 319, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-slider-horizontal .ui-slider-range-max {
   right: 0;
 }
 
-/* line 323, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 323, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-slider-vertical {
   width: .8em;
   height: 100px;
 }
 
-/* line 327, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 327, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-slider-vertical .ui-slider-handle {
   left: -.3em;
   margin-left: 0;
   margin-bottom: -.6em;
 }
 
-/* line 332, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 332, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-slider-vertical .ui-slider-range {
   left: 0;
   width: 100%;
 }
 
-/* line 336, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 336, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-slider-vertical .ui-slider-range-min {
   bottom: 0;
 }
 
-/* line 339, assets/stylesheets/sass/_datetimepicker.scss */
+/* line 339, assets/stylesheets/sass/_dateTimePicker.scss */
 .ui-slider-vertical .ui-slider-range-max {
   top: 0;
 }
@@ -2022,7 +2022,68 @@ div#wp-responsive-toggle a:before {
   display: none;
 }
 
-/* line 5, assets/stylesheets/sass/_student_role.scss */
+/* line 5, assets/stylesheets/sass/_studentRole.scss */
 .user-student.post-type-ws-course .subsubsub .count, .user-student.post-type-ws-course .subsubsub .all {
   display: none;
+}
+
+/* line 1, assets/stylesheets/sass/_elements.scss */
+.ws-container {
+  position: relative;
+  overflow: auto;
+  margin: 16px 0;
+  padding: 10px 10px 10px;
+  border: 1px solid #e5e5e5;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  background: #fff;
+  font-size: 13px;
+  line-height: 2.1em;
+}
+/* line 13, assets/stylesheets/sass/_elements.scss */
+.ws-container .form-table {
+  margin-top: 0;
+}
+
+/* line 18, assets/stylesheets/sass/_elements.scss */
+.ws-message {
+  padding: 1px 12px;
+  background-color: #fff;
+  margin: 0;
+}
+/* line 23, assets/stylesheets/sass/_elements.scss */
+.ws-message.ws-updated {
+  border-left: 4px solid #7ad03a;
+}
+/* line 26, assets/stylesheets/sass/_elements.scss */
+.ws-message.ws-warning {
+  border-left: 4px solid #fd9a16;
+}
+/* line 29, assets/stylesheets/sass/_elements.scss */
+.ws-message.ws-error {
+  border-left: 4px solid #FD1616;
+}
+
+/* line 34, assets/stylesheets/sass/_elements.scss */
+.ws-form-actions {
+  position: relative;
+}
+
+/* line 1, assets/stylesheets/sass/_registerCoursesUsers.scss */
+.ws-wrap-register {
+  margin-top: 10px;
+}
+/* line 4, assets/stylesheets/sass/_registerCoursesUsers.scss */
+.ws-wrap-register .ws-form-select {
+  width: 40%;
+}
+/* line 7, assets/stylesheets/sass/_registerCoursesUsers.scss */
+.ws-wrap-register .load ~ .spinner {
+  display: block;
+}
+/* line 10, assets/stylesheets/sass/_registerCoursesUsers.scss */
+.ws-wrap-register .spinner {
+  position: absolute;
+  left: 138px;
+  top: 17px;
 }

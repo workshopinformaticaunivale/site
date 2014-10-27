@@ -117,7 +117,7 @@ class WS_Register_Courses_Controller
 		return $this->get_list( $args );
 	}
 
-	public function get_list_by_user()
+	public function get_list_by_user( $user_id = 0 )
 	{
 		$current_event = WS_Register_Events_Controller::get_current_event();
 
@@ -130,7 +130,7 @@ class WS_Register_Courses_Controller
 				),
 				array(
 					'key' 	=> WS_Register_Course::POST_META_USERS_PARTICIPANTS,
-					'value' => get_current_user_id(),					
+					'value' => ( ! $user_id ) ? get_current_user_id() : $user_id,					
 				)
 			)
 		);

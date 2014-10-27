@@ -26,6 +26,63 @@ class WS_Register_Students_Courses_Controller
 	{
 		add_action( 'admin_menu', array( &$this, 'menu' ) );
 		add_action( 'proxy_ajax_set_courses_by_user/POST', array( &$this, 'ajax_set_courses_by_user' ) );
+		add_action( 'proxy_ajax_get_courses_by_user/GET', array( &$this, 'ajax_get_courses_by_user' ) );
+		add_action( 'proxy_ajax_unset_courses_by_user/POST', array( &$this, 'ajax_unset_courses_by_user' ) );
+	}
+
+	public function ajax_unset_courses_by_user()
+	{
+		$course_id = WS_Utils_Helper::post_method_params( 'course_id', false, 'intval' );
+
+		if ( ! $course_id ) :
+			http_response_code( 500 );
+			WS_Utils_Helper::error_server_json( 'course_id_is_empty', 'Usuário não foi definido.' );
+			exit(0);
+		endif;
+
+		$model = new WS_Register_Course( $course_id );
+
+		if ( ! $model->is_publish() ) :
+			http_response_code( 500 );
+			WS_Utils_Helper::error_server_json( 'course_id_not_publish', 'Esse minicurso não existe.' );
+			exit(0);
+		endif;
+
+		$model->unset_user_participant( get_current_user_id() );
+
+		WS_Utils_Helper::object_server_json(
+			array(
+				'message' => 'Sua inscrição foi cancelada!',
+				'course'  => $course_id,
+			)
+		);
+		exit(1);
+	}
+
+	public function ajax_get_courses_by_user()
+	{
+		$user_id = WS_Utils_Helper::get_method_params( 'user_id', false, 'intval' );
+
+		if ( ! $user_id ) :
+			http_response_code( 500 );
+			WS_Utils_Helper::error_server_json( 'user_id_is_empty', 'Usuário não foi definido.' );
+			exit(0);
+		endif;
+
+		$list = $this->get_list_by_user( $user_id );		
+
+		if ( ! $list ) :
+			http_response_code( 500 );
+			WS_Utils_Helper::error_server_json( 'list_courses_is_empty', 'Sem minicursos definidos até o momento.' );
+			exit(0);
+		endif;
+
+		WS_Utils_Helper::object_server_json(
+			array(
+				'list' => $list,				
+			)
+		);
+		exit(1);
 	}
 
 	public function ajax_set_courses_by_user()
@@ -104,6 +161,17 @@ class WS_Register_Students_Courses_Controller
 		$list = array_filter( $list, array( &$this, 'filter_list_for_register' ) );
 
 		return array_map( array( &$this, 'map_list_for_register' ), $list );		
+	}
+
+	public function get_list_by_user( $user_id )
+	{
+		$controller = WS_Register_Courses_Controller::get_instance();
+		$list       = $controller->get_list_by_user( $user_id );
+
+		if ( ! $list )
+			return false;
+
+		return array_map( array( &$this, 'map_list_for_register' ), $list );
 	}
 
 	public function filter_list_for_register( $model )

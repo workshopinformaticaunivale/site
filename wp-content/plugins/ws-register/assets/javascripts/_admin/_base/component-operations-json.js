@@ -20,6 +20,26 @@ Module( 'WS.Components.OperationsJSON', function(OperationsJSON) {
 		});
 	};
 
+	OperationsJSON.fn.removeCoursesByUser = function(id) {
+		this.ajax({
+			type : 'POST',
+			data : {
+				action    : 'unset-courses-by-user',
+				course_id : parseInt( id, 10 )		
+			}
+		});
+	};
+
+	OperationsJSON.fn.requestCoursesByUsers = function(id) {
+		this.ajax({
+			type : 'GET',
+			data : {
+				action  : 'get-courses-by-user',
+				user_id : parseInt( id, 10 )
+			}
+		});
+	};
+
 	OperationsJSON.fn.requestEventsByUser = function(id) {
 		this.ajax({
 			type : 'GET',
