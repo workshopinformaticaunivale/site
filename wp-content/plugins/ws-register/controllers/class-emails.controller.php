@@ -63,8 +63,7 @@ class WS_Register_Emails_Controller
 		$headers = "from: Workshop de Infomática <{$email_default}>\ncontent-type: text/html; charset=UTF-8";
 		$message = WS_Register_Emails_View::render_renovation_register_courses( $model );
 
-		//wp_mail( $model->email, $subject, $message, $headers );
-		wp_mail( 'accacio@apiki.com', $subject, $message, $headers );
+		wp_mail( $model->email, $subject, $message, $headers );		
 	}
 
 	public static function get_default_email()
