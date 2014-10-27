@@ -43,6 +43,7 @@ Module( 'WS.Application', function(Application) {
 		action : function(container) {
 			WS.FactoryComponent
 				.create( container, 'UploadFile', '[data-component-upload-file]' )
+				.create( container, 'ListCoursesUser', '[data-component-list-courses-user]' )
 			;
 		}
 	};

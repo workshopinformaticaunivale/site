@@ -86,6 +86,14 @@ class WS_Register_Students_View
 							</button>
 						</td>
 					</tr>
+					<tr>
+						<th scope="row">
+							<label>Cursos</label>
+						</th>
+						<td>
+							<?php WS_Register_Courses_View::render_list_courses_by_users( $model->ID ); ?>
+						</td>
+					</tr>
 				</tbody>
 			</table>
 		<?php
