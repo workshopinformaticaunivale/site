@@ -147,55 +147,6 @@ class WS_Register_Courses_View
 	public static function render_register_students( $post )
 	{
 		?>
-		<style>
-			.ws-container {
-				position: relative;
-				overflow: auto;
-				margin: 16px 0;
-				padding: 10px 10px 10px;
-				border: 1px solid #e5e5e5;
-				-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.04);
-				box-shadow: 0 1px 1px rgba(0,0,0,.04);
-				background: #fff;
-				font-size: 13px;
-				line-height: 2.1em;
-			}
-			.ws-container .form-table {
-				margin-top: 0;
-			}
-			.ws-message {				
-				padding: 1px 12px;
-				background-color: #fff;
-				margin: 0;				
-			}
-			.ws-message.ws-updated {
-				border-left: 4px solid #7ad03a;
-			}
-			.ws-message.ws-warning {
-				border-left: 4px solid #fd9a16;
-			}
-			.ws-message.ws-error {
-				border-left: 4px solid #FD1616;
-			}
-			.ws-wrap-register {
-				margin-top: 10px;
-			}
-			.ws-wrap-register .ws-form-select {
-				width: 40%;
-			}
-			.ws-form-actions {
-				position: relative;
-			}
-			.ws-wrap-register .load ~.spinner {
-				display: block;
-			}
-			.ws-wrap-register .spinner {				
-				position: absolute;
-				left: 138px;
-				top: 17px;
-			}
-		</style>
-
 		<div class="wrap">
 			<h2>Meus Minicursos</h2>
 			
@@ -208,8 +159,10 @@ class WS_Register_Courses_View
 				</p>
 
 				<div class="ws-container" data-attr-excerpt>
-					<div class="ws-message ws-warning"><p>Selecione um minicurso para ver sua descrição.</p></div>				
+					<div class="ws-message ws-warning"><p>Selecione um minicurso para ver sua descrição.</p></div>
 				</div>
+				
+				<?php self::render_list_courses_by_users( get_current_user_id() ); ?>				
 			</div>			
 		</div>
 
@@ -276,6 +229,86 @@ class WS_Register_Courses_View
 				endforeach;	
 			?>
 		</select>
+		<?php
+	}
+
+	public static function render_header_list_courses_by_users()
+	{
+		?>
+		<tr>					
+			<th scope="col" class="manage-column column-posts num">Nome</th>
+			<th scope="col" class="manage-column column-posts num">Data(s)</th>
+			<th scope="col" class="manage-column column-posts num">Laboratório</th>
+			<th scope="col" class="manage-column column-posts num">Ministrante</th>
+			<th scope="col" class="manage-column column-posts num">Ações</th>
+		</tr>
+		<?php
+	}
+
+	public static function render_list_courses_by_users( $user_id )
+	{
+		?>
+		<style>
+			.wp-list-table .ws-form-actions .spinner {
+				left: 151px;
+				top: 10px;
+			}
+			.wp-list-table .ws-form-actions {
+				width: 170px;
+			}
+			.ws-wrap-table .ws-error {
+				margin-top: 15px;
+			}
+		</style>
+
+		<div class="ws-wrap-table">
+			<table class="wp-list-table widefat" cellspacing="0" data-component-list-courses-user data-attr-user-id="<?php echo intval( $user_id ); ?>">
+				<thead>
+					<?php self::render_header_list_courses_by_users(); ?>
+				</thead>
+
+				<tfoot>
+					<?php self::render_header_list_courses_by_users(); ?>
+				</tfoot>
+
+				<tbody data-attr-body>
+					<tr class="left-column-list">
+						<td colspan="5">Aguarde...</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<script id="template-list-courses-user" type="text/x-handlebars-template">
+  			{{#if list}}
+	  			{{#each list}}
+	  			<tr class="{{column_class @index}}" valign="top">
+					<td class="column-title">
+						{{text}}
+					</td>
+					<td class="column-title">
+						{{#each dates}}
+							{{this}}<br>
+						{{/each}}
+					</td>
+					<td class="column-title">
+						<strong>{{laboratory}}</strong>
+					</td>
+					<td class="column-title">
+						{{author}}
+					</td>
+					<td class="ws-form-actions column-title">
+						<button type="button" data-action="delete" data-attr-course="{{value}}" class="button button-secondary">Deixar de participar</button>
+						<span class="spinner"></span>
+					</td>
+				</tr>
+				{{/each}}
+			{{else}}
+				<tr class="left-column-list">
+					<td colspan="4">Sem minicursos no momento</td>
+				</tr>
+			{{/if}}
+		</script>
 		<?php
 	}
 }

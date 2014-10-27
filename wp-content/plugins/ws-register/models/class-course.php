@@ -269,6 +269,11 @@ class WS_Register_Course
 		update_post_meta( $this->ID, self::POST_META_USERS_PARTICIPANTS, $user_id );
 	}
 
+	public function unset_user_participant( $user_id )
+	{
+		delete_post_meta( $this->ID, self::POST_META_USERS_PARTICIPANTS, $user_id );		
+	}
+
 	/**
 	 * Use in __get() magic method to retrieve the value of the attribute
 	 * on demand. If the attribute is unset get his value before.

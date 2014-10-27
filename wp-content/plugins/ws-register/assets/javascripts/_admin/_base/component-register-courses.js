@@ -5,6 +5,7 @@ Module( 'WS.Components.RegisterCourses', function(RegisterCourses) {
 		this.select    = this.container.byData( 'attr-select' );
 		this.excerpt   = this.container.byData( 'attr-excerpt' );
 		this.ajax      = null;
+		this.list      = null;
 		this.template  = null;
 		this.init();
 	};
@@ -24,6 +25,11 @@ Module( 'WS.Components.RegisterCourses', function(RegisterCourses) {
 
 	RegisterCourses.fn._loadingDependencie = function() {
 		this.ajax = WS.Components.OperationsJSON();
+		
+		this.list = WS.Components.ListCoursesUser(
+			  this.container.find( '[data-component-list-courses-user]' )
+			, this.ajax
+		);
 	};
 
 	RegisterCourses.fn._compileTemplate = function() {
@@ -73,7 +79,8 @@ Module( 'WS.Components.RegisterCourses', function(RegisterCourses) {
 			.html( '<div class="ws-message ws-updated"><p>' + response.message + '</p></div>' )
 		;
 
-		this.disableOptionSelectByCourse( response.course );	
+		this.disableOptionSelectByCourse( response.course );
+		this.list.getResults();
 	};
 
 	RegisterCourses.fn.disableOptionSelectByCourse = function(course) {
@@ -89,7 +96,7 @@ Module( 'WS.Components.RegisterCourses', function(RegisterCourses) {
 		this.excerpt
 			.find( '.ws-message.ws-error' )
 				.remove()
-			.end()	
+			.end()
 			.append( '<div class="ws-message ws-error"><p>' + response.message + '</p></div>' )
 		;
 

@@ -8,11 +8,13 @@
 @import "sass/mixins";
 
 //Import for files this project
-@import "sass/welcome_panel";
-@import "sass/wp_scheme";
-@import "sass/datetimepicker";
+@import "sass/welcomePanel";
+@import "sass/wpScheme";
+@import "sass/dateTimePicker";
 @import "sass/chosen";
 @import "sass/courses";
 @import "sass/tabs";
 @import "sass/profile";
-@import "sass/student_role";
+@import "sass/studentRole";
+@import "sass/elements";
+@import "sass/registerCoursesUsers";

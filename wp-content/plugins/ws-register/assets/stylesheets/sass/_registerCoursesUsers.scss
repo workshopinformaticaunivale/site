@@ -1,0 +1,15 @@
+.ws-wrap-register {
+	margin-top: 10px;
+
+	.ws-form-select {
+		width: 40%;
+	}
+	.load ~.spinner {
+		display: block;
+	}
+	.spinner {
+		position: absolute;
+		left: 138px;
+		top: 17px;
+	}
+}

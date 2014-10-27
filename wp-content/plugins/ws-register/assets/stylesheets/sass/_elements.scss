@@ -1,0 +1,36 @@
+.ws-container {
+	position: relative;
+	overflow: auto;
+	margin: 16px 0;
+	padding: 10px 10px 10px;
+	border: 1px solid #e5e5e5;
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	background: #fff;
+	font-size: 13px;
+	line-height: 2.1em;
+
+	.form-table {
+		margin-top: 0;
+	}
+}
+
+.ws-message {				
+	padding: 1px 12px;
+	background-color: #fff;
+	margin: 0;
+
+	&.ws-updated {
+		border-left: 4px solid #7ad03a;
+	}
+	&.ws-warning {
+		border-left: 4px solid #fd9a16;
+	}
+	&.ws-error {
+		border-left: 4px solid #FD1616;
+	}
+}
+
+.ws-form-actions {
+	position: relative;
+}
