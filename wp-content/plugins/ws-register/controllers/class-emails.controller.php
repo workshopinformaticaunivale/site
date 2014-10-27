@@ -40,6 +40,7 @@ class WS_Register_Emails_Controller
 	public function __construct()
 	{
 		add_action( 'ws_create_new_user_student', array( &$this, 'send_email_register_student' ), 10, 2 );
+		add_action( 'ws_renovation_register_courses', array( &$this, 'send_renovation_register_courses' ) );
 	}
 
 	public function send_email_register_student( $user_id, $args )
@@ -52,6 +53,18 @@ class WS_Register_Emails_Controller
 		$message = WS_Register_Emails_View::render_email_password( $model, $args['user_pass'] );
 
 		wp_mail( $model->email, $subject, $message, $headers );
+	}
+
+	public function send_renovation_register_courses( WS_Register_Student $model )
+	{
+		$email_default = self::get_default_email();
+
+		$subject = 'Renovação | Inscrição em Minicurso';
+		$headers = "from: Workshop de Infomática <{$email_default}>\ncontent-type: text/html; charset=UTF-8";
+		$message = WS_Register_Emails_View::render_renovation_register_courses( $model );
+
+		//wp_mail( $model->email, $subject, $message, $headers );
+		wp_mail( 'accacio@apiki.com', $subject, $message, $headers );
 	}
 
 	public static function get_default_email()

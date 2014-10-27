@@ -151,7 +151,9 @@ class WS_Register_Students_View
 						$model->code_enrollment,
 						remove_accents( $model->course ),
 						$model->period 
-					);	
+					);
+
+					do_action( 'ws_renovation_register_courses', $model );
 				endforeach;
 				
 		$html .= '</tbody>

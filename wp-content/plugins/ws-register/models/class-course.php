@@ -266,7 +266,7 @@ class WS_Register_Course
 		if ( in_array( $user_id, $users_participants ) )
 			return;
 
-		update_post_meta( $this->ID, self::POST_META_USERS_PARTICIPANTS, $user_id );
+		add_post_meta( $this->ID, self::POST_META_USERS_PARTICIPANTS, $user_id, false );
 	}
 
 	public function unset_user_participant( $user_id )

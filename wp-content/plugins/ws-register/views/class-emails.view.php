@@ -9,8 +9,8 @@
 class WS_Register_Emails_View
 {
 	public static function render_email_password( WS_Register_Student $model, $password )
-	{		
-		ob_start()
+	{
+		ob_start();
 		
 		?>
 		<p>Olá, <?php echo esc_html( $model->display_name ); ?></p>
@@ -26,6 +26,22 @@ class WS_Register_Emails_View
 			</li>
 		</ul>
 		<p>Clique no botão <strong>"Entrar"</strong> e informe os dados acima para acessar o sistema.</p>
+		<?php
+		
+		$content = ob_get_contents();
+		ob_end_clean();
+
+		return self::render_wrapper( $content );
+	}
+
+	public static function render_renovation_register_courses( WS_Register_Student $model )
+	{
+		ob_start();
+		
+		?>
+		<p>Olá, <?php echo esc_html( $model->display_name ); ?></p>
+		<p>Devido ao um problema no site do workshop será necessário realizar sua inscrição em <strong>minicursos</strong> novamente.</p>
+		<p>Pedimos desculpa pelo transtorno.</p>
 		<?php
 		
 		$content = ob_get_contents();
