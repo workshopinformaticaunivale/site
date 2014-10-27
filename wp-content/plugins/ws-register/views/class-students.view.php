@@ -153,7 +153,7 @@ class WS_Register_Students_View
 						$model->period 
 					);
 
-					do_action( 'ws_renovation_register_courses', $model );
+					//do_action( 'ws_renovation_register_courses', $model );
 				endforeach;
 				
 		$html .= '</tbody>
